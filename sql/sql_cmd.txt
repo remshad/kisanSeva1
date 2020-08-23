@@ -1,0 +1,4 @@
+CREATE USER 'kisanseva'@'localhost' IDENTIFIED BY 'kisanseva';
+
+
+GRANT ALL PRIVILEGES ON * . * TO 'kisanseva'@'localhost'
