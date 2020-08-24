@@ -2,7 +2,7 @@
 
 <html lang="en">
 <head>
-	
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -10,15 +10,15 @@
     <title>Farmer landing</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../css/animate.min.css" rel="stylesheet"> 
-    <link href="../css/lightbox.css" rel="stylesheet"> 
+    <link href="../css/animate.min.css" rel="stylesheet">
+    <link href="../css/lightbox.css" rel="stylesheet">
 	<link href="../css/main.css" rel="stylesheet">
 	<link href="../css/responsive.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
 	    <script src="js/html5shiv.js"></script>
 	    <script src="js/respond.min.js"></script>
-    <![endif]-->       
+    <![endif]-->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/jquery-1.9.1.js"></script>
@@ -33,8 +33,8 @@ $("#statearea").change(function() {
         success: function(result) {
           $("#districtarea").html(result);
         }
-    });   
-}); 
+    });
+});
 
 $("#districtarea").change(function() {
   selected=$(this).val();
@@ -43,9 +43,9 @@ $("#districtarea").change(function() {
         url: "../loadvillages.php?d_id="+selected,
         success: function(result) {
           $("#villagearea").html(result);
-		
+
         }
-    });  
+    });
 });
 $("#statearea1").change(function() {
   selected=$(this).val();
@@ -55,8 +55,8 @@ $("#statearea1").change(function() {
         success: function(result) {
           $("#districtarea1").html(result);
         }
-    });   
-}); 
+    });
+});
 
 $("#districtarea1").change(function() {
   selected=$(this).val();
@@ -65,9 +65,9 @@ $("#districtarea1").change(function() {
         url: "../loadvillages.php?d_id="+selected,
         success: function(result) {
           $("#villagearea1").html(result);
-		
+
         }
-    });  
+    });
 });
 $("#catarea").change(function() {
   selected=$(this).val();
@@ -75,9 +75,9 @@ $("#catarea").change(function() {
         type: "GET",
         url: "../loadcrops.php?c_id="+selected,
         success: function(result) {
-          $("#croparea").html(result);		
+          $("#croparea").html(result);
         }
-    });  
+    });
 });
 $("#catarea1").change(function() {
   selected=$(this).val();
@@ -85,9 +85,9 @@ $("#catarea1").change(function() {
         type: "GET",
         url: "../loadcrops.php?c_id="+selected,
         success: function(result) {
-          $("#croparea1").html(result);		
+          $("#croparea1").html(result);
         }
-    });  
+    });
 	});
 	$("#catarea2").change(function() {
   selected=$(this).val();
@@ -95,9 +95,9 @@ $("#catarea1").change(function() {
         type: "GET",
         url: "../loadcrops.php?c_id="+selected,
         success: function(result) {
-          $("#croparea2").html(result);		
+          $("#croparea2").html(result);
         }
-    });  
+    });
 });
 
 });
@@ -106,12 +106,21 @@ $("#catarea1").change(function() {
 </head><!--/head-->
 
 <body>
-<?php 
+<?php
 require_once('../dbs.php');
 require_once('../functions.php');   ?>
 
-	<header id="header">      
-       
+
+<?php if( isset($_SESSION['user']) && !empty($_SESSION['user']) )
+{}else{
+	header("Location: index.php");
+ } ?>
+
+
+
+
+	<header id="header">
+
         <div class="navbar navbar-inverse" role="banner">
             <div class="container" style="
     margin-top: -26px;
@@ -133,26 +142,22 @@ require_once('../functions.php');   ?>
     margin-top: -13%;
 "></h1>
                     </a>
-                    
+
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown active"><a href="../index.html">Home </a>
-                            
+                        <li class="dropdown active"><a href="../index.php">Home </a>
+
                         </li>
-                        <li class="dropdown"><a href="../signin.php">Sign In </a>
-                            
-                        </li>                    
-                        <li class="dropdown"><a href="../signup.php">Sign Up </a>
-                                               
-                        <li><a href="../logout.php ">Log Out</a></li>                    
+
+                        <li><a href="../logout.php ">Log Out</a></li>
                     </ul>
                 </div>
-              
+
             </div>
         </div>
     </header>
-	
+
 	<div id="tab-container">
                 <div class="row">
                   <div class="col-md-12">
@@ -167,7 +172,7 @@ require_once('../functions.php');   ?>
 ">
                         <ul id="tab2" class="nav nav-pills">
 						  <li  class="active"><a href="#tab2-item1" data-toggle="tab">Crop Forecasting</a></li>
-                            
+
                             <li><a href="#tab2-item2" data-toggle="tab">Add Harvesting</a></li>
                             <li><a href="#tab2-item3" data-toggle="tab">Add Planting</a></li>
 							<li><a href="#tab2-item4" data-toggle="tab">Process Harvesting</a></li>
@@ -177,9 +182,9 @@ require_once('../functions.php');   ?>
                         <div class="tab-content">
                             <div class="tab-pane fade" id="tab2-item3">
                                <form action="index.php" method="post">
-							   <?php 
-								if(isset($_POST['sub'])) { 
-									date_default_timezone_set('Asia/Kolkata'); 
+							   <?php
+								if(isset($_POST['sub'])) {
+									date_default_timezone_set('Asia/Kolkata');
 									$c_id = $_POST['crop'];
 									$planting_date = time();
 									$harv_date = strtotime($_POST['date']);
@@ -189,30 +194,30 @@ require_once('../functions.php');   ?>
 									$loc = $_POST['locality'];
 									$fid = $_SESSION['uid'];
 									addPlanting($c_id,$planting_date,$harv_date,$qty,$qtype,$v_id,$loc,$fid);
-									
+
 								} ?>
 								<div class="form-group">
 								<select class="browser-default custom-select" id="catarea">
   					<option value="" disabled selected>Category</option>
-  					<?php 
+  					<?php
 						$sql = "SELECT * FROM crop_category";
 						$result = mysqli_query($link, $sql);
-						if (mysqli_num_rows($result) > 0) {    
+						if (mysqli_num_rows($result) > 0) {
 							while($row = mysqli_fetch_assoc($result)) {
-							echo "<option value='".$row["cc_id"]. "'>".$row["cc_name"]. "</option>";	
+							echo "<option value='".$row["cc_id"]. "'>".$row["cc_name"]. "</option>";
 						}
 					}
 					?>
 					</select>
 								   </div>
-								   
+
 								<div class="form-group">
 								<select class="browser-default custom-select" id="croparea" name="crop">
   					<option value="" disabled selected>Crop Name</option>
-  				
+
 					</select>
 								   </div>
-								   
+
 							<p>Expected harvest Date </p>
 								   <div class="form-group">
                                 <input type="date" name="date" class="form-control" required="required" placeholder="Date">
@@ -220,50 +225,50 @@ require_once('../functions.php');   ?>
 								     <div class="form-group">
                                 	   <select class="browser-default custom-select" name="qtype">
   					<option value="" disabled selected>Quantity Type</option>
-  					<?php 
+  					<?php
 						$sql = "SELECT * FROM unit_type";
 						$result = mysqli_query($link, $sql);
-						if (mysqli_num_rows($result) > 0) {    
+						if (mysqli_num_rows($result) > 0) {
 							while($row = mysqli_fetch_assoc($result)) {
-							echo "<option value='".$row["ut_id"]. "'>".$row["ut_name"]. "</option>";	
+							echo "<option value='".$row["ut_id"]. "'>".$row["ut_name"]. "</option>";
 						}
 					}
 					?>
-					
+
 					</select>
                             </div>
-							
+
 								    <div class="form-group">
                                 <input type="number" name="qty" class="form-control" required="required" placeholder="Enter Quantity">
                             </div>
-							
+
 								   <div class="form-group">
 								   <select class="browser-default custom-select" id="statearea">
   					<option value="" disabled selected>State</option>
-  					<?php 
+  					<?php
 						$sql = "SELECT * FROM state";
 						$result = mysqli_query($link, $sql);
-						if (mysqli_num_rows($result) > 0) {    
+						if (mysqli_num_rows($result) > 0) {
 							while($row = mysqli_fetch_assoc($result)) {
-							echo "<option value='".$row["s_id"]. "'>".$row["s_name"]. "</option>";	
+							echo "<option value='".$row["s_id"]. "'>".$row["s_name"]. "</option>";
 						}
 					}
 					?>
-					
+
 					</select>
 								   </div>
 								      <div class="form-group">
 								   <select class="browser-default custom-select"  id="districtarea">
   					<option value="" disabled selected>District</option>
-  					
-					
+
+
 					</select>
 								   </div>
 								      <div class="form-group">
 								   <select name="village" class="browser-default custom-select" id="villagearea">
   					<option value="" disabled selected>Village</option>
-  					
-					
+
+
 					</select>
 								   </div>
 								   <div class="form-group">
@@ -277,8 +282,8 @@ require_once('../functions.php');   ?>
 								<table class="table table-striped">
                             <caption><h2>Item Search Result</h2></caption>
                             <tr><td>No</td><td>Crop Name</td><td>Date of Planting</td><td>Expected Harvest</td><td>Quantity</td></tr>
-							<?php 
-							date_default_timezone_set('Asia/Kolkata'); 
+							<?php
+							date_default_timezone_set('Asia/Kolkata');
 							$f_id=$_SESSION['uid'];
                                $sql = "SELECT * FROM planting p,crop c,unit_type ut WHERE p.c_id=c.c_id AND ut.ut_id=p.p_quantity_type AND f_id={$f_id} ORDER BY p_id DESC";
                                 $result = mysqli_query($link, $sql);
@@ -290,16 +295,16 @@ require_once('../functions.php');   ?>
                                     echo "<tr><td>{$i}</td><td>{$row['c_name']}</td><td>{$row['p_planting_date']}</td><td>{$row['p_harvesting_date']}</td><td>{$row['p_quantity']}&nbsp;{$row['ut_name']}</td></tr>";
                                 }
 							?>
-							
-							
+
+
 							</table>
-							
+
                             </div>
                             <div class="tab-pane fade" id="tab2-item2">
 								<form method="post" action="index.php">
-								<?php 
-								if(isset($_POST['submit'])) { 
-									date_default_timezone_set('Asia/Kolkata'); 
+								<?php
+								if(isset($_POST['submit'])) {
+									date_default_timezone_set('Asia/Kolkata');
 									$p_id = $_POST['plant'];
 									$h_date = strtotime($_POST['date']);
 									$h_qty = $_POST['quantity'];
@@ -307,20 +312,20 @@ require_once('../functions.php');   ?>
 									$willing =  $_POST['will'];
 									$h_stats = '0';
 									addHarvesting($p_id,$h_date,$h_qty,$u_price,$willing,$h_stats);
-									
-								} 
-								
+
+								}
+
 								?>
                                <div class="form-group">
 								<select class="browser-default custom-select" name="plant" id="plantid">
   					<option value="" disabled selected>Plant ID</option>
-  					<?php 
+  					<?php
 						$sql = "SELECT * FROM planting WHERE p_status='0'";
 						$result = mysqli_query($link, $sql);
-						if (mysqli_num_rows($result) > 0) {    
+						if (mysqli_num_rows($result) > 0) {
 							while($row = mysqli_fetch_assoc($result)) {
-								$dat = date('d/m/Y',$row['p_planting_date']);						
-							echo "<option value='".$row["p_id"]. "'>".$row['p_id']."_(Planted On:".$dat.")</option>";	
+								$dat = date('d/m/Y',$row['p_planting_date']);
+							echo "<option value='".$row["p_id"]. "'>".$row['p_id']."_(Planted On:".$dat.")</option>";
 						}
 					}
 					?>
@@ -349,8 +354,8 @@ require_once('../functions.php');   ?>
 		<table class="table table-striped">
                             <caption><h2>Item Search Result</h2></caption>
                             <tr><td>No</td><td>Crop Name</td><td>Date of Harvesting</td><td>Quantity</td></tr>
-							<?php 
-							date_default_timezone_set('Asia/Kolkata'); 
+							<?php
+							date_default_timezone_set('Asia/Kolkata');
 							$f_id=$_SESSION['uid'];
                                $sql = "SELECT c_name,h_date,h_quantity FROM harvesting h,planting p,crop c WHERE h.p_id=p.p_id AND p.c_id=c.c_id AND h.h_status=0";
                                 $result = mysqli_query($link, $sql);
@@ -358,12 +363,12 @@ require_once('../functions.php');   ?>
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     $i++;
 									 $row['h_date'] = date('d/m/Y', $row['h_date']);
-									
+
                                     echo "<tr><td>{$i}</td><td>{$row['c_name']}</td><td>{$row['h_date']}</td><td>{$row['h_quantity']}</td></tr>";
                                 }
 							?>
-							
-							
+
+
 							</table>
                             </div>
 							</div>
@@ -371,28 +376,28 @@ require_once('../functions.php');   ?>
 							<form action="index.php" method="post">
                                 <table>
 								<tr>
-									<th>Crop Forecasting</th>									
+									<th>Crop Forecasting</th>
 									</tr>
 									<tr>
 									<td>
 								<select class="browser-default custom-select" id="catarea1">
   					<option value="" disabled selected>Category</option>
-  					<?php 
+  					<?php
 						$sql = "SELECT * FROM crop_category";
 						$result = mysqli_query($link, $sql);
-						if (mysqli_num_rows($result) > 0) {    
+						if (mysqli_num_rows($result) > 0) {
 							while($row = mysqli_fetch_assoc($result)) {
-							echo "<option value='".$row["cc_id"]. "'>".$row["cc_name"]. "</option>";	
+							echo "<option value='".$row["cc_id"]. "'>".$row["cc_name"]. "</option>";
 						}
 					}
 					?>
 					</select>
 								   </div>
-								   
+
 								<div class="form-group">
 								<select class="browser-default custom-select" id="croparea1" name="cropf">
   					<option value="" disabled selected>Crop Name</option>
-  				
+
 					</select>
 					 <input type="submit" class="login100-form-btn" name="subf" value="Show Forecasting Chart">
 									 <br>
@@ -400,36 +405,36 @@ require_once('../functions.php');   ?>
 									</tr>
 									<tr>
 									<td width=600>
-							 <canvas  id="chartjs_bar"></canvas> 
+							 <canvas  id="chartjs_bar"></canvas>
 									<?php
-									date_default_timezone_set('Asia/Kolkata'); 
-									if(isset($_POST['subf'])) { 
+									date_default_timezone_set('Asia/Kolkata');
+									if(isset($_POST['subf'])) {
 									$c_id=$_POST['cropf'];
-									for($i=1;$i<13;$i++) 
+									for($i=1;$i<13;$i++)
 									{
-										
+
 										if($i<10)
 											$j="0{$i}";
 										else
 											$j=$i;
-									
+
 										 $year=date("Y");
 										$timestamp= strtotime("{$year}-{$j}-25");
 									$first_second = strtotime(date('01-m-Y 00:00:00', $timestamp));
-									$last_second  = strtotime(date('t-m-Y 12:59:59', $timestamp)); 
+									$last_second  = strtotime(date('t-m-Y 12:59:59', $timestamp));
 								  $sql ="select c_id,SUM(p_quantity)'qty'  from planting where p_harvesting_date between {$first_second} and {$last_second} AND c_id={$c_id} GROUP BY c_id";
 									echo "<br>";
 									$result = mysqli_query($link,$sql);
 									 $chart_data="";
-									 while ($row = mysqli_fetch_array($result)) { 
-										$month_name = date("F", mktime(0, 0, 0, $j, 10)); 
-										$productname[]  = $month_name;										
+									 while ($row = mysqli_fetch_array($result)) {
+										$month_name = date("F", mktime(0, 0, 0, $j, 10));
+										$productname[]  = $month_name;
 										$sales[] = $row['qty'];
-									} 
 									}
-									
 									}
- 
+
+									}
+
 									?>
 									</td></tr>
 								</table>
@@ -437,14 +442,14 @@ require_once('../functions.php');   ?>
                             </div>
 							<div class="tab-pane fade" id="tab2-item4">
                                 <form method="post" action="index.php">
-								<?php 
-								if(isset($_POST['subm'])) { 
+								<?php
+								if(isset($_POST['subm'])) {
 									$h_id=$_POST['harvest'];
 									$h_qty=$_POST['quantity'];
 									$hp_date = time();
-									$sql = "SELECT h_quantity FROM harvesting WHERE h_id='$h_id' AND h_status='0'";						
-									$result=mysqli_query($link, $sql);           
-									$row=mysqli_fetch_assoc($result);	
+									$sql = "SELECT h_quantity FROM harvesting WHERE h_id='$h_id' AND h_status='0'";
+									$result=mysqli_query($link, $sql);
+									$row=mysqli_fetch_assoc($result);
 									$avail_qty = $row['h_quantity'];
 									$new_qty = $avail_qty - $h_qty;
 									if($avail_qty>$h_qty) {
@@ -475,13 +480,13 @@ require_once('../functions.php');   ?>
 								<div class="form-group">
                                <select class="browser-default custom-select" name="harvest" id="harid">
   					<option value="" disabled selected>Harvest ID</option>
-  					<?php 
+  					<?php
 						$sql = "SELECT * FROM harvesting WHERE h_status='0'";
 						$result = mysqli_query($link, $sql);
-						if (mysqli_num_rows($result) > 0) {    
+						if (mysqli_num_rows($result) > 0) {
 							while($row = mysqli_fetch_assoc($result)) {
-								$dat = date('d/m/Y',$row['h_date']);						
-							echo "<option value='".$row["h_id"]. "'>".$row['h_id']."_(Harvested On:".$dat.")</option>";	
+								$dat = date('d/m/Y',$row['h_date']);
+							echo "<option value='".$row["h_id"]. "'>".$row['h_id']."_(Harvested On:".$dat.")</option>";
 						}
 					}
 					?>
@@ -508,7 +513,7 @@ require_once('../functions.php');   ?>
 								   </div>
 								</form>
                             </div>
-								
+
 							<div class="tab-pane fade" id="tab2-item6">
 							<form action="index.php#tab2-item6" method="POST">
 							<div class="form-group">
@@ -526,7 +531,7 @@ require_once('../functions.php');   ?>
 
                                 </select>
                             </div>
-						
+
                             <div class="form-group">
                                 <select class="browser-default custom-select" id="croparea2" name="crop" required="true">
                                     <option value="" disabled selected>Crop Name</option>
@@ -567,7 +572,7 @@ require_once('../functions.php');   ?>
                             <div class="form-group">
                                 <button type="submit" name="search" class="btn btn-success">Submit</button>
                             </div>
-							
+
 							<table class="table table-striped">
                             <caption><h2>Item Search Result</h2></caption>
 
@@ -588,7 +593,7 @@ require_once('../functions.php');   ?>
                                     $sid = intval($_POST['districtarea']);
 									$part[] = " d_id='{$sid}' ";
 									$par[]="  JOIN district ";
-									
+
                                 }
 
 
@@ -601,7 +606,7 @@ require_once('../functions.php');   ?>
 
                                 $crs = intval($_POST['crop']);
 								$part[] = " c_id='{$crs}' ";
-								
+
 								$dz='';
                                 if (isset($part) &&  count($part) > 0) {
 									$pa = implode(" AND ", $part);
@@ -612,7 +617,7 @@ require_once('../functions.php');   ?>
                                 }
 								//$vid=$_POST['village'];
 
-								
+
                              echo   $sql = "SELECT c_name,dr_quantity,dr_unit_price,dr_date,de_phone FROM dealer_request NATURAL JOIN crop  NATURAL JOIN  dealer {$dz} WHERE {$pa}";
                                 $result = mysqli_query($link, $sql);
                                 $i = 0;
@@ -626,13 +631,13 @@ require_once('../functions.php');   ?>
                         </table>
 						</form>
 							</div>
-							
+
 						<div class="tab-pane fade" id="tab2-item5">
 							  <table class="table table-striped">
                             <caption><h2>Messages From Dealers</h2></caption>
 
                             <tr><td>No</td><td>Message</td><td>Date</td><td>Dealer Name</td><td>Store Name</td><td>Contact Number</td><td>Actions</td></tr>
-								<?php 
+								<?php
 									$f_id=$_SESSION['uid'];
 									$sql = "SELECT * FROM dealer_to_farmer_msg dtf,dealer d WHERE d.de_id=dtf.de_id AND f_id={$f_id} AND dtfm_status=0";
                                 $result = mysqli_query($link, $sql);
@@ -644,9 +649,9 @@ require_once('../functions.php');   ?>
                                 }
 								?>
 								</table>
-							
+
 							</div>
-							
+
 
                         </div>
                   </div>
@@ -656,7 +661,7 @@ require_once('../functions.php');   ?>
 <footer id="footer">
         <div class="container">
             <div class="row">
-              
+
                 <div class="col-sm-12">
                     <div class="copyright-text text-center">
                         <p style="
@@ -676,7 +681,7 @@ require_once('../functions.php');   ?>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../js/lightbox.min.js"></script>
     <script type="text/javascript" src="../js/wow.min.js"></script>
-    <script type="text/javascript" src="../js/main.js"></script>   
+    <script type="text/javascript" src="../js/main.js"></script>
 	<script type="text/javascript">
       var ctx = document.getElementById("chartjs_bar").getContext('2d');
                 var myChart = new Chart(ctx, {
@@ -700,15 +705,15 @@ require_once('../functions.php');   ?>
                            legend: {
                         display: false,
                         position: 'bottom',
-						
+
                         labels: {
                             fontColor: '#71748d',
                             fontFamily: 'Circular Std Book',
                             fontSize: 14,
                         }
                     },
- 
- 
+
+
                 }
                 });
     </script>
