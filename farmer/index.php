@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php  error_reporting(E_ERROR | E_PARSE);
-//comme	
+//comme
 ?>
 <html lang="en">
 <head>
@@ -84,6 +84,17 @@
         }
       });
     });
+    $("#croparea").change(function() {
+      selected=$(this).val();
+      $.ajax({
+        type: "GET",
+        url: "../loadvariety.php?c_id="+selected,
+        success: function(result) {
+          $("#variety1").html(result);
+        }
+      });
+    });
+
     $("#catarea1").change(function() {
       selected=$(this).val();
       $.ajax({
@@ -94,6 +105,18 @@
         }
       });
     });
+    $("#croparea1").change(function() {
+      selected=$(this).val();
+      $.ajax({
+        type: "GET",
+        url: "../loadvariety.php?c_id="+selected,
+        success: function(result) {
+          $("#variety4").html(result);
+        }
+      });
+    });
+
+
     $("#catarea2").change(function() {
       selected=$(this).val();
       $.ajax({
@@ -104,6 +127,18 @@
         }
       });
     });
+    $("#croparea2").change(function() {
+      selected=$(this).val();
+      $.ajax({
+        type: "GET",
+        url: "../loadvariety.php?c_id="+selected,
+        success: function(result) {
+          $("#variety2").html(result);
+        }
+      });
+    });
+
+
     $("#catarea3").change(function() {
       selected=$(this).val();
       $.ajax({
@@ -114,6 +149,17 @@
         }
       });
     });
+    $("#croparea3").change(function() {
+      selected=$(this).val();
+      $.ajax({
+        type: "GET",
+        url: "../loadvariety.php?c_id="+selected,
+        success: function(result) {
+          $("#variety_ci").html(result);
+        }
+      });
+    });
+
 
     $("#catarea4").change(function() {
       selected=$(this).val();
@@ -125,6 +171,18 @@
         }
       });
     });
+    $("#croparea4").change(function() {
+      selected=$(this).val();
+      $.ajax({
+        type: "GET",
+        url: "../loadvariety.php?c_id="+selected,
+        success: function(result) {
+          $("#variety_cf").html(result);
+        }
+      });
+    });
+
+
     $("#catarea5").change(function() {
       selected=$(this).val();
       $.ajax({
@@ -135,6 +193,18 @@
         }
       });
     });
+    $("#croparea5").change(function() {
+      selected=$(this).val();
+      $.ajax({
+        type: "GET",
+        url: "../loadvariety.php?c_id="+selected,
+        success: function(result) {
+          $("#variety_cd").html(result);
+        }
+      });
+    });
+
+
     $("#catarea7").change(function() {
       selected=$(this).val();
       $.ajax({
@@ -142,6 +212,16 @@
         url: "../loadcrops.php?c_id="+selected,
         success: function(result) {
           $("#croparea7").html(result);
+        }
+      });
+    });
+    $("#croparea7").change(function() {
+      selected=$(this).val();
+      $.ajax({
+        type: "GET",
+        url: "../loadvariety.php?c_id="+selected,
+        success: function(result) {
+          $("#variety_ct").html(result);
         }
       });
     });
@@ -269,14 +349,14 @@
               <option value="" disabled selected>Crop Name</option>
 
             </select>
-			
+
           </div>
 		  <div class="form-group">
             <select class="browser-default custom-select" id="variety1" name="crop">
               <option value="" disabled selected>Crop Variety</option>
 
             </select>
-			
+
           </div>
 
           <p>Expected harvest Date </p>
@@ -608,7 +688,7 @@
                 <option value="" disabled selected>Crop Variety</option>
 
               </select>
-            </div>	
+            </div>
 
             <div class="form-group">
               <select class="browser-default custom-select" name="statearea" id="statearea1">
@@ -729,11 +809,11 @@
             </div>
 
 			<div class="form-group">
-              <select class="browser-default custom-select" id="variety2" name="crop" required="true">
+              <select class="browser-default custom-select" id="variety_ci" name="crop" required="true">
                 <option value="" disabled selected>Crop Variety</option>
 
               </select>
-            </div>	
+            </div>
 
 
             <div class="form-group">
@@ -803,11 +883,11 @@
             </div>
 
 			<div class="form-group">
-              <select class="browser-default custom-select" id="variety2" name="crop" required="true">
+              <select class="browser-default custom-select" id="variety_cf" name="crop" required="true">
                 <option value="" disabled selected>Crop Variety</option>
 
               </select>
-            </div>	
+            </div>
 
             <div class="form-group">
               <button type="submit" name="searchcf" class="btn btn-success">Get</button>
@@ -871,11 +951,11 @@
               </select>
             </div>
 			<div class="form-group">
-              <select class="browser-default custom-select" id="variety2" name="crop" required="true">
+              <select class="browser-default custom-select" id="variety_cd" name="crop" required="true">
                 <option value="" disabled selected>Crop Variety</option>
 
               </select>
-            </div>	
+            </div>
 
 
             <div class="form-group">
@@ -937,11 +1017,11 @@
             </div>
 
 			<div class="form-group">
-              <select class="browser-default custom-select" id="variety2" name="crop" required="true">
+              <select class="browser-default custom-select" id="variety_ct" name="crop" required="true">
                 <option value="" disabled selected>Crop Variety</option>
 
               </select>
-            </div>	
+            </div>
 
 
             <div class="form-group">
