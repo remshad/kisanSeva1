@@ -144,7 +144,16 @@ $("#catarea7").change(function() {
         }
     });
 });
-
+$("#croparea3").change(function() {
+  selected=$(this).val();
+	$.ajax({
+        type: "GET",
+        url: "../loadvariety.php?c_id="+selected,
+        success: function(result) {
+          $("#variety2").html(result);
+        }
+    });
+});
 
 });
 </script>
