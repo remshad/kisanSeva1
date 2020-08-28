@@ -1,3 +1,11 @@
+<?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', true);
+ini_set('display_startup_errors', true);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +35,7 @@
 
 <body>
 <?php
-include("dbs.php");
+include "dbs.php";
 ?>
 
 	<header id="header">
@@ -61,47 +69,40 @@ include("dbs.php");
 
                         </li>
 
-												<?php if( isset($_SESSION['user']) && !empty($_SESSION['user']) )
-												{
-												?>
+												<?php if (isset($_SESSION['user']) && !empty($_SESSION['user']) && isset($_SESSION['utype'] )) {
+    if ($_SESSION['utype'] == 'farmer') {
 
-																<?php if( $_SESSION['utype']=='farmer' )
-																{
-																?>
-																		<li class="dropdown"><a href="farmer/index.php">Go to Dashboard </a>
+        echo '<li class="dropdown"><a href="farmer/index.php">Go to Dashboard </a>
 
-																		</li>
-																<?php }
-																if( $_SESSION['utype']=='dealer' )
-																{
-																?>
-																		<li class="dropdown"><a href="dealer/index.php">Go to Dashboard </a>
+                                                                        </li> ';
+    }
+else    if ($_SESSION['utype'] == 'dealer') {
+        echo '	<li class="dropdown"><a href="dealer/index.php">Go to Dashboard </a>
 
-																		</li>
-																<?php }
-																?>
+																		</li>';
+    }
+else
+    if ($_SESSION['utype'] == 'agofficer') {
 
-                              <?php }
-                              if( $_SESSION['utype']=='agofficer' )
-                              {
-                              ?>
-                                  <li class="dropdown"><a href="agriofficer/index.php">Go to Dashboard </a>
+        echo '<li class="dropdown"><a href="agriofficer/index.php">Go to Dashboard </a>
 
-                                  </li>
-                              <?php }
-                              ?>
+                                  </li>';
 
-													<li class="dropdown"><a href="logout.php">Log out </a>
+    }
 
-													</li>
-												<?php }else{ ?>
+    echo '<li class="dropdown"><a href="logout.php">Log out </a>
+
+                                                    </li>';
+
+} else {
+    echo '
 													<li class="dropdown"><a href="signin.php">Sign In </a>
 
                           </li>
                           <li class="dropdown"><a href="signup.php">Sign Up </a>
 
-                          </li>
-												<?php } ?>
+                          </li>';
+}?>
 
                         <li class="dropdown"><a href="aboutus.html">About Us </a>
 
