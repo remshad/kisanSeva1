@@ -39,60 +39,46 @@
 
 		if(strcmp($_POST['type'],"1")==0) {
 			//farmer
-			$sql = "select * from farmer where f_phone='{$uname}' and f_password='{$password}'";
+			//$sql = "select * from farmer where f_phone='{$uname}' and f_password='{$password}'";
+      $sql = "UPDATE farmer SET f_password = '{$password}' WHERE f_phone='{$uname}'";
 			$result = mysqli_query($link, $sql);
 			if (mysqli_error($link)) {
 				die(mysqli_error($link));
 			} else {
-				if (mysqli_num_rows($result) > 0) {
-					$row = mysqli_fetch_assoc($result);
-					$_SESSION['user']=$row['f_name'];
-					$_SESSION['pass']=$row['f_password'];
-					$_SESSION['uid']=$row['f_id'];
-					$_SESSION['utype']='farmer';
-					header("Location: farmer/index.php");
+				if ($result) {
+					header("Location: signin.php");
 					exit();
 				} else {
-					$error[] = 'Username or password is wrong or Inactive account';
+					$error[] = 'Username is wrong or Inactive account';
 				}
 			}
 		} else if(strcmp($_POST['type'],"2")==0) {
 			//dealer
-			$sql = "select * from dealer where de_phone='{$uname}' and de_password='{$password}'";
+			$sql = "UPDATE dealer SET de_password = '{$password}' WHERE de_phone='{$uname}'";
 			$result = mysqli_query($link, $sql);
 			if (mysqli_error($link)) {
 				die(mysqli_error($link));
 			} else {
-				if (mysqli_num_rows($result) > 0) {
-					$row = mysqli_fetch_assoc($result);
-					$_SESSION['user']=$row['de_name'];
-					$_SESSION['pass']=$row['de_password'];
-					$_SESSION['uid']=$row['de_id'];
-					$_SESSION['utype']='dealer';
-					header("Location: dealer/index.php");
+        if ($result) {
+					header("Location: signin.php");
 					exit();
 				} else {
-					$error[] = 'Username or password is wrong or Inactive account';
+					$error[] = 'Username is wrong or Inactive account';
 				}
 			}
 		}
 		else if(strcmp($_POST['type'],"3")==0) {
 			//agri officer
-			$sql = "select * from farmer where f_phone='{$uname}' and f_password='{$password}'";
+			$sql = "UPDATE agoffice SET ag_password = '{$password}' WHERE aag_phone='{$uname}'";
 			$result = mysqli_query($link, $sql);
 			if (mysqli_error($link)) {
 				die(mysqli_error($link));
 			} else {
-				if (mysqli_num_rows($result) > 0) {
-					$row = mysqli_fetch_assoc($result);
-					$_SESSION['user']=$row['f_name'];
-					$_SESSION['pass']=$row['f_password'];
-					$_SESSION['uid']=$row['f_id'];
-					$_SESSION['utype']='agofficer';
-					header("Location: agriofficer/index.php");
+        if ($result) {
+					header("Location: signin.php");
 					exit();
 				} else {
-					$error[] = 'Username or password is wrong or Inactive account';
+					$error[] = 'Username is wrong or Inactive account';
 				}
 			}
 		}
@@ -139,10 +125,10 @@
 					<img src="images/img-01.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form" method="post" action="signin.php">
+				<form class="login100-form validate-form" method="post" action="passwordreset.php">
 					<span class="login100-form-title">
-						LOGIN FORM
-					</span>
+						PASSWORD RESET
+          </span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 						<input class="input100" type="text" name="uname" placeholder="Mobile Number">
@@ -153,7 +139,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password">
+						<input class="input100" type="password" name="pass" placeholder="New Password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -161,7 +147,7 @@
 					</div>
 					<div class="wrap-input100 validate-input" >
 						<select class="browser-default custom-select" name="type" required>
-							<option value="" disabled selected >Login As</option>
+							<option value="" disabled selected >User Type</option>
 							<option value="1">Farmer</option>
 							<option value="2">Dealers</option>
 							<option value="3">Agricultural Officer</option>
@@ -170,27 +156,18 @@
 
 					</div>
 					<div class="container-login100-form-btn">
-						<input type="submit" class="login100-form-btn" name="submit" value="Login">
+						<input type="submit" class="login100-form-btn" name="submit" value="Change Password">
 
 					</div>
 
 					<div class="text-center p-t-12">
-						<span class="txt1">
-							Forgot
-						</span>
-						<a class="txt2" href="passwordreset.php">
-							Username / Password?
+						<a class="txt2" href="signin.php">
+							Sign-in Page
 						</a>
 					</div>
 					<div class="text-center p-t-136">
 						<a class="txt2" href="index.php">
 							Home							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-						</a>
-					</div>
-					<div class="text-center p-t-136">
-						<a class="txt2" href="signup.php">
-							Create your Account
-							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
 					</div>
 				</form>

@@ -81,6 +81,16 @@ include("dbs.php");
 																<?php }
 																?>
 
+                              <?php }
+                              if( $_SESSION['utype']=='agofficer' )
+                              {
+                              ?>
+                                  <li class="dropdown"><a href="agriofficer/index.php">Go to Dashboard </a>
+
+                                  </li>
+                              <?php }
+                              ?>
+
 													<li class="dropdown"><a href="logout.php">Log out </a>
 
 													</li>
