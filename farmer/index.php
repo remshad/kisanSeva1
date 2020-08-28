@@ -358,7 +358,49 @@
             </select>
 
           </div>
+          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">Add new crop</button>
 
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Request for new crop</h4>
+      </div>
+      <div class="modal-body">
+        <form action="index.php" method="POST">
+        <div class="form-group">
+              <input type="text" name="catecrop" class="form-control" required="required" placeholder="categrory of crop">
+            </div>
+        <div class="form-group">
+              <input type="text" name="namecrop" class="form-control" required="required" placeholder="name of crop">
+            </div>
+            
+            <input type="submit" name="req" value="Request crop">
+          
+
+          </form>
+          <?php
+                if(isset($_POST['req']))
+                {
+                $catecrop=$_POST['catecrop'];
+                $namecrop=$_POST['namecrop'];
+                $sql = "INSERT INTO msgaddcrop(cropcategory,cropname) VALUES('".$catecrop."','".$namecrop."')";
+                $result = mysqli_query($link, $sql);
+                }
+                ?>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
           <p>Expected harvest Date </p>
           <div class="form-group">
             <input type="date" name="date" class="form-control" required="required" placeholder="Date">
