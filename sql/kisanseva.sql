@@ -14,10 +14,10 @@ SET time_zone = "+00:00";
 
 
 CREATE TABLE `user` (
-  `u_id` int(11) NOT NULL AUTO_INCREMENT,
-  `u_name` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `u_pass` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `u_status` int(11) NOT NULL,
+  `u_id` int NOT NULL AUTO_INCREMENT,
+  `u_name` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `u_pass` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `u_status` int NOT NULL,
   PRIMARY KEY (`u_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -29,47 +29,169 @@ INSERT INTO user VALUES
 
 
 CREATE TABLE `crop` (
-  `c_id` int(11) NOT NULL AUTO_INCREMENT,
-  `c_name` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `cc_id` int(11) NOT NULL,
+  `c_id` int NOT NULL AUTO_INCREMENT,
+  `c_name` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `cc_id` int NOT NULL,
   PRIMARY KEY (`c_id`),
   KEY `cc_id` (`cc_id`),
   CONSTRAINT `crop_ibfk_1` FOREIGN KEY (`cc_id`) REFERENCES `crop_category` (`cc_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=121 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 INSERT INTO crop VALUES
 ("1","Banana","1"),
-("2","orange","1"),
-("3","grape","1");
+("2","Orange","1"),
+("3","Grape","1"),
+("4","Cauliflower","6"),
+("5","Cucumbar(Kheera)","1"),
+("6","Black Gram (Urd Beans)(Whole)","8"),
+("7","Arhar Dal(Tur Dal)","8"),
+("8","Chilly Capsicum","1"),
+("9","Ginger(Dry)","7"),
+("10","Coriander(Leaves)","6"),
+("12","Brinjal","1"),
+("13","Cotton","2"),
+("14","Cabbage","6"),
+("15","Bitter gourd","1"),
+("16","Green Chilli","1"),
+("17","Barley (Jau)","8"),
+("18","Drumstick","1"),
+("19","Chikoos(Sapota)","1"),
+("20","Bhindi(Ladies Finger)","1"),
+("21","Cabbage","6"),
+("22","Ginger(Green)","9"),
+("23","Apple","1"),
+("24","Amphophalus","1"),
+("25","Butter","1"),
+("26","Beaten Rice","8"),
+("27","Coconut Seed","8"),
+("28","Cluster beans","1"),
+("29","Capsicum","1"),
+("30","Amla(Nelli Kai)","1"),
+("31","Borehannu","1"),
+("32","Ajwan","8"),
+("33","Delha","8"),
+("34","Copra","1"),
+("35","Coffee","8"),
+("36","Gramflour","8"),
+("37","Gram Raw(Chholia)","8"),
+("38","Black Gram Dal (Urd Dal)","8"),
+("39","Cloves","8"),
+("40","Cummin Seed(Jeera)","8"),
+("41","Field Pea","8"),
+("42","Alasande Gram","8"),
+("43","Cummin Seed(Jeera)","8"),
+("44","Dhaincha","9"),
+("45","Cinamon(Dalchini)","9"),
+("46","Bunch Beans","1"),
+("47","Castor Seed","8"),
+("48","Cowpea (Lobia/Karamani)","8"),
+("49","Ber(Zizyphus/Borehannu)","1"),
+("50","Bran","8"),
+("51","Bran","8"),
+("52","Broomstick(Flower Broom)","1"),
+("53","Dry Chillies","1"),
+("54","Amaranthus","1"),
+("55","Bamboo","9"),
+("56","Chapparad Avare","8"),
+("57","Antawala","2"),
+("58","Coconut","1"),
+("59","Dry Grapes","1"),
+("60","Green Fodder","6"),
+("61","Corriander seed","8"),
+("62","Dry Grapes","1"),
+("63","Almond(Badam)","8"),
+("64","Arhar (Tur/Red Gram)(Whole)","8"),
+("65","Avare Dal","8"),
+("66","Bay leaf (Tejpatta)","6"),
+("67","Bay leaf (Tejpatta)","6"),
+("68","Dry Grapes","1"),
+("69","Ambada Seed","8"),
+("70","Chili Red","1"),
+("71","Duster Beans","1"),
+("72","Beans","8"),
+("73","Chow Chow","1"),
+("74","Chow Chow","1"),
+("75","Colacasia","7"),
+("76","Dalda","8"),
+("77","Grapes","1"),
+("78","Bajra(Pearl Millet/Cumbu)","8"),
+("79","Cherry","1"),
+("81","Green Avare (W)","1"),
+("82","Firewood","9"),
+("83","Green Avare (W)","1"),
+("84","Broken Rice","8"),
+("85","Elephant Yam (Suran)","9"),
+("86","Coca","6"),
+("87","Anthorium","6"),
+("88","Custard Apple (Sharifa)","1"),
+("89","Ashgourd","1"),
+("90","Bengal Gram Dal (Chana Dal)","8"),
+("91","Betal Leaves","6"),
+("92","Carnation","2"),
+("93","Chennangi (Whole)","8"),
+("94","Carnation","2"),
+("95","Arecanut(Betelnut/Supari)","8"),
+("96","Cowpea(Veg)","8"),
+("97","Bottle gourd","1"),
+("98","Black pepper","8"),
+("99","Banana - Green","1"),
+("100","Bottle gourd","1"),
+("101","Cardamoms","8"),
+("102","Banana - Green","1");
+INSERT INTO crop VALUES
+("103","Alsandikai","8"),
+("104","Beetroot","7"),
+("105","Carrot","9"),
+("106","Coconut Oil","8"),
+("107","Coconut Oil","8"),
+("108","Apricot(Jardalu/Khumani)","1"),
+("109","Coconut Oil","8"),
+("110","Coconut Oil","8"),
+("111","Cocoa","8"),
+("112","Coconut Oil","8"),
+("113","Dry Fodder","6"),
+("114","Balekai","1"),
+("115","Chrysanthemum","2"),
+("116","Balekai","1"),
+("117","Balekai","1"),
+("118","Balekai","1"),
+("119","Cashew Kernnel","8"),
+("120","Balekai","1");
 
 
 
 
 CREATE TABLE `crop_category` (
-  `cc_id` int(11) NOT NULL AUTO_INCREMENT,
-  `cc_name` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `cc_id` int NOT NULL AUTO_INCREMENT,
+  `cc_name` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`cc_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 INSERT INTO crop_category VALUES
-("1","fruit"),
-("2","vegitable");
+("1","Fruit"),
+("2","Flowers"),
+("4","Bulbs"),
+("5","Fungi"),
+("6","Leaves"),
+("7","Roots"),
+("8","Seeds"),
+("9","Stems");
 
 
 
 
 CREATE TABLE `crop_price` (
-  `cp_id` int(11) NOT NULL AUTO_INCREMENT,
-  `c_id` int(11) NOT NULL,
-  `de_id` int(11) NOT NULL,
-  `cp_date` int(11) NOT NULL,
+  `cp_id` int NOT NULL AUTO_INCREMENT,
+  `c_id` int NOT NULL,
+  `de_id` int NOT NULL,
+  `cp_date` int NOT NULL,
   `cp_price` float NOT NULL,
   PRIMARY KEY (`cp_id`),
   KEY `c_id` (`c_id`),
   KEY `de_id` (`de_id`),
-  CONSTRAINT `crop_price_ibfk_1` FOREIGN KEY (`c_id`) REFERENCES `crop` (`c_Id`),
+  CONSTRAINT `crop_price_ibfk_1` FOREIGN KEY (`c_id`) REFERENCES `crop` (`c_id`),
   CONSTRAINT `crop_price_ibfk_2` FOREIGN KEY (`de_id`) REFERENCES `dealer` (`de_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -79,28 +201,31 @@ CREATE TABLE `crop_price` (
 
 
 CREATE TABLE `dealer` (
-  `de_id` int(11) NOT NULL AUTO_INCREMENT,
-  `de_name` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `de_store_name` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `de_address` text COLLATE utf8_unicode_ci NOT NULL,
-  `v_id` int(11) NOT NULL,
-  `de_phone` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `de_password` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `de_licence` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `de_id` int NOT NULL AUTO_INCREMENT,
+  `de_name` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `de_store_name` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `de_address` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `v_id` int NOT NULL,
+  `de_phone` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `de_password` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `de_licence` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`de_id`),
   KEY `v_id` (`v_id`),
   CONSTRAINT `dealer_ibfk_1` FOREIGN KEY (`v_id`) REFERENCES `village` (`v_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
+INSERT INTO dealer VALUES
+("1","testago","","abc","1194","9999999999","e10adc3949ba59abbe56e057f20f883e",""),
+("2","9400326201","ABC","6C GJ Lavender, Opp Cherthala Police Station","1194","9400326201","e10adc3949ba59abbe56e057f20f883e","MH5212ABL");
 
 
 
 
 CREATE TABLE `dealer_language` (
-  `dl_id` int(11) NOT NULL AUTO_INCREMENT,
-  `de_id` int(11) NOT NULL,
-  `l_id` int(11) NOT NULL,
+  `dl_id` int NOT NULL AUTO_INCREMENT,
+  `de_id` int NOT NULL,
+  `l_id` int NOT NULL,
   PRIMARY KEY (`dl_id`),
   KEY `l_id` (`l_id`),
   KEY `de_id` (`de_id`),
@@ -114,18 +239,18 @@ CREATE TABLE `dealer_language` (
 
 
 CREATE TABLE `dealer_request` (
-  `dr_id` int(11) NOT NULL AUTO_INCREMENT,
-  `c_id` int(11) NOT NULL,
-  `dr_quantity` int(11) NOT NULL,
+  `dr_id` int NOT NULL AUTO_INCREMENT,
+  `c_id` int NOT NULL,
+  `dr_quantity` int NOT NULL,
   `dr_unit_price` float NOT NULL,
-  `ut_id` int(11) NOT NULL,
-  `dr_date` int(11) NOT NULL,
-  `de_id` int(11) NOT NULL,
+  `ut_id` int NOT NULL,
+  `dr_date` int NOT NULL,
+  `de_id` int NOT NULL,
   PRIMARY KEY (`dr_id`),
   KEY `c_id` (`c_id`),
   KEY `ut_id` (`ut_id`),
   KEY `de_id` (`de_id`),
-  CONSTRAINT `dealer_request_ibfk_1` FOREIGN KEY (`c_id`) REFERENCES `crop` (`c_Id`),
+  CONSTRAINT `dealer_request_ibfk_1` FOREIGN KEY (`c_id`) REFERENCES `crop` (`c_id`),
   CONSTRAINT `dealer_request_ibfk_2` FOREIGN KEY (`ut_id`) REFERENCES `unit_type` (`ut_id`),
   CONSTRAINT `dealer_request_ibfk_3` FOREIGN KEY (`de_id`) REFERENCES `dealer` (`de_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -136,12 +261,12 @@ CREATE TABLE `dealer_request` (
 
 
 CREATE TABLE `dealer_to_farmer_msg` (
-  `dtfm_id` int(11) NOT NULL AUTO_INCREMENT,
-  `dtfm_msg` text COLLATE utf8_unicode_ci NOT NULL,
-  `dtfm_date` int(11) NOT NULL,
-  `f_id` int(11) NOT NULL,
-  `dtfm_status` int(11) NOT NULL,
-  `de_id` int(11) NOT NULL,
+  `dtfm_id` int NOT NULL AUTO_INCREMENT,
+  `dtfm_msg` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `dtfm_date` int NOT NULL,
+  `f_id` int NOT NULL,
+  `dtfm_status` int NOT NULL,
+  `de_id` int NOT NULL,
   PRIMARY KEY (`dtfm_id`),
   KEY `de_id` (`de_id`),
   KEY `f_id` (`f_id`),
@@ -155,9 +280,9 @@ CREATE TABLE `dealer_to_farmer_msg` (
 
 
 CREATE TABLE `district` (
-  `d_id` int(11) NOT NULL AUTO_INCREMENT,
-  `d_name` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `s_id` int(11) NOT NULL,
+  `d_id` int NOT NULL AUTO_INCREMENT,
+  `d_name` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `s_id` int NOT NULL,
   PRIMARY KEY (`d_id`),
   KEY `s_id` (`s_id`),
   CONSTRAINT `district_ibfk_1` FOREIGN KEY (`s_id`) REFERENCES `state` (`s_id`)
@@ -779,26 +904,30 @@ INSERT INTO district VALUES
 
 
 CREATE TABLE `farmer` (
-  `f_id` int(11) NOT NULL AUTO_INCREMENT,
-  `f_name` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `f_password` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `f_address` text COLLATE utf8_unicode_ci NOT NULL,
-  `f_phone` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `v_id` int(11) NOT NULL,
+  `f_id` int NOT NULL AUTO_INCREMENT,
+  `f_name` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `f_password` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `f_address` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `f_phone` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `v_id` int NOT NULL,
   PRIMARY KEY (`f_id`),
   KEY `v_id` (`v_id`),
   CONSTRAINT `farmer_ibfk_1` FOREIGN KEY (`v_id`) REFERENCES `village` (`v_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
+INSERT INTO farmer VALUES
+("1","abc","e10adc3949ba59abbe56e057f20f883e","abc street","1234567890","680"),
+("2","9400326201","e10adc3949ba59abbe56e057f20f883e","6C GJ Lavender, Opp Cherthala Police Station","9400326201","1194"),
+("3","testnit","4297f44b13955235245b2497399d7a93","123","1122112212","680");
 
 
 
 
 CREATE TABLE `farmer_language` (
-  `fl_id` int(11) NOT NULL AUTO_INCREMENT,
-  `f_id` int(11) NOT NULL,
-  `l_id` int(11) NOT NULL,
+  `fl_id` int NOT NULL AUTO_INCREMENT,
+  `f_id` int NOT NULL,
+  `l_id` int NOT NULL,
   PRIMARY KEY (`fl_id`),
   KEY `f_id` (`f_id`),
   KEY `l_id` (`l_id`),
@@ -812,14 +941,14 @@ CREATE TABLE `farmer_language` (
 
 
 CREATE TABLE `harvesting` (
-  `h_id` int(11) NOT NULL AUTO_INCREMENT,
-  `p_id` int(11) NOT NULL,
-  `h_date` int(11) NOT NULL,
-  `h_quantity` int(11) NOT NULL,
+  `h_id` int NOT NULL AUTO_INCREMENT,
+  `p_id` int NOT NULL,
+  `h_date` int NOT NULL,
+  `h_quantity` int NOT NULL,
   `h_unit_price` float NOT NULL,
-  `h_transp_willing` int(11) NOT NULL,
-  `h_status` int(11) NOT NULL,
-  `ut_id` int(11) NOT NULL,
+  `h_transp_willing` int NOT NULL,
+  `h_status` int NOT NULL,
+  `ut_id` int NOT NULL,
   PRIMARY KEY (`h_id`),
   KEY `p_id` (`p_id`),
   KEY `ut_id` (`ut_id`),
@@ -833,10 +962,10 @@ CREATE TABLE `harvesting` (
 
 
 CREATE TABLE `harvest_process` (
-  `hp_id` int(11) NOT NULL AUTO_INCREMENT,
-  `h_id` int(11) NOT NULL,
-  `hp_quantity` int(11) NOT NULL,
-  `hp_date` int(11) NOT NULL,
+  `hp_id` int NOT NULL AUTO_INCREMENT,
+  `h_id` int NOT NULL,
+  `hp_quantity` int NOT NULL,
+  `hp_date` int NOT NULL,
   PRIMARY KEY (`hp_id`),
   KEY `h_id` (`h_id`),
   CONSTRAINT `harvest_process_ibfk_1` FOREIGN KEY (`h_id`) REFERENCES `harvesting` (`h_id`)
@@ -848,8 +977,8 @@ CREATE TABLE `harvest_process` (
 
 
 CREATE TABLE `language` (
-  `l_id` int(11) NOT NULL AUTO_INCREMENT,
-  `l_name` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `l_id` int NOT NULL AUTO_INCREMENT,
+  `l_name` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`l_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -865,21 +994,21 @@ INSERT INTO language VALUES
 
 
 CREATE TABLE `planting` (
-  `p_id` int(11) NOT NULL AUTO_INCREMENT,
-  `c_id` int(11) NOT NULL,
-  `p_planting_date` int(11) NOT NULL,
-  `p_harvesting_date` int(11) NOT NULL,
-  `p_quantity` int(11) NOT NULL,
-  `p_quantity_type` int(11) NOT NULL,
-  `v_id` int(11) NOT NULL,
-  `p_locality` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `f_id` int(11) NOT NULL,
-  `p_status` int(11) NOT NULL,
+  `p_id` int NOT NULL AUTO_INCREMENT,
+  `c_id` int NOT NULL,
+  `p_planting_date` int NOT NULL,
+  `p_harvesting_date` int NOT NULL,
+  `p_quantity` int NOT NULL,
+  `p_quantity_type` int NOT NULL,
+  `v_id` int NOT NULL,
+  `p_locality` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `f_id` int NOT NULL,
+  `p_status` int NOT NULL,
   PRIMARY KEY (`p_id`),
   KEY `c_id` (`c_id`),
   KEY `v_id` (`v_id`),
   KEY `f_id` (`f_id`),
-  CONSTRAINT `planting_ibfk_1` FOREIGN KEY (`c_id`) REFERENCES `crop` (`c_Id`),
+  CONSTRAINT `planting_ibfk_1` FOREIGN KEY (`c_id`) REFERENCES `crop` (`c_id`),
   CONSTRAINT `planting_ibfk_2` FOREIGN KEY (`v_id`) REFERENCES `village` (`v_id`),
   CONSTRAINT `planting_ibfk_3` FOREIGN KEY (`f_id`) REFERENCES `farmer` (`f_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -890,8 +1019,8 @@ CREATE TABLE `planting` (
 
 
 CREATE TABLE `state` (
-  `s_id` int(11) NOT NULL AUTO_INCREMENT,
-  `s_name` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `s_id` int NOT NULL AUTO_INCREMENT,
+  `s_name` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`s_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -937,8 +1066,8 @@ INSERT INTO state VALUES
 
 
 CREATE TABLE `unit_type` (
-  `ut_id` int(11) NOT NULL AUTO_INCREMENT,
-  `ut_name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `ut_id` int NOT NULL AUTO_INCREMENT,
+  `ut_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ut_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -953,9 +1082,9 @@ INSERT INTO unit_type VALUES
 
 
 CREATE TABLE `village` (
-  `v_id` int(11) NOT NULL AUTO_INCREMENT,
-  `v_name` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `d_id` int(11) NOT NULL,
+  `v_id` int NOT NULL AUTO_INCREMENT,
+  `v_name` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `d_id` int NOT NULL,
   PRIMARY KEY (`v_id`),
   KEY `d_id` (`d_id`),
   CONSTRAINT `village_ibfk_1` FOREIGN KEY (`d_id`) REFERENCES `district` (`d_id`)
@@ -963,1576 +1092,1576 @@ CREATE TABLE `village` (
 
 
 INSERT INTO village VALUES
-("1","Kasaragod","254"),
-("2","Pavoor","254"),
-("3","Vorkady","254"),
-("4","Pathur","254"),
-("5","Kodalamogaru","254"),
-("6","Koliyoor","254"),
-("7","Kaliyoor","254"),
-("8","Talikala","254"),
-("9","Meenja","254"),
-("10","Kadambar","254"),
-("11","Moodambail","254"),
-("12","Kuloor","254"),
-("13","Majibail","254"),
-("14","Badaje","254"),
-("15","Mulinja","254"),
-("16","Kodibail","254"),
-("17","Ichilangod","254"),
-("18","Heroor","254"),
-("19","Kubanoor","254"),
-("20","Bekoor","254"),
-("21","Kayyar","254"),
-("22","Kudalmarkala","254"),
-("23","Paivalike","254"),
-("24","Chippar","254"),
-("25","Bayar","254"),
-("26","Badoor","254"),
-("27","Angadimogaru","254"),
-("28","Mugu","254"),
-("29","Maire","254"),
-("30","Enmakaje","254"),
-("31","Kattukukke","254"),
-("32","Padre","254"),
-("33","Badiyadka","254"),
-("34","Nirchal","254"),
-("35","Bela","254"),
-("36","Puthige","254"),
-("37","Edanad","254"),
-("38","Kannur","254"),
-("39","Kidoor","254"),
-("40","Ujarulvar","254"),
-("41","Bombrana","254"),
-("42","Arikady","254"),
-("43","Ichilampady","254"),
-("44","Patla","254"),
-("45","Kalnad","254"),
-("46","Perumbala","254"),
-("47","Thekkil","254"),
-("48","Muttathody","254"),
-("49","Pady","254"),
-("50","Nekraje","254"),
-("51","Ubrangala","254"),
-("52","Kumbadaje","254"),
-("53","Nettanige","254"),
-("54","Bellur","254"),
-("55","Adhur","254"),
-("56","Karadka","254"),
-("57","Muliyar","254"),
-("58","Kolathur","254"),
-("59","Bedadka","254"),
-("60","Munnad","254"),
-("61","Kuttikole","254"),
-("62","Karivedakam","254"),
-("63","Bandadka","254"),
-("64","Adoor","254"),
-("65","Delampady","254"),
-("66","Kunjathur (CT)","254"),
-("67","Manjeshwar (CT)","254"),
-("68","Hosabettu (CT)","254"),
-("69","Bangra Manjeshwar (CT)","254"),
-("70","Uppala (CT)","254"),
-("71","Mangalpady (CT)","254"),
-("72","Shiriya (CT)","254"),
-("73","Koipady (CT)","254"),
-("74","Mogral (CT)","254"),
-("75","Puthur (CT)","254"),
-("76","Shiribagilu (CT)","254"),
-("77","Madhur (CT)","254"),
-("78","Kudlu (CT)","254"),
-("79","Chengala (CT)","254"),
-("80","Chemnad (CT)","254"),
-("81","Hosdurg","254"),
-("82","Pallikkara II","254"),
-("83","Panayal","254"),
-("84","Chithari","254"),
-("85","Periya","254"),
-("86","Pullur","254"),
-("87","Kodom","254"),
-("88","Kallar","254"),
-("89","Panathady","254"),
-("90","Balal","254"),
-("91","Maloth ","254"),
-("92","West Eleri","254"),
-("93","Palavayal","254"),
-("94","Chittarikkal","254"),
-("95","Bheemanady","254"),
-("96","Parappa ","254"),
-("97","Thayanur","254"),
-("98","Ambalathara","254"),
-("99","Madikai","254"),
-("100","Kinanoor","254");
+("1","Kasaragod\n","254"),
+("2","Pavoor\n","254"),
+("3","Vorkady\n","254"),
+("4","Pathur\n","254"),
+("5","Kodalamogaru\n","254"),
+("6","Koliyoor\n","254"),
+("7","Kaliyoor\n","254"),
+("8","Talikala\n","254"),
+("9","Meenja\n","254"),
+("10","Kadambar\n","254"),
+("11","Moodambail\n","254"),
+("12","Kuloor\n","254"),
+("13","Majibail\n","254"),
+("14","Badaje\n","254"),
+("15","Mulinja\n","254"),
+("16","Kodibail\n","254"),
+("17","Ichilangod\n","254"),
+("18","Heroor\n","254"),
+("19","Kubanoor\n","254"),
+("20","Bekoor\n","254"),
+("21","Kayyar\n","254"),
+("22","Kudalmarkala\n","254"),
+("23","Paivalike\n","254"),
+("24","Chippar\n","254"),
+("25","Bayar\n","254"),
+("26","Badoor\n","254"),
+("27","Angadimogaru\n","254"),
+("28","Mugu\n","254"),
+("29","Maire\n","254"),
+("30","Enmakaje\n","254"),
+("31","Kattukukke\n","254"),
+("32","Padre\n","254"),
+("33","Badiyadka\n","254"),
+("34","Nirchal\n","254"),
+("35","Bela\n","254"),
+("36","Puthige\n","254"),
+("37","Edanad\n","254"),
+("38","Kannur\n","254"),
+("39","Kidoor\n","254"),
+("40","Ujarulvar\n","254"),
+("41","Bombrana\n","254"),
+("42","Arikady\n","254"),
+("43","Ichilampady\n","254"),
+("44","Patla\n","254"),
+("45","Kalnad\n","254"),
+("46","Perumbala\n","254"),
+("47","Thekkil\n","254"),
+("48","Muttathody\n","254"),
+("49","Pady\n","254"),
+("50","Nekraje\n","254"),
+("51","Ubrangala\n","254"),
+("52","Kumbadaje\n","254"),
+("53","Nettanige\n","254"),
+("54","Bellur\n","254"),
+("55","Adhur\n","254"),
+("56","Karadka\n","254"),
+("57","Muliyar\n","254"),
+("58","Kolathur\n","254"),
+("59","Bedadka\n","254"),
+("60","Munnad\n","254"),
+("61","Kuttikole\n","254"),
+("62","Karivedakam\n","254"),
+("63","Bandadka\n","254"),
+("64","Adoor\n","254"),
+("65","Delampady\n","254"),
+("66","Kunjathur (CT)\n","254"),
+("67","Manjeshwar (CT)\n","254"),
+("68","Hosabettu (CT)\n","254"),
+("69","Bangra Manjeshwar (CT)\n","254"),
+("70","Uppala (CT)\n","254"),
+("71","Mangalpady (CT)\n","254"),
+("72","Shiriya (CT)\n","254"),
+("73","Koipady (CT)\n","254"),
+("74","Mogral (CT)\n","254"),
+("75","Puthur (CT)\n","254"),
+("76","Shiribagilu (CT)\n","254"),
+("77","Madhur (CT)\n","254"),
+("78","Kudlu (CT)\n","254"),
+("79","Chengala (CT)\n","254"),
+("80","Chemnad (CT)\n","254"),
+("81","Hosdurg\n","254"),
+("82","Pallikkara II\n","254"),
+("83","Panayal\n","254"),
+("84","Chithari\n","254"),
+("85","Periya\n","254"),
+("86","Pullur\n","254"),
+("87","Kodom\n","254"),
+("88","Kallar\n","254"),
+("89","Panathady\n","254"),
+("90","Balal\n","254"),
+("91","Maloth \n","254"),
+("92","West Eleri\n","254"),
+("93","Palavayal\n","254"),
+("94","Chittarikkal\n","254"),
+("95","Bheemanady\n","254"),
+("96","Parappa \n","254"),
+("97","Thayanur\n","254"),
+("98","Ambalathara\n","254"),
+("99","Madikai\n","254"),
+("100","Kinanoor\n","254");
 INSERT INTO village VALUES
-("101","Karindalam","254"),
-("102","Cheemeni II","254"),
-("103","Cheemeni ","254"),
-("104","Kayyur","254"),
-("105","Kilayikode","254"),
-("106","Thimiri","254"),
-("107","Kodakkad","254"),
-("108","Padne","254"),
-("109","Udinoor","254"),
-("110","Bare (CT)","254"),
-("111","Udma (CT)","254"),
-("112","Pallikkara (CT)","254"),
-("113","Keekan (CT)","254"),
-("114","Ajanur (CT)","254"),
-("115","Perole (CT)","254"),
-("116","Pilicode (CT)","254"),
-("117","Maniyat (CT)","254"),
-("118","North Thrikkaripur (CT)","254"),
-("119","South Thrikkaripur (CT)","254"),
-("120","Nileshwar (OG)","254"),
-("121","Cheruvathur (OG)  ","254"),
-("122","Kannur","253"),
-("123","Taliparamba ","253"),
-("124","Ramanthali","253"),
-("125","Peralam","253"),
-("126","Kankole","253"),
-("127","Alapadamba","253"),
-("128","Eramam","253"),
-("129","Perinthatta","253"),
-("130","Kuttoor","253"),
-("131","Vellora","253"),
-("132","Peringome","253"),
-("133","Thimiri","253"),
-("134","Vayakkara","253"),
-("135","Pulingome","253"),
-("136","Thirumeni","253"),
-("137","Alakode","253"),
-("138","Vellad","253"),
-("139","New Naduvil","253"),
-("140","Kooveri","253"),
-("141","Panniyoor","253"),
-("142","Kuttiyeri","253"),
-("143","Pattuvam","253"),
-("144","Chuzhali","253"),
-("145","Nediyanga","253"),
-("146","Eruvassy","253"),
-("147","Payyavoor","253"),
-("148","Nuchiyad","253"),
-("149","Vayathur","253"),
-("150","Padiyoor","253"),
-("151","Kalliad","253"),
-("152","Sreekandapuram","253"),
-("153","Malapattam","253"),
-("154","Chengalai","253"),
-("155","Kayaralam","253"),
-("156","Karivellur (CT)","253"),
-("157","Pariyaram (CT)","253"),
-("158","Kurumathur (CT)","253"),
-("159","Irikkur (CT)","253"),
-("160","Kuttiattoor (CT)","253"),
-("161","Mayyil (CT)","253"),
-("162","Kolacherry (CT)","253"),
-("163","Cheleri (CT)","253"),
-("164","Maniyoor (CT)","253"),
-("165","Panapuzha","253"),
-("166","Mattool","253"),
-("167","Kunhimangalam (CT)","253"),
-("168","Cheruthazham (CT)","253"),
-("169","Kadannappalli (CT)","253"),
-("170","Ezhome (CT)","253"),
-("171","Madayi (CT)","253"),
-("172","Cherukunnu (CT)","253"),
-("173","Kannapuram (CT)","253"),
-("174","Narath (CT)","253"),
-("175","Pappinisseri (CT)","253"),
-("176","Kalliasseri (CT)","253"),
-("177","Azhikode North (CT)","253"),
-("178","Azhikode South (CT)","253"),
-("179","Valapattanam (CT)","253"),
-("180","Chirakkal (CT)","253"),
-("181","Kannadiparamba (CT)","253"),
-("182","Munderi (CT)","253"),
-("183","Kanhirode (CT)","253"),
-("184","Varam (CT)","253"),
-("185","Puzhathi (CT)","253"),
-("186","Pallikkunnu (CT)","253"),
-("187","Elayavoor (CT)","253"),
-("188","Chelora (CT)","253"),
-("189","Ancharakandy (CT)","253"),
-("190","Iriveri (CT)","253"),
-("191","Chala (CT)","253"),
-("192","Thottada (CT)","253"),
-("193","Kadachira (CT)","253"),
-("194","Mavilayi (CT)","253"),
-("195","Peralassery (CT)","253"),
-("196","Muzhappilangad (CT)","253"),
-("197","Thalassery","253"),
-("198","Pattannur","253"),
-("199","Chavassery","253"),
-("200","Keezhur","253");
+("101","Karindalam\n","254"),
+("102","Cheemeni II\n","254"),
+("103","Cheemeni \n","254"),
+("104","Kayyur\n","254"),
+("105","Kilayikode\n","254"),
+("106","Thimiri\n","254"),
+("107","Kodakkad\n","254"),
+("108","Padne\n","254"),
+("109","Udinoor\n","254"),
+("110","Bare (CT)\n","254"),
+("111","Udma (CT)\n","254"),
+("112","Pallikkara (CT)\n","254"),
+("113","Keekan (CT)\n","254"),
+("114","Ajanur (CT)\n","254"),
+("115","Perole (CT)\n","254"),
+("116","Pilicode (CT)\n","254"),
+("117","Maniyat (CT)\n","254"),
+("118","North Thrikkaripur (CT)\n","254"),
+("119","South Thrikkaripur (CT)\n","254"),
+("120","Nileshwar (OG)\n","254"),
+("121","Cheruvathur (OG)  \n","254"),
+("122","Kannur\n","253"),
+("123","Taliparamba \n","253"),
+("124","Ramanthali\n","253"),
+("125","Peralam\n","253"),
+("126","Kankole\n","253"),
+("127","Alapadamba\n","253"),
+("128","Eramam\n","253"),
+("129","Perinthatta\n","253"),
+("130","Kuttoor\n","253"),
+("131","Vellora\n","253"),
+("132","Peringome\n","253"),
+("133","Thimiri\n","253"),
+("134","Vayakkara\n","253"),
+("135","Pulingome\n","253"),
+("136","Thirumeni\n","253"),
+("137","Alakode\n","253"),
+("138","Vellad\n","253"),
+("139","New Naduvil\n","253"),
+("140","Kooveri\n","253"),
+("141","Panniyoor\n","253"),
+("142","Kuttiyeri\n","253"),
+("143","Pattuvam\n","253"),
+("144","Chuzhali\n","253"),
+("145","Nediyanga\n","253"),
+("146","Eruvassy\n","253"),
+("147","Payyavoor\n","253"),
+("148","Nuchiyad\n","253"),
+("149","Vayathur\n","253"),
+("150","Padiyoor\n","253"),
+("151","Kalliad\n","253"),
+("152","Sreekandapuram\n","253"),
+("153","Malapattam\n","253"),
+("154","Chengalai\n","253"),
+("155","Kayaralam\n","253"),
+("156","Karivellur (CT)\n","253"),
+("157","Pariyaram (CT)\n","253"),
+("158","Kurumathur (CT)\n","253"),
+("159","Irikkur (CT)\n","253"),
+("160","Kuttiattoor (CT)\n","253"),
+("161","Mayyil (CT)\n","253"),
+("162","Kolacherry (CT)\n","253"),
+("163","Cheleri (CT)\n","253"),
+("164","Maniyoor (CT)\n","253"),
+("165","Panapuzha\n","253"),
+("166","Mattool\n","253"),
+("167","Kunhimangalam (CT)\n","253"),
+("168","Cheruthazham (CT)\n","253"),
+("169","Kadannappalli (CT)\n","253"),
+("170","Ezhome (CT)\n","253"),
+("171","Madayi (CT)\n","253"),
+("172","Cherukunnu (CT)\n","253"),
+("173","Kannapuram (CT)\n","253"),
+("174","Narath (CT)\n","253"),
+("175","Pappinisseri (CT)\n","253"),
+("176","Kalliasseri (CT)\n","253"),
+("177","Azhikode North (CT)\n","253"),
+("178","Azhikode South (CT)\n","253"),
+("179","Valapattanam (CT)\n","253"),
+("180","Chirakkal (CT)\n","253"),
+("181","Kannadiparamba (CT)\n","253"),
+("182","Munderi (CT)\n","253"),
+("183","Kanhirode (CT)\n","253"),
+("184","Varam (CT)\n","253"),
+("185","Puzhathi (CT)\n","253"),
+("186","Pallikkunnu (CT)\n","253"),
+("187","Elayavoor (CT)\n","253"),
+("188","Chelora (CT)\n","253"),
+("189","Ancharakandy (CT)\n","253"),
+("190","Iriveri (CT)\n","253"),
+("191","Chala (CT)\n","253"),
+("192","Thottada (CT)\n","253"),
+("193","Kadachira (CT)\n","253"),
+("194","Mavilayi (CT)\n","253"),
+("195","Peralassery (CT)\n","253"),
+("196","Muzhappilangad (CT)\n","253"),
+("197","Thalassery\n","253"),
+("198","Pattannur\n","253"),
+("199","Chavassery\n","253"),
+("200","Keezhur\n","253");
 INSERT INTO village VALUES
-("201","Payam","253"),
-("202","Vilamana","253"),
-("203","Ayyankunnu","253"),
-("204","Aralam","253"),
-("205","Kottiyoor","253"),
-("206","Kelakam","253"),
-("207","Kanichar","253"),
-("208","Manathana","253"),
-("209","Muzhakkunnu","253"),
-("210","Thillenkeri","253"),
-("211","Tholambra","253"),
-("212","Vellarvelly","253"),
-("213","Vekkalam","253"),
-("214","Koloyad","253"),
-("215","Kannavam","253"),
-("216","Sivapuram","253"),
-("217","Cheruvanchery","253"),
-("218","Puthoor","253"),
-("219","Thrippangottur","253"),
-("220","Koodali (CT)","253"),
-("221","Keezhallur (CT)","253"),
-("222","Paduvilayi (CT)","253"),
-("223","Pathiriyad (CT)","253"),
-("224","Mangattidam (CT)","253"),
-("225","Kandamkunnu (CT)","253"),
-("226","Manantheri (CT)","253"),
-("227","Kottayam-Malabar (CT)","253"),
-("228","Eruvatti (CT)","253"),
-("229","Pinarayi (CT)","253"),
-("230","Dharmadom (CT)","253"),
-("231","Eranholi (CT)","253"),
-("232","Kadirur (CT)","253"),
-("233","Pattiom (CT)","253"),
-("234","Mokeri (CT)","253"),
-("235","Kolavelloor (CT)","253"),
-("236","Panoor (CT)","253"),
-("237","Panniyannur (CT)","253"),
-("238","New Mahe (CT)","253"),
-("239","Chockli (CT)","253"),
-("240","Peringathur (CT)","253"),
-("241","Wayanad","262"),
-("242","Mananthavady","262"),
-("243","Thirunelly","262"),
-("244","Thrissilery","262"),
-("245","Payyampally","262"),
-("246","Thavinhal","262"),
-("247","Periya","262"),
-("248","Thondernad","262"),
-("249","Valat","262"),
-("250","Edavaka","262"),
-("251","Nalloornad","262"),
-("252","Cherukottur","262"),
-("253","Panamaram","262"),
-("254","Anchukunnu","262"),
-("255","Porunnanore","262"),
-("256","Vellamunda","262"),
-("257","Kanjirangad","262"),
-("258","Sulthanbathery","262"),
-("259","Nadavayal ","262"),
-("260","Poothadi","262"),
-("261","Pulpalli","262"),
-("262","Padichira","262"),
-("263","Kidanganad","262"),
-("264","Irulam","262"),
-("265","Purakkadi ","262"),
-("266","Krishnagiri","262"),
-("267","Kuppadi","262"),
-("268","Noolpuzha","262"),
-("269","Cheeral","262"),
-("270","Nenmeni","262"),
-("271","Ambalavayal","262"),
-("272","Thomattuchal","262"),
-("273","Vythiri","262"),
-("274","Padinharethara","262"),
-("275","Kuppadithara","262"),
-("276","Kottathara ","262"),
-("277","Kaniambetta","262"),
-("278","Muttil North ","262"),
-("279","Muttil South","262"),
-("280","Vengappally","262"),
-("281","Kavumannam","262"),
-("282","Thariyode","262"),
-("283","Achooranam","262"),
-("284","Pozhuthana","262"),
-("285","Kunnathidavaka","262"),
-("286","Chundale","262"),
-("287","Kottappadi (Part)","262"),
-("288","Thrikkaipatta (Part)","262"),
-("289","Muppainad","262"),
-("290","Vellarimala","262"),
-("291","Kozhikode","256"),
-("292","Vadakara","256"),
-("293","Onchiam","256"),
-("294","Vanimel","256"),
-("295","Vilangad","256"),
-("296","Thinoor","256"),
-("297","Kavilumpara","256"),
-("298","Kayakkodi","256"),
-("299","Narippatta","256"),
-("300","Purameri","256");
+("201","Payam\n","253"),
+("202","Vilamana\n","253"),
+("203","Ayyankunnu\n","253"),
+("204","Aralam\n","253"),
+("205","Kottiyoor\n","253"),
+("206","Kelakam\n","253"),
+("207","Kanichar\n","253"),
+("208","Manathana\n","253"),
+("209","Muzhakkunnu\n","253"),
+("210","Thillenkeri\n","253"),
+("211","Tholambra\n","253"),
+("212","Vellarvelly\n","253"),
+("213","Vekkalam\n","253"),
+("214","Koloyad\n","253"),
+("215","Kannavam\n","253"),
+("216","Sivapuram\n","253"),
+("217","Cheruvanchery\n","253"),
+("218","Puthoor\n","253"),
+("219","Thrippangottur\n","253"),
+("220","Koodali (CT)\n","253"),
+("221","Keezhallur (CT)\n","253"),
+("222","Paduvilayi (CT)\n","253"),
+("223","Pathiriyad (CT)\n","253"),
+("224","Mangattidam (CT)\n","253"),
+("225","Kandamkunnu (CT)\n","253"),
+("226","Manantheri (CT)\n","253"),
+("227","Kottayam-Malabar (CT)\n","253"),
+("228","Eruvatti (CT)\n","253"),
+("229","Pinarayi (CT)\n","253"),
+("230","Dharmadom (CT)\n","253"),
+("231","Eranholi (CT)\n","253"),
+("232","Kadirur (CT)\n","253"),
+("233","Pattiom (CT)\n","253"),
+("234","Mokeri (CT)\n","253"),
+("235","Kolavelloor (CT)\n","253"),
+("236","Panoor (CT)\n","253"),
+("237","Panniyannur (CT)\n","253"),
+("238","New Mahe (CT)\n","253"),
+("239","Chockli (CT)\n","253"),
+("240","Peringathur (CT)\n","253"),
+("241","Wayanad\n","262"),
+("242","Mananthavady\n","262"),
+("243","Thirunelly\n","262"),
+("244","Thrissilery\n","262"),
+("245","Payyampally\n","262"),
+("246","Thavinhal\n","262"),
+("247","Periya\n","262"),
+("248","Thondernad\n","262"),
+("249","Valat\n","262"),
+("250","Edavaka\n","262"),
+("251","Nalloornad\n","262"),
+("252","Cherukottur\n","262"),
+("253","Panamaram\n","262"),
+("254","Anchukunnu\n","262"),
+("255","Porunnanore\n","262"),
+("256","Vellamunda\n","262"),
+("257","Kanjirangad\n","262"),
+("258","Sulthanbathery\n","262"),
+("259","Nadavayal \n","262"),
+("260","Poothadi\n","262"),
+("261","Pulpalli\n","262"),
+("262","Padichira\n","262"),
+("263","Kidanganad\n","262"),
+("264","Irulam\n","262"),
+("265","Purakkadi \n","262"),
+("266","Krishnagiri\n","262"),
+("267","Kuppadi\n","262"),
+("268","Noolpuzha\n","262"),
+("269","Cheeral\n","262"),
+("270","Nenmeni\n","262"),
+("271","Ambalavayal\n","262"),
+("272","Thomattuchal\n","262"),
+("273","Vythiri\n","262"),
+("274","Padinharethara\n","262"),
+("275","Kuppadithara\n","262"),
+("276","Kottathara \n","262"),
+("277","Kaniambetta\n","262"),
+("278","Muttil North \n","262"),
+("279","Muttil South\n","262"),
+("280","Vengappally\n","262"),
+("281","Kavumannam\n","262"),
+("282","Thariyode\n","262"),
+("283","Achooranam\n","262"),
+("284","Pozhuthana\n","262"),
+("285","Kunnathidavaka\n","262"),
+("286","Chundale\n","262"),
+("287","Kottappadi (Part)\n","262"),
+("288","Thrikkaipatta (Part)\n","262"),
+("289","Muppainad\n","262"),
+("290","Vellarimala\n","262"),
+("291","Kozhikode\n","256"),
+("292","Vadakara\n","256"),
+("293","Onchiam\n","256"),
+("294","Vanimel\n","256"),
+("295","Vilangad\n","256"),
+("296","Thinoor\n","256"),
+("297","Kavilumpara\n","256"),
+("298","Kayakkodi\n","256"),
+("299","Narippatta\n","256"),
+("300","Purameri\n","256");
 INSERT INTO village VALUES
-("301","Thiruvallur","256"),
-("302","Velom","256"),
-("303","Kuttiadi","256"),
-("304","Maruthonkara","256"),
-("305","Valayam (CT)","256"),
-("306","Chekkiad (CT)","256"),
-("307","Thuneri (CT)","256"),
-("308","Kunnummal (CT)","256"),
-("309","Nadapuram (CT)","256"),
-("310","Edacheri (CT)","256"),
-("311","Eramala (CT)","256"),
-("312","Azhiyur (CT)","256"),
-("313","Chorode (CT)","256"),
-("314","Ayancheri (CT)","256"),
-("315","Kottappally (CT)","256"),
-("316","Villiappally (CT)","256"),
-("317","Palayad (CT)","256"),
-("318","Maniyur (CT)","256"),
-("319","Quilandy","256"),
-("320","Payyoli","256"),
-("321","Cheruvannur","256"),
-("322","Palery","256"),
-("323","Changaroth","256"),
-("324","Chempanoda","256"),
-("325","Chakkittapara","256"),
-("326","Perambra","256"),
-("327","Nochad","256"),
-("328","Moodadi","256"),
-("329","Arikkulam (Part)","256"),
-("330","Kottur","256"),
-("331","Kayanna ","256"),
-("332","Koorachundu ","256"),
-("333","Kanthalad ","256"),
-("334","Avitanallur","256"),
-("335","Chengottukavu","256"),
-("336","Kinalur","256"),
-("337","Unnikulam","256"),
-("338","Sivapuram","256"),
-("339","Iringal (CT)","256"),
-("340","Eravattur (CT)","256"),
-("341","Koothali (CT)","256"),
-("342","Menhaniam (CT)","256"),
-("343","Meppayyur (CT)","256"),
-("344","Kozhukkallur (CT)","256"),
-("345","Thurayur (CT)","256"),
-("346","Thikkody (CT)","256"),
-("347","Keezhariyur (CT)","256"),
-("348","Naduvannur (CT)","256"),
-("349","Panangad (CT)","256"),
-("350","Balusseri (CT)","256"),
-("351","Ulliyeri (CT)","256"),
-("352","Chemancheri (CT)","256"),
-("353","Atholi (CT)","256"),
-("354","Kakkur","256"),
-("355","Narikkuni","256"),
-("356","Kizhakkoth","256"),
-("357","Vavad","256"),
-("358","Raroth","256"),
-("359","Kedavur","256"),
-("360","Puthuppadi","256"),
-("361","Engapuzha","256"),
-("362","Koodathayi ","256"),
-("363","Kodencheri","256"),
-("364","Nellipoyil","256"),
-("365","Koodaranji","256"),
-("366","Thiruvambadi","256"),
-("367","Neeleswaram ","256"),
-("368","Puthur","256"),
-("369","Chathamangalam ","256"),
-("370","Madavoor","256"),
-("371","Kumaranallur","256"),
-("372","Kakkad","256"),
-("373","Kodiyathur","256"),
-("374","Nanmanda (CT)","256"),
-("375","Chelannur (CT)","256"),
-("376","Thalakkulathur (CT)","256"),
-("377","Kakkodi (CT)","256"),
-("378","Kuruvattur (CT)","256"),
-("379","Kunnamangalam (CT)","256"),
-("380","Poolacode (CT)","256"),
-("381","Thazhecode (CT)","256"),
-("382","Mavoor (CT)","256"),
-("383","Peruvayal (CT)","256"),
-("384","Kuttikkattoor (CT)","256"),
-("385","Olavanna (CT)","256"),
-("386","Pantheeramkavu (CT)","256"),
-("387","Perumanna (CT)","256"),
-("388","Ramanattukara (CT)","256"),
-("389","Cheruvannur (CT)","256"),
-("390","Beypore (CT)","256"),
-("391","Karuvanthuruthy (CT)","256"),
-("392","Feroke (CT)","256"),
-("393","Koduvally (OG)","256"),
-("394","Elathur (OG)","256"),
-("395","Kadalundi (OG)","256"),
-("396","Puthiyangadi (OG) (Part)","256"),
-("397","Malappuram","257"),
-("398","Ernad","257"),
-("399","Vettilappara","257"),
-("400","Vazhakkad","257");
+("301","Thiruvallur\n","256"),
+("302","Velom\n","256"),
+("303","Kuttiadi\n","256"),
+("304","Maruthonkara\n","256"),
+("305","Valayam (CT)\n","256"),
+("306","Chekkiad (CT)\n","256"),
+("307","Thuneri (CT)\n","256"),
+("308","Kunnummal (CT)\n","256"),
+("309","Nadapuram (CT)\n","256"),
+("310","Edacheri (CT)\n","256"),
+("311","Eramala (CT)\n","256"),
+("312","Azhiyur (CT)\n","256"),
+("313","Chorode (CT)\n","256"),
+("314","Ayancheri (CT)\n","256"),
+("315","Kottappally (CT)\n","256"),
+("316","Villiappally (CT)\n","256"),
+("317","Palayad (CT)\n","256"),
+("318","Maniyur (CT)\n","256"),
+("319","Quilandy\n","256"),
+("320","Payyoli\n","256"),
+("321","Cheruvannur\n","256"),
+("322","Palery\n","256"),
+("323","Changaroth\n","256"),
+("324","Chempanoda\n","256"),
+("325","Chakkittapara\n","256"),
+("326","Perambra\n","256"),
+("327","Nochad\n","256"),
+("328","Moodadi\n","256"),
+("329","Arikkulam (Part)\n","256"),
+("330","Kottur\n","256"),
+("331","Kayanna \n","256"),
+("332","Koorachundu \n","256"),
+("333","Kanthalad \n","256"),
+("334","Avitanallur\n","256"),
+("335","Chengottukavu\n","256"),
+("336","Kinalur\n","256"),
+("337","Unnikulam\n","256"),
+("338","Sivapuram\n","256"),
+("339","Iringal (CT)\n","256"),
+("340","Eravattur (CT)\n","256"),
+("341","Koothali (CT)\n","256"),
+("342","Menhaniam (CT)\n","256"),
+("343","Meppayyur (CT)\n","256"),
+("344","Kozhukkallur (CT)\n","256"),
+("345","Thurayur (CT)\n","256"),
+("346","Thikkody (CT)\n","256"),
+("347","Keezhariyur (CT)\n","256"),
+("348","Naduvannur (CT)\n","256"),
+("349","Panangad (CT)\n","256"),
+("350","Balusseri (CT)\n","256"),
+("351","Ulliyeri (CT)\n","256"),
+("352","Chemancheri (CT)\n","256"),
+("353","Atholi (CT)\n","256"),
+("354","Kakkur\n","256"),
+("355","Narikkuni\n","256"),
+("356","Kizhakkoth\n","256"),
+("357","Vavad\n","256"),
+("358","Raroth\n","256"),
+("359","Kedavur\n","256"),
+("360","Puthuppadi\n","256"),
+("361","Engapuzha\n","256"),
+("362","Koodathayi \n","256"),
+("363","Kodencheri\n","256"),
+("364","Nellipoyil\n","256"),
+("365","Koodaranji\n","256"),
+("366","Thiruvambadi\n","256"),
+("367","Neeleswaram \n","256"),
+("368","Puthur\n","256"),
+("369","Chathamangalam \n","256"),
+("370","Madavoor\n","256"),
+("371","Kumaranallur\n","256"),
+("372","Kakkad\n","256"),
+("373","Kodiyathur\n","256"),
+("374","Nanmanda (CT)\n","256"),
+("375","Chelannur (CT)\n","256"),
+("376","Thalakkulathur (CT)\n","256"),
+("377","Kakkodi (CT)\n","256"),
+("378","Kuruvattur (CT)\n","256"),
+("379","Kunnamangalam (CT)\n","256"),
+("380","Poolacode (CT)\n","256"),
+("381","Thazhecode (CT)\n","256"),
+("382","Mavoor (CT)\n","256"),
+("383","Peruvayal (CT)\n","256"),
+("384","Kuttikkattoor (CT)\n","256"),
+("385","Olavanna (CT)\n","256"),
+("386","Pantheeramkavu (CT)\n","256"),
+("387","Perumanna (CT)\n","256"),
+("388","Ramanattukara (CT)\n","256"),
+("389","Cheruvannur (CT)\n","256"),
+("390","Beypore (CT)\n","256"),
+("391","Karuvanthuruthy (CT)\n","256"),
+("392","Feroke (CT)\n","256"),
+("393","Koduvally (OG)\n","256"),
+("394","Elathur (OG)\n","256"),
+("395","Kadalundi (OG)\n","256"),
+("396","Puthiyangadi (OG) (Part)\n","256"),
+("397","Malappuram\n","257"),
+("398","Ernad\n","257"),
+("399","Vettilappara\n","257"),
+("400","Vazhakkad\n","257");
 INSERT INTO village VALUES
-("401","Pulikkal","257"),
-("402","Cheekkode","257"),
-("403","Areekode","257"),
-("404","Urangattiri","257"),
-("405","Perakamanna","257"),
-("406","Edavanna","257"),
-("407","Karakunnu","257"),
-("408","Kavanoor","257"),
-("409","Kuzhimanna","257"),
-("410","Muthuvallur","257"),
-("411","Nediyiruppu","257"),
-("412","Morayur","257"),
-("413","Pookkottur","257"),
-("414","Pulpatta","257"),
-("415","Trikkalangode","257"),
-("416","Elankur","257"),
-("417","Pandalur","257"),
-("418","Vettikkattiri","257"),
-("419","Chembrasseri","257"),
-("420","Pandikkad","257"),
-("421","Kizhuparamba (CT)","257"),
-("422","Vazhayur (CT)","257"),
-("423","Cherukavu (CT)","257"),
-("424","Kondotty (CT)","257"),
-("425","Anakkayam (OG)","257"),
-("426","Nilambur","257"),
-("427","Pullipadam ","257"),
-("428","Akampadam","257"),
-("429","Kurumbilangode","257"),
-("430","Chungathara","257"),
-("431","Edakkara","257"),
-("432","Vazhikkadavu","257"),
-("433","Amarambalam","257"),
-("434","Karulai","257"),
-("435","Mambad","257"),
-("436","Thiruvali","257"),
-("437","Porur","257"),
-("438","Wandoor","257"),
-("439","Chekkode","257"),
-("440","Kalikavu","257"),
-("441","Vellayur","257"),
-("442","Thuvvur","257"),
-("443","Kerala Estate","257"),
-("444","Karuvarakundu","257"),
-("445","Nilambur (CT)","257"),
-("446","Perinthalmanna","257"),
-("447","Edappatta","257"),
-("448","Melattur","257"),
-("449","Keezhattur","257"),
-("450","Nenmini","257"),
-("451","Mankada","257"),
-("452","Vadakkangara","257"),
-("453","Kuruva","257"),
-("454","Puzhakkattiri","257"),
-("455","Valambur","257"),
-("456","Angadippuram","257"),
-("457","Kariavattom","257"),
-("458","Vettathur","257"),
-("459","Arakkuparamba","257"),
-("460","Thazhekode","257"),
-("461","Aliparamba","257"),
-("462","Anamangad","257"),
-("463","Elamkulam","257"),
-("464","Pulamanthole","257"),
-("465","Kuruvambalam","257"),
-("466","Moorkkanad","257"),
-("467","Koottilangadi (CT)","257"),
-("468","Kodur (CT)","257"),
-("469","Tirur","257"),
-("470","Pariyapuram","257"),
-("471","Tanur ","257"),
-("472","Ozhur","257"),
-("473","Niramaruthur","257"),
-("474","Valavannur","257"),
-("475","Kalpakancheri","257"),
-("476","Marakkara","257"),
-("477","Ponmala","257"),
-("478","Melmuri","257"),
-("479","Edayoor","257"),
-("480","Athavanad","257"),
-("481","Kurumbathur","257"),
-("482","Ananthavoor","257"),
-("483","Vettom","257"),
-("484","Purathur","257"),
-("485","Mangalam","257"),
-("486","Kottakkal (CT)","257"),
-("487","Perumanna (CT)","257"),
-("488","Ponmundam (CT)","257"),
-("489","Tanalur (CT)","257"),
-("490","Cheriyamundam (CT)","257"),
-("491","Kattipparuthi (CT)","257"),
-("492","Talakkad (CT)","257"),
-("493","Triprangode (CT)","257"),
-("494","Thirunavaya (CT)","257"),
-("495","Naduvattom (CT)","257"),
-("496","Kuttippuram (CT)","257"),
-("497","Irimbiliyam (CT)","257"),
-("498","Tirurangadi","257"),
-("499","Vallikkunnu","257"),
-("500","Parappanangadi ","257");
+("401","Pulikkal\n","257"),
+("402","Cheekkode\n","257"),
+("403","Areekode\n","257"),
+("404","Urangattiri\n","257"),
+("405","Perakamanna\n","257"),
+("406","Edavanna\n","257"),
+("407","Karakunnu\n","257"),
+("408","Kavanoor\n","257"),
+("409","Kuzhimanna\n","257"),
+("410","Muthuvallur\n","257"),
+("411","Nediyiruppu\n","257"),
+("412","Morayur\n","257"),
+("413","Pookkottur\n","257"),
+("414","Pulpatta\n","257"),
+("415","Trikkalangode\n","257"),
+("416","Elankur\n","257"),
+("417","Pandalur\n","257"),
+("418","Vettikkattiri\n","257"),
+("419","Chembrasseri\n","257"),
+("420","Pandikkad\n","257"),
+("421","Kizhuparamba (CT)\n","257"),
+("422","Vazhayur (CT)\n","257"),
+("423","Cherukavu (CT)\n","257"),
+("424","Kondotty (CT)\n","257"),
+("425","Anakkayam (OG)\n","257"),
+("426","Nilambur\n","257"),
+("427","Pullipadam \n","257"),
+("428","Akampadam\n","257"),
+("429","Kurumbilangode\n","257"),
+("430","Chungathara\n","257"),
+("431","Edakkara\n","257"),
+("432","Vazhikkadavu\n","257"),
+("433","Amarambalam\n","257"),
+("434","Karulai\n","257"),
+("435","Mambad\n","257"),
+("436","Thiruvali\n","257"),
+("437","Porur\n","257"),
+("438","Wandoor\n","257"),
+("439","Chekkode\n","257"),
+("440","Kalikavu\n","257"),
+("441","Vellayur\n","257"),
+("442","Thuvvur\n","257"),
+("443","Kerala Estate\n","257"),
+("444","Karuvarakundu\n","257"),
+("445","Nilambur (CT)\n","257"),
+("446","Perinthalmanna\n","257"),
+("447","Edappatta\n","257"),
+("448","Melattur\n","257"),
+("449","Keezhattur\n","257"),
+("450","Nenmini\n","257"),
+("451","Mankada\n","257"),
+("452","Vadakkangara\n","257"),
+("453","Kuruva\n","257"),
+("454","Puzhakkattiri\n","257"),
+("455","Valambur\n","257"),
+("456","Angadippuram\n","257"),
+("457","Kariavattom\n","257"),
+("458","Vettathur\n","257"),
+("459","Arakkuparamba\n","257"),
+("460","Thazhekode\n","257"),
+("461","Aliparamba\n","257"),
+("462","Anamangad\n","257"),
+("463","Elamkulam\n","257"),
+("464","Pulamanthole\n","257"),
+("465","Kuruvambalam\n","257"),
+("466","Moorkkanad\n","257"),
+("467","Koottilangadi (CT)\n","257"),
+("468","Kodur (CT)\n","257"),
+("469","Tirur\n","257"),
+("470","Pariyapuram\n","257"),
+("471","Tanur \n","257"),
+("472","Ozhur\n","257"),
+("473","Niramaruthur\n","257"),
+("474","Valavannur\n","257"),
+("475","Kalpakancheri\n","257"),
+("476","Marakkara\n","257"),
+("477","Ponmala\n","257"),
+("478","Melmuri\n","257"),
+("479","Edayoor\n","257"),
+("480","Athavanad\n","257"),
+("481","Kurumbathur\n","257"),
+("482","Ananthavoor\n","257"),
+("483","Vettom\n","257"),
+("484","Purathur\n","257"),
+("485","Mangalam\n","257"),
+("486","Kottakkal (CT)\n","257"),
+("487","Perumanna (CT)\n","257"),
+("488","Ponmundam (CT)\n","257"),
+("489","Tanalur (CT)\n","257"),
+("490","Cheriyamundam (CT)\n","257"),
+("491","Kattipparuthi (CT)\n","257"),
+("492","Talakkad (CT)\n","257"),
+("493","Triprangode (CT)\n","257"),
+("494","Thirunavaya (CT)\n","257"),
+("495","Naduvattom (CT)\n","257"),
+("496","Kuttippuram (CT)\n","257"),
+("497","Irimbiliyam (CT)\n","257"),
+("498","Tirurangadi\n","257"),
+("499","Vallikkunnu\n","257"),
+("500","Parappanangadi \n","257");
 INSERT INTO village VALUES
-("501","Chelambra (CT)","257"),
-("502","Pallikal (CT)","257"),
-("503","Thenhippalam (CT)","257"),
-("504","Ariyallur (CT)","257"),
-("505","Moonniyur (CT)","257"),
-("506","Peruvallur (CT)","257"),
-("507","Kannamangalam (CT)","257"),
-("508","Urakam (CT)","257"),
-("509","Othukkungal (CT)","257"),
-("510","Parappur (CT)","257"),
-("511","Vengara (CT)","257"),
-("512","Abdu Rahiman Nagar (CT)","257"),
-("513","Tirurangadi (CT)","257"),
-("514","Neduva (CT)","257"),
-("515","Nannambra (CT)","257"),
-("516","Thennala (CT)","257"),
-("517","Ponnani","257"),
-("518","Tavanur","257"),
-("519","Vattamkulam","257"),
-("520","Veliyankode","257"),
-("521","Perumpadappa","257"),
-("522","Nannamukku","257"),
-("523","Kalady (CT)","257"),
-("524","Edappal (CT)","257"),
-("525","Alamcode (CT)","257"),
-("526","Marancheri (CT)","257"),
-("527","Palakkad","258"),
-("528","Ottappalam","258"),
-("529","Anakkara","258"),
-("530","Parudur","258"),
-("531","Thiruvegapura","258"),
-("532","Vilayur","258"),
-("533","Kulukkallur","258"),
-("534","Nellaya","258"),
-("535","Cherpulacherry","258"),
-("536","Vellinezhi","258"),
-("537","Karimpuzha-I","258"),
-("538","Karimpuzha-II","258"),
-("539","Kadampazhipuram-II","258"),
-("540","Kadampazhipuram-I","258"),
-("541","Sreekrishnapuram -I","258"),
-("542","Sreekrishnapuram -II","258"),
-("543","Thrikkadeeri -II","258"),
-("544","Thrikkadeeri -I","258"),
-("545","Ananganadi","258"),
-("546","Chalavara","258"),
-("547","Vallapuzha","258"),
-("548","Koppam","258"),
-("549","Pattithara","258"),
-("550","Kappur","258"),
-("551","Chalissery","258"),
-("552","Nagalassery","258"),
-("553","Thirumittacode-I","258"),
-("554","Vaniyamkulam-I","258"),
-("555","Ambalapara - II","258"),
-("556","Ambalapara - I","258"),
-("557","Lakkidi-Perur- I ","258"),
-("558","Lakkidi-Perur- II ","258"),
-("559","Ongallur -II (CT)","258"),
-("560","Ongallur -I (CT)","258"),
-("561","Pattambi (CT)","258"),
-("562","Muthuthala (CT)","258"),
-("563","Thrithala (CT)","258"),
-("564","Vaniyamkulam- II (CT)","258"),
-("565","Thirumittacode -II (CT)","258"),
-("566","Mannarkad","258"),
-("567","Alanallur-I","258"),
-("568","Alanallur-II","258"),
-("569","Alanallur-III","258"),
-("570","Kottoppadam-I","258"),
-("571","Kottoppadam-III","258"),
-("572","Payyanadam","258"),
-("573","Padavayal","258"),
-("574","Pudur","258"),
-("575","Agali","258"),
-("576","Kottathara","258"),
-("577","Sholayur","258"),
-("578","Kallamala","258"),
-("579","Palakkayam","258"),
-("580","Mannarkad-II","258"),
-("581","Pottassery- I","258"),
-("582","Pottassery- II","258"),
-("583","Thachampara","258"),
-("584","Karimba -I","258"),
-("585","Karimba -II","258"),
-("586","Karakurissi","258"),
-("587","Kumaramputhur","258"),
-("588","Kottoppadam-II","258"),
-("589","Thachanattukara-I","258"),
-("590","Thachanattukara-II","258"),
-("591","Mannarkad-I (CT)","258"),
-("592","Kongad-II","258"),
-("593","Keralassery","258"),
-("594","Mannur","258"),
-("595","Mankara","258"),
-("596","Kongad-I","258"),
-("597","Mundur-II","258"),
-("598","Mundur-I","258"),
-("599","Parli-I","258"),
-("600","Parli-II","258");
+("501","Chelambra (CT)\n","257"),
+("502","Pallikal (CT)\n","257"),
+("503","Thenhippalam (CT)\n","257"),
+("504","Ariyallur (CT)\n","257"),
+("505","Moonniyur (CT)\n","257"),
+("506","Peruvallur (CT)\n","257"),
+("507","Kannamangalam (CT)\n","257"),
+("508","Urakam (CT)\n","257"),
+("509","Othukkungal (CT)\n","257"),
+("510","Parappur (CT)\n","257"),
+("511","Vengara (CT)\n","257"),
+("512","Abdu Rahiman Nagar (CT)\n","257"),
+("513","Tirurangadi (CT)\n","257"),
+("514","Neduva (CT)\n","257"),
+("515","Nannambra (CT)\n","257"),
+("516","Thennala (CT)\n","257"),
+("517","Ponnani\n","257"),
+("518","Tavanur\n","257"),
+("519","Vattamkulam\n","257"),
+("520","Veliyankode\n","257"),
+("521","Perumpadappa\n","257"),
+("522","Nannamukku\n","257"),
+("523","Kalady (CT)\n","257"),
+("524","Edappal (CT)\n","257"),
+("525","Alamcode (CT)\n","257"),
+("526","Marancheri (CT)\n","257"),
+("527","Palakkad\n","258"),
+("528","Ottappalam\n","258"),
+("529","Anakkara\n","258"),
+("530","Parudur\n","258"),
+("531","Thiruvegapura\n","258"),
+("532","Vilayur\n","258"),
+("533","Kulukkallur\n","258"),
+("534","Nellaya\n","258"),
+("535","Cherpulacherry\n","258"),
+("536","Vellinezhi\n","258"),
+("537","Karimpuzha-I\n","258"),
+("538","Karimpuzha-II\n","258"),
+("539","Kadampazhipuram-II\n","258"),
+("540","Kadampazhipuram-I\n","258"),
+("541","Sreekrishnapuram -I\n","258"),
+("542","Sreekrishnapuram -II\n","258"),
+("543","Thrikkadeeri -II\n","258"),
+("544","Thrikkadeeri -I\n","258"),
+("545","Ananganadi\n","258"),
+("546","Chalavara\n","258"),
+("547","Vallapuzha\n","258"),
+("548","Koppam\n","258"),
+("549","Pattithara\n","258"),
+("550","Kappur\n","258"),
+("551","Chalissery\n","258"),
+("552","Nagalassery\n","258"),
+("553","Thirumittacode-I\n","258"),
+("554","Vaniyamkulam-I\n","258"),
+("555","Ambalapara - II\n","258"),
+("556","Ambalapara - I\n","258"),
+("557","Lakkidi-Perur- I \n","258"),
+("558","Lakkidi-Perur- II \n","258"),
+("559","Ongallur -II (CT)\n","258"),
+("560","Ongallur -I (CT)\n","258"),
+("561","Pattambi (CT)\n","258"),
+("562","Muthuthala (CT)\n","258"),
+("563","Thrithala (CT)\n","258"),
+("564","Vaniyamkulam- II (CT)\n","258"),
+("565","Thirumittacode -II (CT)\n","258"),
+("566","Mannarkad\n","258"),
+("567","Alanallur-I\n","258"),
+("568","Alanallur-II\n","258"),
+("569","Alanallur-III\n","258"),
+("570","Kottoppadam-I\n","258"),
+("571","Kottoppadam-III\n","258"),
+("572","Payyanadam\n","258"),
+("573","Padavayal\n","258"),
+("574","Pudur\n","258"),
+("575","Agali\n","258"),
+("576","Kottathara\n","258"),
+("577","Sholayur\n","258"),
+("578","Kallamala\n","258"),
+("579","Palakkayam\n","258"),
+("580","Mannarkad-II\n","258"),
+("581","Pottassery- I\n","258"),
+("582","Pottassery- II\n","258"),
+("583","Thachampara\n","258"),
+("584","Karimba -I\n","258"),
+("585","Karimba -II\n","258"),
+("586","Karakurissi\n","258"),
+("587","Kumaramputhur\n","258"),
+("588","Kottoppadam-II\n","258"),
+("589","Thachanattukara-I\n","258"),
+("590","Thachanattukara-II\n","258"),
+("591","Mannarkad-I (CT)\n","258"),
+("592","Kongad-II\n","258"),
+("593","Keralassery\n","258"),
+("594","Mannur\n","258"),
+("595","Mankara\n","258"),
+("596","Kongad-I\n","258"),
+("597","Mundur-II\n","258"),
+("598","Mundur-I\n","258"),
+("599","Parli-I\n","258"),
+("600","Parli-II\n","258");
 INSERT INTO village VALUES
-("601","Puthuppariyaram-I","258"),
-("602","Malampuzha-I","258"),
-("603","Malampuzha-II","258"),
-("604","Kannadi-I","258"),
-("605","Kannadi-II","258"),
-("606","Kodumba","258"),
-("607","Peruvemba","258"),
-("608","Polpully","258"),
-("609","Elappully-II","258"),
-("610","Elappully-I","258"),
-("611","Pudussery East","258"),
-("612","Puthuppariyaram (CT)","258"),
-("613","Hemambikanagar (CT)","258"),
-("614","Pudussery Central (CT)","258"),
-("615","Pudussery West (CT)","258"),
-("616","Marutharode (CT)","258"),
-("617","Pirayiri (CT)","258"),
-("618","Chittur","258"),
-("619","Koduvayur-II","258"),
-("620","Thathamangalam (Part)","258"),
-("621","Chittur (Part)","258"),
-("622","Thekkedesom","258"),
-("623","Nalleppilly","258"),
-("624","Kozhinjampara","258"),
-("625","Vadakarapathy","258"),
-("626","Ozhalapathy","258"),
-("627","Eruthempathy","258"),
-("628","Kozhipathy","258"),
-("629","Valiyavallampathy","258"),
-("630","Moolathara","258"),
-("631","Perumatty","258"),
-("632","Vandithavalam","258"),
-("633","Pattanchery","258"),
-("634","Vadavannur","258"),
-("635","Pallassana","258"),
-("636","Vallanghy","258"),
-("637","Nemmara","258"),
-("638","Ayiloor","258"),
-("639","Kairady","258"),
-("640","Thiruvazhiyad","258"),
-("641","Nelliyampathy","258"),
-("642","Elavancherry","258"),
-("643","Kollengode-II","258"),
-("644","Kollengode-I","258"),
-("645","Muthalamada-I","258"),
-("646","Muthalamada-II","258"),
-("647","Koduvayur (CT)","258"),
-("648","Puthunagaram (CT)","258"),
-("649","Alathur","258"),
-("650","Peringottukurissi-II","258"),
-("651","Peringottukurissi-I","258"),
-("652","Kottayi-I","258"),
-("653","Kottayi-II","258"),
-("654","Mathur -I","258"),
-("655","Mathur -II","258"),
-("656","Kuzhalmannam-II","258"),
-("657","Thenkurissi-I","258"),
-("658","Thenkurissi-II ","258"),
-("659","Kuzhalmannam-I","258"),
-("660","Kuthannur-I","258"),
-("661","Kuthannur-II","258"),
-("662","Tarur-I","258"),
-("663","Tarur-II","258"),
-("664","Erimayur-I ","258"),
-("665","Erimayur-II","258"),
-("666","Melarcode ","258"),
-("667","Kavasseri-I","258"),
-("668","Kavasseri-II","258"),
-("669","Puducode","258"),
-("670","Kannambra-I","258"),
-("671","Kannambra-II","258"),
-("672","Vadakkancheri-I","258"),
-("673","Vadakkancheri-II","258"),
-("674","Vandazhi-II","258"),
-("675","Vandazhi-I","258"),
-("676","Mangalam Dam","258"),
-("677","Kizhakkencheri-II","258"),
-("678","Kizhakkencheri-I","258"),
-("679","Alathur (CT)","258"),
-("680","Thrissur","260"),
-("681","Talappilly","260"),
-("682","Perumpilavu","260"),
-("683","Kadangode","260"),
-("684","Thichur","260"),
-("685","Arangottukara","260"),
-("686","Pallur","260"),
-("687","Thalassery","260"),
-("688","Pilakkad","260"),
-("689","Varavoor","260"),
-("690","Painkulam","260"),
-("691","Mayannur","260"),
-("692","Pampady","260"),
-("693","Thiruvilwamala","260"),
-("694","Vadakkethara","260"),
-("695","Kondazhy","260"),
-("696","Chelakode","260"),
-("697","Venganellur","260"),
-("698","Killimangalam","260"),
-("699","Panjal","260"),
-("700","Attoor","260");
+("601","Puthuppariyaram-I\n","258"),
+("602","Malampuzha-I\n","258"),
+("603","Malampuzha-II\n","258"),
+("604","Kannadi-I\n","258"),
+("605","Kannadi-II\n","258"),
+("606","Kodumba\n","258"),
+("607","Peruvemba\n","258"),
+("608","Polpully\n","258"),
+("609","Elappully-II\n","258"),
+("610","Elappully-I\n","258"),
+("611","Pudussery East\n","258"),
+("612","Puthuppariyaram (CT)\n","258"),
+("613","Hemambikanagar (CT)\n","258"),
+("614","Pudussery Central (CT)\n","258"),
+("615","Pudussery West (CT)\n","258"),
+("616","Marutharode (CT)\n","258"),
+("617","Pirayiri (CT)\n","258"),
+("618","Chittur\n","258"),
+("619","Koduvayur-II\n","258"),
+("620","Thathamangalam (Part)\n","258"),
+("621","Chittur (Part)\n","258"),
+("622","Thekkedesom\n","258"),
+("623","Nalleppilly\n","258"),
+("624","Kozhinjampara\n","258"),
+("625","Vadakarapathy\n","258"),
+("626","Ozhalapathy\n","258"),
+("627","Eruthempathy\n","258"),
+("628","Kozhipathy\n","258"),
+("629","Valiyavallampathy\n","258"),
+("630","Moolathara\n","258"),
+("631","Perumatty\n","258"),
+("632","Vandithavalam\n","258"),
+("633","Pattanchery\n","258"),
+("634","Vadavannur\n","258"),
+("635","Pallassana\n","258"),
+("636","Vallanghy\n","258"),
+("637","Nemmara\n","258"),
+("638","Ayiloor\n","258"),
+("639","Kairady\n","258"),
+("640","Thiruvazhiyad\n","258"),
+("641","Nelliyampathy\n","258"),
+("642","Elavancherry\n","258"),
+("643","Kollengode-II\n","258"),
+("644","Kollengode-I\n","258"),
+("645","Muthalamada-I\n","258"),
+("646","Muthalamada-II\n","258"),
+("647","Koduvayur (CT)\n","258"),
+("648","Puthunagaram (CT)\n","258"),
+("649","Alathur\n","258"),
+("650","Peringottukurissi-II\n","258"),
+("651","Peringottukurissi-I\n","258"),
+("652","Kottayi-I\n","258"),
+("653","Kottayi-II\n","258"),
+("654","Mathur -I\n","258"),
+("655","Mathur -II\n","258"),
+("656","Kuzhalmannam-II\n","258"),
+("657","Thenkurissi-I\n","258"),
+("658","Thenkurissi-II \n","258"),
+("659","Kuzhalmannam-I\n","258"),
+("660","Kuthannur-I\n","258"),
+("661","Kuthannur-II\n","258"),
+("662","Tarur-I\n","258"),
+("663","Tarur-II\n","258"),
+("664","Erimayur-I \n","258"),
+("665","Erimayur-II\n","258"),
+("666","Melarcode \n","258"),
+("667","Kavasseri-I\n","258"),
+("668","Kavasseri-II\n","258"),
+("669","Puducode\n","258"),
+("670","Kannambra-I\n","258"),
+("671","Kannambra-II\n","258"),
+("672","Vadakkancheri-I\n","258"),
+("673","Vadakkancheri-II\n","258"),
+("674","Vandazhi-II\n","258"),
+("675","Vandazhi-I\n","258"),
+("676","Mangalam Dam\n","258"),
+("677","Kizhakkencheri-II\n","258"),
+("678","Kizhakkencheri-I\n","258"),
+("679","Alathur (CT)\n","258"),
+("680","Thrissur\n","260"),
+("681","Talappilly\n","260"),
+("682","Perumpilavu\n","260"),
+("683","Kadangode\n","260"),
+("684","Thichur\n","260"),
+("685","Arangottukara\n","260"),
+("686","Pallur\n","260"),
+("687","Thalassery\n","260"),
+("688","Pilakkad\n","260"),
+("689","Varavoor\n","260"),
+("690","Painkulam\n","260"),
+("691","Mayannur\n","260"),
+("692","Pampady\n","260"),
+("693","Thiruvilwamala\n","260"),
+("694","Vadakkethara\n","260"),
+("695","Kondazhy\n","260"),
+("696","Chelakode\n","260"),
+("697","Venganellur\n","260"),
+("698","Killimangalam\n","260"),
+("699","Panjal\n","260"),
+("700","Attoor\n","260");
 INSERT INTO village VALUES
-("701","Mullurkara","260"),
-("702","Kanjirakode","260"),
-("703","Vellarakkad","260"),
-("704","Chowwannur(Part)","260"),
-("705","Mangad (Part)","260"),
-("706","Kanipayyur (Part)","260"),
-("707","Chemmanthatta","260"),
-("708","Vellattanjur","260"),
-("709","Thayyur","260"),
-("710","Kiralur","260"),
-("711","Parlikad","260"),
-("712","Puthuruthy","260"),
-("713","Thekkumkara","260"),
-("714","Karumathara","260"),
-("715","Viruppakka","260"),
-("716","Manalithara","260"),
-("717","Kurumala","260"),
-("718","Thonnurkara","260"),
-("719","Pangarappilly","260"),
-("720","Pulakode","260"),
-("721","Pazhayannur","260"),
-("722","Vennur","260"),
-("723","Elanad","260"),
-("724","Kaniyarkode (CT)","260"),
-("725","Cheruthuruthi (CT)","260"),
-("726","Nedumpura (CT)","260"),
-("727","Desamangalam (CT)","260"),
-("728","Kadavallur (CT)","260"),
-("729","Kattakampal (CT)","260"),
-("730","Pazhanji (CT)","260"),
-("731","Karikkad (CT)","260"),
-("732","Nelluwaya (CT)","260"),
-("733","Kottappuram (CT)","260"),
-("734","Chittanda (CT)","260"),
-("735","Kumaranellur (CT)","260"),
-("736","Chelakkara (CT)","260"),
-("737","Enkakkad (CT)","260"),
-("738","Wadakkanchery (CT)","260"),
-("739","Kariyannur (CT)","260"),
-("740","Eyyal (CT)","260"),
-("741","Chiramanangad (CT)","260"),
-("742","Akathiyoor (CT)","260"),
-("743","Porkulam (CT)","260"),
-("744","Choondal (CT)","260"),
-("745","Chiranellur (CT)","260"),
-("746","Velur (CT)","260"),
-("747","Mundathikode (CT)","260"),
-("748","Peringandoor (CT)","260"),
-("749","Minalur (CT)","260"),
-("750","Eranellur (CT)","260"),
-("751","Alur (CT)","260"),
-("752","Kandanassery (CT)","260"),
-("753","Chavakkad","260"),
-("754","Kadappuram ","260"),
-("755","Annakara","260"),
-("756","Irimbranallur","260"),
-("757","Kundazhiyur","260"),
-("758","Engandiyur","260"),
-("759","Nattika","260"),
-("760","Valappad","260"),
-("761","Kadikkad (CT)","260"),
-("762","Punnayurkulam (CT)","260"),
-("763","Vadakkekad (CT)","260"),
-("764","Punnayur (CT)","260"),
-("765","Edakkazhiyur (CT)","260"),
-("766","Vylathur (CT)","260"),
-("767","Pookode (CT)","260"),
-("768","Iringaprom (CT)","260"),
-("769","Perakam (CT)","260"),
-("770","Orumanayur (CT)","260"),
-("771","Paluvai (CT)","260"),
-("772","Thaikkad (CT)","260"),
-("773","Brahmakulam (CT)","260"),
-("774","Elavally (CT)","260"),
-("775","Pavaratty (CT)","260"),
-("776","Venmanad (CT)","260"),
-("777","Mullassery (CT)","260"),
-("778","Venkitangu (CT)","260"),
-("779","Vadanappally (CT)","260"),
-("780","Talikkulam (CT)","260"),
-("781","Velappaya","260"),
-("782","Madakkathara","260"),
-("783","Chalakkal","260"),
-("784","Pananchery","260"),
-("785","Peechi","260"),
-("786","Mannamangalam","260"),
-("787","Mulayam","260"),
-("788","Pullu","260"),
-("789","Pallippuram","260"),
-("790","Alappad","260"),
-("791","Chazhoor","260"),
-("792","Inchamudi","260"),
-("793","Arattupuzha","260"),
-("794","Killannur (CT)","260"),
-("795","Thangalur (CT)","260"),
-("796","Avanur (CT)","260"),
-("797","Anjur (CT)","260"),
-("798","Kaiparamba (CT)","260"),
-("799","Tholur (CT)","260"),
-("800","Edakkalathur (CT)","260");
+("701","Mullurkara\n","260"),
+("702","Kanjirakode\n","260"),
+("703","Vellarakkad\n","260"),
+("704","Chowwannur(Part)\n","260"),
+("705","Mangad (Part)\n","260"),
+("706","Kanipayyur (Part)\n","260"),
+("707","Chemmanthatta\n","260"),
+("708","Vellattanjur\n","260"),
+("709","Thayyur\n","260"),
+("710","Kiralur\n","260"),
+("711","Parlikad\n","260"),
+("712","Puthuruthy\n","260"),
+("713","Thekkumkara\n","260"),
+("714","Karumathara\n","260"),
+("715","Viruppakka\n","260"),
+("716","Manalithara\n","260"),
+("717","Kurumala\n","260"),
+("718","Thonnurkara\n","260"),
+("719","Pangarappilly\n","260"),
+("720","Pulakode\n","260"),
+("721","Pazhayannur\n","260"),
+("722","Vennur\n","260"),
+("723","Elanad\n","260"),
+("724","Kaniyarkode (CT)\n","260"),
+("725","Cheruthuruthi (CT)\n","260"),
+("726","Nedumpura (CT)\n","260"),
+("727","Desamangalam (CT)\n","260"),
+("728","Kadavallur (CT)\n","260"),
+("729","Kattakampal (CT)\n","260"),
+("730","Pazhanji (CT)\n","260"),
+("731","Karikkad (CT)\n","260"),
+("732","Nelluwaya (CT)\n","260"),
+("733","Kottappuram (CT)\n","260"),
+("734","Chittanda (CT)\n","260"),
+("735","Kumaranellur (CT)\n","260"),
+("736","Chelakkara (CT)\n","260"),
+("737","Enkakkad (CT)\n","260"),
+("738","Wadakkanchery (CT)\n","260"),
+("739","Kariyannur (CT)\n","260"),
+("740","Eyyal (CT)\n","260"),
+("741","Chiramanangad (CT)\n","260"),
+("742","Akathiyoor (CT)\n","260"),
+("743","Porkulam (CT)\n","260"),
+("744","Choondal (CT)\n","260"),
+("745","Chiranellur (CT)\n","260"),
+("746","Velur (CT)\n","260"),
+("747","Mundathikode (CT)\n","260"),
+("748","Peringandoor (CT)\n","260"),
+("749","Minalur (CT)\n","260"),
+("750","Eranellur (CT)\n","260"),
+("751","Alur (CT)\n","260"),
+("752","Kandanassery (CT)\n","260"),
+("753","Chavakkad\n","260"),
+("754","Kadappuram \n","260"),
+("755","Annakara\n","260"),
+("756","Irimbranallur\n","260"),
+("757","Kundazhiyur\n","260"),
+("758","Engandiyur\n","260"),
+("759","Nattika\n","260"),
+("760","Valappad\n","260"),
+("761","Kadikkad (CT)\n","260"),
+("762","Punnayurkulam (CT)\n","260"),
+("763","Vadakkekad (CT)\n","260"),
+("764","Punnayur (CT)\n","260"),
+("765","Edakkazhiyur (CT)\n","260"),
+("766","Vylathur (CT)\n","260"),
+("767","Pookode (CT)\n","260"),
+("768","Iringaprom (CT)\n","260"),
+("769","Perakam (CT)\n","260"),
+("770","Orumanayur (CT)\n","260"),
+("771","Paluvai (CT)\n","260"),
+("772","Thaikkad (CT)\n","260"),
+("773","Brahmakulam (CT)\n","260"),
+("774","Elavally (CT)\n","260"),
+("775","Pavaratty (CT)\n","260"),
+("776","Venmanad (CT)\n","260"),
+("777","Mullassery (CT)\n","260"),
+("778","Venkitangu (CT)\n","260"),
+("779","Vadanappally (CT)\n","260"),
+("780","Talikkulam (CT)\n","260"),
+("781","Velappaya\n","260"),
+("782","Madakkathara\n","260"),
+("783","Chalakkal\n","260"),
+("784","Pananchery\n","260"),
+("785","Peechi\n","260"),
+("786","Mannamangalam\n","260"),
+("787","Mulayam\n","260"),
+("788","Pullu\n","260"),
+("789","Pallippuram\n","260"),
+("790","Alappad\n","260"),
+("791","Chazhoor\n","260"),
+("792","Inchamudi\n","260"),
+("793","Arattupuzha\n","260"),
+("794","Killannur (CT)\n","260"),
+("795","Thangalur (CT)\n","260"),
+("796","Avanur (CT)\n","260"),
+("797","Anjur (CT)\n","260"),
+("798","Kaiparamba (CT)\n","260"),
+("799","Tholur (CT)\n","260"),
+("800","Edakkalathur (CT)\n","260");
 INSERT INTO village VALUES
-("801","Peramangalam (CT)","260"),
-("802","Choolissery (CT)","260"),
-("803","Pottore (CT)","260"),
-("804","Kolazhy (CT)","260"),
-("805","Kurichikkara (CT)","260"),
-("806","Vellanikkara (CT)","260"),
-("807","Kuttoor (CT)","260"),
-("808","Puzhakkal (CT)","260"),
-("809","Puranattukara (CT)","260"),
-("810","Chittilappilly (CT)","260"),
-("811","Adat (CT)","260"),
-("812","Kozhukkully (CT)","260"),
-("813","Kainoor (CT)","260"),
-("814","Nadathara (CT)","260"),
-("815","Parakkad (CT)","260"),
-("816","Karamuck (CT)","260"),
-("817","Manalur (CT)","260"),
-("818","Eravu (CT)","260"),
-("819","Veluthur (CT)","260"),
-("820","Manakkody (CT)","260"),
-("821","Marathakkara (CT)","260"),
-("822","Puthur (CT)","260"),
-("823","Avinissery (CT)","260"),
-("824","Palissery (CT)","260"),
-("825","Venginissery (CT)","260"),
-("826","Kodannur (CT)","260"),
-("827","Anthicad (CT)","260"),
-("828","Padiyam (CT)","260"),
-("829","Vadakkummuri (CT)","260"),
-("830","Kizhakkummuri (CT)","260"),
-("831","Cherpu (CT)","260"),
-("832","Paralam (CT)","260"),
-("833","Chevvoor (CT)","260"),
-("834","Vallachira (CT)","260"),
-("835","Oorakam (CT)","260"),
-("836","Kurumpilavu (CT)","260"),
-("837","Kizhuppillikkara (CT)","260"),
-("838","Thanniyam (CT)","260"),
-("839","Kodungallur","260"),
-("840","Koolimuttam","260"),
-("841","Padinjare Vemballur","260"),
-("842","Azhikode","260"),
-("843","Edathiruthy (CT)","260"),
-("844","Chendrappini (CT)","260"),
-("845","Kaipamangalam (CT)","260"),
-("846","Perinjanam (CT)","260"),
-("847","Pappinivattom (CT)","260"),
-("848","Panangad (CT)","260"),
-("849","Edavilangu (CT)","260"),
-("850","Ala (CT)","260"),
-("851","Pallippuram (CT)","260"),
-("852","Methala (CT)","260"),
-("853","Poyya (CT)","260"),
-("854","Madathumpady (CT)","260"),
-("855","Eriyad (OG)","260"),
-("856","Mukundapuram","260"),
-("857","Karalam (Part)","260"),
-("858","Thottippal","260"),
-("859","Kallur","260"),
-("860","Varandarappilly","260"),
-("861","Mupliyam","260"),
-("862","Nandipulam","260"),
-("863","Chengallur","260"),
-("864","Nellayi","260"),
-("865","Anandapuram","260"),
-("866","Muriyad","260"),
-("867","Irinjalakuda (Part)","260"),
-("868","Kaduppassery","260"),
-("869","Kodakara","260"),
-("870","Mattathur","260"),
-("871","Vellikulangara","260"),
-("872","Kuttichira","260"),
-("873","Kodassery ","260"),
-("874","Pariyaram","260"),
-("875","Elanjipra","260"),
-("876","Alur","260"),
-("877","Thazhekkad","260"),
-("878","Kottanellur","260"),
-("879","Vallivattom","260"),
-("880","Karumathra","260"),
-("881","Puthenchira","260"),
-("882","Vadakkumbhagom","260"),
-("883","Annallur","260"),
-("884","Melur","260"),
-("885","Kizhakkummuri","260"),
-("886","Alathur","260"),
-("887","Kuruvilassery","260"),
-("888","Kakkulissery","260"),
-("889","Thirumukkulam","260"),
-("890","Trikkur (CT)","260"),
-("891","Nenmenikkara (CT)","260"),
-("892","Amballur (CT)","260"),
-("893","Puthukkad (CT)","260"),
-("894","Parappukkara (CT)","260"),
-("895","Kattur (CT)","260"),
-("896","Porathissery (CT)","260"),
-("897","Madayikonam (CT)","260"),
-("898","Kallettumkara (CT)","260"),
-("899","Pullur (CT)","260"),
-("900","Manavalassery (CT)","260");
+("801","Peramangalam (CT)\n","260"),
+("802","Choolissery (CT)\n","260"),
+("803","Pottore (CT)\n","260"),
+("804","Kolazhy (CT)\n","260"),
+("805","Kurichikkara (CT)\n","260"),
+("806","Vellanikkara (CT)\n","260"),
+("807","Kuttoor (CT)\n","260"),
+("808","Puzhakkal (CT)\n","260"),
+("809","Puranattukara (CT)\n","260"),
+("810","Chittilappilly (CT)\n","260"),
+("811","Adat (CT)\n","260"),
+("812","Kozhukkully (CT)\n","260"),
+("813","Kainoor (CT)\n","260"),
+("814","Nadathara (CT)\n","260"),
+("815","Parakkad (CT)\n","260"),
+("816","Karamuck (CT)\n","260"),
+("817","Manalur (CT)\n","260"),
+("818","Eravu (CT)\n","260"),
+("819","Veluthur (CT)\n","260"),
+("820","Manakkody (CT)\n","260"),
+("821","Marathakkara (CT)\n","260"),
+("822","Puthur (CT)\n","260"),
+("823","Avinissery (CT)\n","260"),
+("824","Palissery (CT)\n","260"),
+("825","Venginissery (CT)\n","260"),
+("826","Kodannur (CT)\n","260"),
+("827","Anthicad (CT)\n","260"),
+("828","Padiyam (CT)\n","260"),
+("829","Vadakkummuri (CT)\n","260"),
+("830","Kizhakkummuri (CT)\n","260"),
+("831","Cherpu (CT)\n","260"),
+("832","Paralam (CT)\n","260"),
+("833","Chevvoor (CT)\n","260"),
+("834","Vallachira (CT)\n","260"),
+("835","Oorakam (CT)\n","260"),
+("836","Kurumpilavu (CT)\n","260"),
+("837","Kizhuppillikkara (CT)\n","260"),
+("838","Thanniyam (CT)\n","260"),
+("839","Kodungallur\n","260"),
+("840","Koolimuttam\n","260"),
+("841","Padinjare Vemballur\n","260"),
+("842","Azhikode\n","260"),
+("843","Edathiruthy (CT)\n","260"),
+("844","Chendrappini (CT)\n","260"),
+("845","Kaipamangalam (CT)\n","260"),
+("846","Perinjanam (CT)\n","260"),
+("847","Pappinivattom (CT)\n","260"),
+("848","Panangad (CT)\n","260"),
+("849","Edavilangu (CT)\n","260"),
+("850","Ala (CT)\n","260"),
+("851","Pallippuram (CT)\n","260"),
+("852","Methala (CT)\n","260"),
+("853","Poyya (CT)\n","260"),
+("854","Madathumpady (CT)\n","260"),
+("855","Eriyad (OG)\n","260"),
+("856","Mukundapuram\n","260"),
+("857","Karalam (Part)\n","260"),
+("858","Thottippal\n","260"),
+("859","Kallur\n","260"),
+("860","Varandarappilly\n","260"),
+("861","Mupliyam\n","260"),
+("862","Nandipulam\n","260"),
+("863","Chengallur\n","260"),
+("864","Nellayi\n","260"),
+("865","Anandapuram\n","260"),
+("866","Muriyad\n","260"),
+("867","Irinjalakuda (Part)\n","260"),
+("868","Kaduppassery\n","260"),
+("869","Kodakara\n","260"),
+("870","Mattathur\n","260"),
+("871","Vellikulangara\n","260"),
+("872","Kuttichira\n","260"),
+("873","Kodassery \n","260"),
+("874","Pariyaram\n","260"),
+("875","Elanjipra\n","260"),
+("876","Alur\n","260"),
+("877","Thazhekkad\n","260"),
+("878","Kottanellur\n","260"),
+("879","Vallivattom\n","260"),
+("880","Karumathra\n","260"),
+("881","Puthenchira\n","260"),
+("882","Vadakkumbhagom\n","260"),
+("883","Annallur\n","260"),
+("884","Melur\n","260"),
+("885","Kizhakkummuri\n","260"),
+("886","Alathur\n","260"),
+("887","Kuruvilassery\n","260"),
+("888","Kakkulissery\n","260"),
+("889","Thirumukkulam\n","260"),
+("890","Trikkur (CT)\n","260"),
+("891","Nenmenikkara (CT)\n","260"),
+("892","Amballur (CT)\n","260"),
+("893","Puthukkad (CT)\n","260"),
+("894","Parappukkara (CT)\n","260"),
+("895","Kattur (CT)\n","260"),
+("896","Porathissery (CT)\n","260"),
+("897","Madayikonam (CT)\n","260"),
+("898","Kallettumkara (CT)\n","260"),
+("899","Pullur (CT)\n","260"),
+("900","Manavalassery (CT)\n","260");
 INSERT INTO village VALUES
-("901","Edathirinji (CT)","260"),
-("902","Vellookkara (CT)","260"),
-("903","Vadakkumkara (CT)","260"),
-("904","Poomangalam (CT)","260"),
-("905","Padiyur (CT)","260"),
-("906","Thekkumkara (CT)","260"),
-("907","Muringur Vadakkummuri (CT)","260"),
-("908","Koratty (CT)","260"),
-("909","Kallur Vadakkummuri (CT)","260"),
-("910","Vadama (CT)","260"),
-("911","Kallur Thekkummuri (CT)","260"),
-("912","Ernakulam","250"),
-("913","Kunnathunad","250"),
-("914","Kodanad","250"),
-("915","Kombanad","250"),
-("916","Vengoor","250"),
-("917","Vengoor West","250"),
-("918","Asamannoor","250"),
-("919","Rayamangalam","250"),
-("920","Arakapady","250"),
-("921","Irapuram ","250"),
-("922","Mazhuvannoor","250"),
-("923","Pattimattom ","250"),
-("924","Kizhakkambalam","250"),
-("925","Vadavukode","250"),
-("926","Aikaranad North","250"),
-("927","Aikaranad South","250"),
-("928","Thiruvaniyoor","250"),
-("929","Koovappady (CT)","250"),
-("930","Chelamattom (CT)","250"),
-("931","Marampilly(CT)","250"),
-("932","Vazhakulam (CT)","250"),
-("933","Vengola (CT)","250"),
-("934","Perumbavoor (CT)","250"),
-("935","Kunnathunad (CT)","250"),
-("936","Puthencruz (CT)","250"),
-("937","Aluva","250"),
-("938","Parakkadavu","250"),
-("939","Karukutty","250"),
-("940","Mookkannoor","250"),
-("941","Ayyampuzha","250"),
-("942","Manjapra","250"),
-("943","Malayattoor","250"),
-("944","Thuravoor","250"),
-("945","Kalady (CT)","250"),
-("946","Mattoor (CT)","250"),
-("947","Vadakkumbhagom (CT)","250"),
-("948","Chowwara (CT)","250"),
-("949","Nedumbassery (CT)","250"),
-("950","Chengamanad (CT)","250"),
-("951","Kizhakkumbhagom (CT)","250"),
-("952","Thekkumbhagom (CT)","250"),
-("953","Edathala (CT)","250"),
-("954","Choornikkara (CT)","250"),
-("955","Paravur","250"),
-("956","Kunnukara","250"),
-("957","Ezhikkara","250"),
-("958","Puthenvelikkara (CT)","250"),
-("959","Chendamangalam (CT)","250"),
-("960","Moothakunnam (CT)","250"),
-("961","Vadakkekara (CT)","250"),
-("962","Karumalloor (CT)","250"),
-("963","Kadungalloor (CT)","250"),
-("964","Alangad (CT)","250"),
-("965","Kottuvally (CT)","250"),
-("966","Varappuzha (CT)","250"),
-("967","Eloor (CT)","250"),
-("968","Kedamangalam (OG) (Part)","250"),
-("969","Kochi","250"),
-("970","Kuzhuppilly","250"),
-("971","Pallippuram","250"),
-("972","Edavanakkad","250"),
-("973","Nayarambalam","250"),
-("974","Chellanam","250"),
-("975","Njarackal (CT)","250"),
-("976","Elamkunnapuzha (CT)","250"),
-("977","Puthuvype (CT)","250"),
-("978","Kumbalangy (CT)","250"),
-("979","Cheriyakadavu (OG) (Part)","250"),
-("980","Kanayannur","250"),
-("981","Thrikkakara North (Part)","250"),
-("982","Edakkattuvayal","250"),
-("983","Kaippattur","250"),
-("984","Kulayettikara","250"),
-("985","Keecherry","250"),
-("986","Kakkanad (CT)","250"),
-("987","Vazhakkala (CT)","250"),
-("988","Cheranallur (CT)","250"),
-("989","Kadamakkudy (CT)","250"),
-("990","Mulavukad (CT)","250"),
-("991","Thiruvankulam (CT)","250"),
-("992","Kanayannur (CT)","250"),
-("993","Kureekkad (CT)","250"),
-("994","Maradu (CT)","250"),
-("995","Kumbalam (CT)","250"),
-("996","Manakunnam (CT)","250"),
-("997","Mulamthuruthy (CT)","250"),
-("998","Amballur (CT)","250"),
-("999","Muvattupuzha","250"),
-("1000","Valakam","250");
+("901","Edathirinji (CT)\n","260"),
+("902","Vellookkara (CT)\n","260"),
+("903","Vadakkumkara (CT)\n","260"),
+("904","Poomangalam (CT)\n","260"),
+("905","Padiyur (CT)\n","260"),
+("906","Thekkumkara (CT)\n","260"),
+("907","Muringur Vadakkummuri (CT)\n","260"),
+("908","Koratty (CT)\n","260"),
+("909","Kallur Vadakkummuri (CT)\n","260"),
+("910","Vadama (CT)\n","260"),
+("911","Kallur Thekkummuri (CT)\n","260"),
+("912","Ernakulam\n","250"),
+("913","Kunnathunad\n","250"),
+("914","Kodanad\n","250"),
+("915","Kombanad\n","250"),
+("916","Vengoor\n","250"),
+("917","Vengoor West\n","250"),
+("918","Asamannoor\n","250"),
+("919","Rayamangalam\n","250"),
+("920","Arakapady\n","250"),
+("921","Irapuram \n","250"),
+("922","Mazhuvannoor\n","250"),
+("923","Pattimattom \n","250"),
+("924","Kizhakkambalam\n","250"),
+("925","Vadavukode\n","250"),
+("926","Aikaranad North\n","250"),
+("927","Aikaranad South\n","250"),
+("928","Thiruvaniyoor\n","250"),
+("929","Koovappady (CT)\n","250"),
+("930","Chelamattom (CT)\n","250"),
+("931","Marampilly(CT)\n","250"),
+("932","Vazhakulam (CT)\n","250"),
+("933","Vengola (CT)\n","250"),
+("934","Perumbavoor (CT)\n","250"),
+("935","Kunnathunad (CT)\n","250"),
+("936","Puthencruz (CT)\n","250"),
+("937","Aluva\n","250"),
+("938","Parakkadavu\n","250"),
+("939","Karukutty\n","250"),
+("940","Mookkannoor\n","250"),
+("941","Ayyampuzha\n","250"),
+("942","Manjapra\n","250"),
+("943","Malayattoor\n","250"),
+("944","Thuravoor\n","250"),
+("945","Kalady (CT)\n","250"),
+("946","Mattoor (CT)\n","250"),
+("947","Vadakkumbhagom (CT)\n","250"),
+("948","Chowwara (CT)\n","250"),
+("949","Nedumbassery (CT)\n","250"),
+("950","Chengamanad (CT)\n","250"),
+("951","Kizhakkumbhagom (CT)\n","250"),
+("952","Thekkumbhagom (CT)\n","250"),
+("953","Edathala (CT)\n","250"),
+("954","Choornikkara (CT)\n","250"),
+("955","Paravur\n","250"),
+("956","Kunnukara\n","250"),
+("957","Ezhikkara\n","250"),
+("958","Puthenvelikkara (CT)\n","250"),
+("959","Chendamangalam (CT)\n","250"),
+("960","Moothakunnam (CT)\n","250"),
+("961","Vadakkekara (CT)\n","250"),
+("962","Karumalloor (CT)\n","250"),
+("963","Kadungalloor (CT)\n","250"),
+("964","Alangad (CT)\n","250"),
+("965","Kottuvally (CT)\n","250"),
+("966","Varappuzha (CT)\n","250"),
+("967","Eloor (CT)\n","250"),
+("968","Kedamangalam (OG) (Part)\n","250"),
+("969","Kochi\n","250"),
+("970","Kuzhuppilly\n","250"),
+("971","Pallippuram\n","250"),
+("972","Edavanakkad\n","250"),
+("973","Nayarambalam\n","250"),
+("974","Chellanam\n","250"),
+("975","Njarackal (CT)\n","250"),
+("976","Elamkunnapuzha (CT)\n","250"),
+("977","Puthuvype (CT)\n","250"),
+("978","Kumbalangy (CT)\n","250"),
+("979","Cheriyakadavu (OG) (Part)\n","250"),
+("980","Kanayannur\n","250"),
+("981","Thrikkakara North (Part)\n","250"),
+("982","Edakkattuvayal\n","250"),
+("983","Kaippattur\n","250"),
+("984","Kulayettikara\n","250"),
+("985","Keecherry\n","250"),
+("986","Kakkanad (CT)\n","250"),
+("987","Vazhakkala (CT)\n","250"),
+("988","Cheranallur (CT)\n","250"),
+("989","Kadamakkudy (CT)\n","250"),
+("990","Mulavukad (CT)\n","250"),
+("991","Thiruvankulam (CT)\n","250"),
+("992","Kanayannur (CT)\n","250"),
+("993","Kureekkad (CT)\n","250"),
+("994","Maradu (CT)\n","250"),
+("995","Kumbalam (CT)\n","250"),
+("996","Manakunnam (CT)\n","250"),
+("997","Mulamthuruthy (CT)\n","250"),
+("998","Amballur (CT)\n","250"),
+("999","Muvattupuzha\n","250"),
+("1000","Valakam\n","250");
 INSERT INTO village VALUES
-("1001","Mulavoor","250"),
-("1002","Enanalloor ","250"),
-("1003","Kalloorkkad ","250"),
-("1004","Manjalloor","250"),
-("1005","Muvattupuzha (Part)","250"),
-("1006","Arakuzha","250"),
-("1007","Marady (Part)","250"),
-("1008","Memury","250"),
-("1009","Ramamangalam","250"),
-("1010","Maneed","250"),
-("1011","Piravom","250"),
-("1012","Onakkoor","250"),
-("1013","Thirumarady","250"),
-("1014","Palakkuzha","250"),
-("1015","Koothattukulam","250"),
-("1016","Elanji","250"),
-("1017","Velloorkunnam (CT)","250"),
-("1018","Kothamangalam","250"),
-("1019","Thrikkariyoor (Part)","250"),
-("1020","Kottappady","250"),
-("1021","Pindimana","250"),
-("1022","Kuttampuzha","250"),
-("1023","Keerampara","250"),
-("1024","Kuttamangalam","250"),
-("1025","Neriamangalam ","250"),
-("1026","Kedavoor","250"),
-("1027","Pothanikkad","250"),
-("1028","Varappetty","250"),
-("1029","Eramalloor (CT)","250"),
-("1030","Idukki ","251"),
-("1031","Devikulam","251"),
-("1032","Marayoor","251"),
-("1033","Keezhanthoor","251"),
-("1034","Kanthalloor","251"),
-("1035","Kottakamboor","251"),
-("1036","Vattavada","251"),
-("1037","Kannan Devan Hills","251"),
-("1038","Mankulam","251"),
-("1039","Mannamkandam","251"),
-("1040","Anaviratty","251"),
-("1041","Pallivasal","251"),
-("1042","Kunjithanny","251"),
-("1043","Vellathuval","251"),
-("1044","Udumbanchola","251"),
-("1045","Konnathady","251"),
-("1046","Rajakkad ","251"),
-("1047","Baisonvally","251"),
-("1048","Chinnakanal","251"),
-("1049","Poopara ","251"),
-("1050","Rajakumari","251"),
-("1051","Kanthippara","251"),
-("1052","Santhanpara","251"),
-("1053","Chathurangapara","251"),
-("1054","Vathikudy","251"),
-("1055","Upputhode","251"),
-("1056","Thankamony","251"),
-("1057","Kalkoonthal","251"),
-("1058","Parathodu","251"),
-("1059","Pampadumpara","251"),
-("1060","Karunapuram","251"),
-("1061","Vandanmedu","251"),
-("1062","Kattappana","251"),
-("1063","Ayyappancoil","251"),
-("1064","Anavilasam ","251"),
-("1065","Chakkupallam","251"),
-("1066","Anakkara","251"),
-("1067","Thodupuzha","251"),
-("1068","Kumaramangalam (Part)","251"),
-("1069","Kodikulam ","251"),
-("1070","Vannapuram","251"),
-("1071","Kanjikuzhi","251"),
-("1072","Udumbannoor","251"),
-("1073","Neyyasseri","251"),
-("1074","Karimannoor","251"),
-("1075","Karikkode (Part)","251"),
-("1076","Thodupuzha (Part)","251"),
-("1077","Manakkad (Part)","251"),
-("1078","Purapuzha","251"),
-("1079","Karimkunnam (Part)","251"),
-("1080","Muttom ","251"),
-("1081","Alacode","251"),
-("1082","Velliyamattom","251"),
-("1083","Idukki","251"),
-("1084","Arakkulam ","251"),
-("1085","Kudayathoor ","251"),
-("1086","Elappally","251"),
-("1087","Peerumade","251"),
-("1088","Vagamon ","251"),
-("1089","Upputhara ","251"),
-("1090","Elappara ","251"),
-("1091","Kokkayar","251"),
-("1092","Manjumala","251"),
-("1093","Periyar","251"),
-("1094","Kumily","251"),
-("1095","Mlappara","251"),
-("1096","Peruvanthanam","251"),
-("1097","Kottayam","255"),
-("1098","Meenachil","255"),
-("1099","Veliyannoor","255"),
-("1100","Monippally","255");
+("1001","Mulavoor\n","250"),
+("1002","Enanalloor \n","250"),
+("1003","Kalloorkkad \n","250"),
+("1004","Manjalloor\n","250"),
+("1005","Muvattupuzha (Part)\n","250"),
+("1006","Arakuzha\n","250"),
+("1007","Marady (Part)\n","250"),
+("1008","Memury\n","250"),
+("1009","Ramamangalam\n","250"),
+("1010","Maneed\n","250"),
+("1011","Piravom\n","250"),
+("1012","Onakkoor\n","250"),
+("1013","Thirumarady\n","250"),
+("1014","Palakkuzha\n","250"),
+("1015","Koothattukulam\n","250"),
+("1016","Elanji\n","250"),
+("1017","Velloorkunnam (CT)\n","250"),
+("1018","Kothamangalam\n","250"),
+("1019","Thrikkariyoor (Part)\n","250"),
+("1020","Kottappady\n","250"),
+("1021","Pindimana\n","250"),
+("1022","Kuttampuzha\n","250"),
+("1023","Keerampara\n","250"),
+("1024","Kuttamangalam\n","250"),
+("1025","Neriamangalam \n","250"),
+("1026","Kedavoor\n","250"),
+("1027","Pothanikkad\n","250"),
+("1028","Varappetty\n","250"),
+("1029","Eramalloor (CT)\n","250"),
+("1030","Idukki \n","251"),
+("1031","Devikulam\n","251"),
+("1032","Marayoor\n","251"),
+("1033","Keezhanthoor\n","251"),
+("1034","Kanthalloor\n","251"),
+("1035","Kottakamboor\n","251"),
+("1036","Vattavada\n","251"),
+("1037","Kannan Devan Hills\n","251"),
+("1038","Mankulam\n","251"),
+("1039","Mannamkandam\n","251"),
+("1040","Anaviratty\n","251"),
+("1041","Pallivasal\n","251"),
+("1042","Kunjithanny\n","251"),
+("1043","Vellathuval\n","251"),
+("1044","Udumbanchola\n","251"),
+("1045","Konnathady\n","251"),
+("1046","Rajakkad \n","251"),
+("1047","Baisonvally\n","251"),
+("1048","Chinnakanal\n","251"),
+("1049","Poopara \n","251"),
+("1050","Rajakumari\n","251"),
+("1051","Kanthippara\n","251"),
+("1052","Santhanpara\n","251"),
+("1053","Chathurangapara\n","251"),
+("1054","Vathikudy\n","251"),
+("1055","Upputhode\n","251"),
+("1056","Thankamony\n","251"),
+("1057","Kalkoonthal\n","251"),
+("1058","Parathodu\n","251"),
+("1059","Pampadumpara\n","251"),
+("1060","Karunapuram\n","251"),
+("1061","Vandanmedu\n","251"),
+("1062","Kattappana\n","251"),
+("1063","Ayyappancoil\n","251"),
+("1064","Anavilasam \n","251"),
+("1065","Chakkupallam\n","251"),
+("1066","Anakkara\n","251"),
+("1067","Thodupuzha\n","251"),
+("1068","Kumaramangalam (Part)\n","251"),
+("1069","Kodikulam \n","251"),
+("1070","Vannapuram\n","251"),
+("1071","Kanjikuzhi\n","251"),
+("1072","Udumbannoor\n","251"),
+("1073","Neyyasseri\n","251"),
+("1074","Karimannoor\n","251"),
+("1075","Karikkode (Part)\n","251"),
+("1076","Thodupuzha (Part)\n","251"),
+("1077","Manakkad (Part)\n","251"),
+("1078","Purapuzha\n","251"),
+("1079","Karimkunnam (Part)\n","251"),
+("1080","Muttom \n","251"),
+("1081","Alacode\n","251"),
+("1082","Velliyamattom\n","251"),
+("1083","Idukki\n","251"),
+("1084","Arakkulam \n","251"),
+("1085","Kudayathoor \n","251"),
+("1086","Elappally\n","251"),
+("1087","Peerumade\n","251"),
+("1088","Vagamon \n","251"),
+("1089","Upputhara \n","251"),
+("1090","Elappara \n","251"),
+("1091","Kokkayar\n","251"),
+("1092","Manjumala\n","251"),
+("1093","Periyar\n","251"),
+("1094","Kumily\n","251"),
+("1095","Mlappara\n","251"),
+("1096","Peruvanthanam\n","251"),
+("1097","Kottayam\n","255"),
+("1098","Meenachil\n","255"),
+("1099","Veliyannoor\n","255"),
+("1100","Monippally\n","255");
 INSERT INTO village VALUES
-("1101","Uzhavoor","255"),
-("1102","Vellilappally ","255"),
-("1103","Ramapuram ","255"),
-("1104","Kadanad","255"),
-("1105","Melukavu","255"),
-("1106","Moonilavu","255"),
-("1107","Poonjar Vadakkekara","255"),
-("1108","Teekoy","255"),
-("1109","Thalappalam","255"),
-("1110","Bharananganam ","255"),
-("1111","Lalam (Part)","255"),
-("1112","Vallichira","255"),
-("1113","Kurichithanam","255"),
-("1114","Kuravilangad","255"),
-("1115","Kanakkari","255"),
-("1116","Elackad","255"),
-("1117","Kidangoor","255"),
-("1118","Puliyannoor (Part)","255"),
-("1119","Meenachil (Part)","255"),
-("1120","Poovarany","255"),
-("1121","Kondoor","255"),
-("1122","Poonjar Thekkekara","255"),
-("1123","Poonjar Nadubhagam","255"),
-("1124","Erattupetta (CT)","255"),
-("1125","Vaikom","255"),
-("1126","Chempu","255"),
-("1127","Velloor","255"),
-("1128","Mulakulam","255"),
-("1129","Njeezhoor","255"),
-("1130","Kaduthuruthy","255"),
-("1131","Vadayar","255"),
-("1132","Kulasekharamangalam","255"),
-("1133","Vadakkemuri (Part)","255"),
-("1134","Naduvile (Part)","255"),
-("1135","Vaikom (Part)","255"),
-("1136","Thalayazham","255"),
-("1137","Vechoor","255"),
-("1138","Kallara","255"),
-("1139","Muttuchira","255"),
-("1140","Manjoor","255"),
-("1141","Kothanalloor","255"),
-("1142","Arpookara","255"),
-("1143","Kaipuzha","255"),
-("1144","Onamthuruth","255"),
-("1145","Peroor","255"),
-("1146","Ayarkunnam","255"),
-("1147","Akalakunnam","255"),
-("1148","Chengalam East","255"),
-("1149","Anikkad","255"),
-("1150","Kooroppada","255"),
-("1151","Manarcad","255"),
-("1152","Muttampalam (Part)","255"),
-("1153","Kumarakam","255"),
-("1154","Thiruvarpu","255"),
-("1155","Veloor  (Part)","255"),
-("1156","Meenadam ","255"),
-("1157","Pampady","255"),
-("1158","Ettumanoor (CT)","255"),
-("1159","Athirampuzha (CT)","255"),
-("1160","Aimanam (CT)","255"),
-("1161","Perumbaikad (CT)","255"),
-("1162","Vijayapuram (CT)","255"),
-("1163","Chengalam South (CT)","255"),
-("1164","Nattakam (CT)","255"),
-("1165","Panachikkad (CT)","255"),
-("1166","Puthuppally (CT)","255"),
-("1167","Changanassery","255"),
-("1168","Vakathanam","255"),
-("1169","Kurichy","255"),
-("1170","Vazhappally Padinjaru (Part)","255"),
-("1171","Changanassery (Part)","255"),
-("1172","Madappally","255"),
-("1173","Thottackad","255"),
-("1174","Karukachal","255"),
-("1175","Nedumkunnam ","255"),
-("1176","Vazhoor","255"),
-("1177","Kangazha","255"),
-("1178","Vellavoor","255"),
-("1179","Chethipuzha (CT)","255"),
-("1180","Thrikkodithanam (CT)","255"),
-("1181","Paippad (CT)","255"),
-("1182","Kanjirappally","255"),
-("1183","Koottickal","255"),
-("1184","Mundakayam","255"),
-("1185","Edakkunnam","255"),
-("1186","Elikkulam","255"),
-("1187","Elamgulam","255"),
-("1188","Chirakkadavu","255"),
-("1189","Cheruvally","255"),
-("1190","Koovappally","255"),
-("1191","Erumeli North","255"),
-("1192","Erumeli South ","255"),
-("1193","Manimala","255"),
-("1194","Alappuzha","249"),
-("1195","Cherthala","249"),
-("1196","Perumbalam","249"),
-("1197","Panavally","249"),
-("1198","Thuravoor Thekku","249"),
-("1199","Pattanakkad","249"),
-("1200","Kadakkarappally","249");
+("1101","Uzhavoor\n","255"),
+("1102","Vellilappally \n","255"),
+("1103","Ramapuram \n","255"),
+("1104","Kadanad\n","255"),
+("1105","Melukavu\n","255"),
+("1106","Moonilavu\n","255"),
+("1107","Poonjar Vadakkekara\n","255"),
+("1108","Teekoy\n","255"),
+("1109","Thalappalam\n","255"),
+("1110","Bharananganam \n","255"),
+("1111","Lalam (Part)\n","255"),
+("1112","Vallichira\n","255"),
+("1113","Kurichithanam\n","255"),
+("1114","Kuravilangad\n","255"),
+("1115","Kanakkari\n","255"),
+("1116","Elackad\n","255"),
+("1117","Kidangoor\n","255"),
+("1118","Puliyannoor (Part)\n","255"),
+("1119","Meenachil (Part)\n","255"),
+("1120","Poovarany\n","255"),
+("1121","Kondoor\n","255"),
+("1122","Poonjar Thekkekara\n","255"),
+("1123","Poonjar Nadubhagam\n","255"),
+("1124","Erattupetta (CT)\n","255"),
+("1125","Vaikom\n","255"),
+("1126","Chempu\n","255"),
+("1127","Velloor\n","255"),
+("1128","Mulakulam\n","255"),
+("1129","Njeezhoor\n","255"),
+("1130","Kaduthuruthy\n","255"),
+("1131","Vadayar\n","255"),
+("1132","Kulasekharamangalam\n","255"),
+("1133","Vadakkemuri (Part)\n","255"),
+("1134","Naduvile (Part)\n","255"),
+("1135","Vaikom (Part)\n","255"),
+("1136","Thalayazham\n","255"),
+("1137","Vechoor\n","255"),
+("1138","Kallara\n","255"),
+("1139","Muttuchira\n","255"),
+("1140","Manjoor\n","255"),
+("1141","Kothanalloor\n","255"),
+("1142","Arpookara\n","255"),
+("1143","Kaipuzha\n","255"),
+("1144","Onamthuruth\n","255"),
+("1145","Peroor\n","255"),
+("1146","Ayarkunnam\n","255"),
+("1147","Akalakunnam\n","255"),
+("1148","Chengalam East\n","255"),
+("1149","Anikkad\n","255"),
+("1150","Kooroppada\n","255"),
+("1151","Manarcad\n","255"),
+("1152","Muttampalam (Part)\n","255"),
+("1153","Kumarakam\n","255"),
+("1154","Thiruvarpu\n","255"),
+("1155","Veloor  (Part)\n","255"),
+("1156","Meenadam \n","255"),
+("1157","Pampady\n","255"),
+("1158","Ettumanoor (CT)\n","255"),
+("1159","Athirampuzha (CT)\n","255"),
+("1160","Aimanam (CT)\n","255"),
+("1161","Perumbaikad (CT)\n","255"),
+("1162","Vijayapuram (CT)\n","255"),
+("1163","Chengalam South (CT)\n","255"),
+("1164","Nattakam (CT)\n","255"),
+("1165","Panachikkad (CT)\n","255"),
+("1166","Puthuppally (CT)\n","255"),
+("1167","Changanassery\n","255"),
+("1168","Vakathanam\n","255"),
+("1169","Kurichy\n","255"),
+("1170","Vazhappally Padinjaru (Part)\n","255"),
+("1171","Changanassery (Part)\n","255"),
+("1172","Madappally\n","255"),
+("1173","Thottackad\n","255"),
+("1174","Karukachal\n","255"),
+("1175","Nedumkunnam \n","255"),
+("1176","Vazhoor\n","255"),
+("1177","Kangazha\n","255"),
+("1178","Vellavoor\n","255"),
+("1179","Chethipuzha (CT)\n","255"),
+("1180","Thrikkodithanam (CT)\n","255"),
+("1181","Paippad (CT)\n","255"),
+("1182","Kanjirappally\n","255"),
+("1183","Koottickal\n","255"),
+("1184","Mundakayam\n","255"),
+("1185","Edakkunnam\n","255"),
+("1186","Elikkulam\n","255"),
+("1187","Elamgulam\n","255"),
+("1188","Chirakkadavu\n","255"),
+("1189","Cheruvally\n","255"),
+("1190","Koovappally\n","255"),
+("1191","Erumeli North\n","255"),
+("1192","Erumeli South \n","255"),
+("1193","Manimala\n","255"),
+("1194","Alappuzha\n","249"),
+("1195","Cherthala\n","249"),
+("1196","Perumbalam\n","249"),
+("1197","Panavally\n","249"),
+("1198","Thuravoor Thekku\n","249"),
+("1199","Pattanakkad\n","249"),
+("1200","Kadakkarappally\n","249");
 INSERT INTO village VALUES
-("1201","Cherthala North (Part)","249"),
-("1202","Cherthala South (Part)","249"),
-("1203","Mararikkulam North","249"),
-("1204","Arookutty (CT)","249"),
-("1205","Aroor (CT)","249"),
-("1206","Ezhupunna (CT)","249"),
-("1207","Kodamthuruth (CT)","249"),
-("1208","Thaikattussery (CT)","249"),
-("1209","Kuthiathode (CT)","249"),
-("1210","Vayalar (CT)","249"),
-("1211","Pallippuram (CT)","249"),
-("1212","Thanneermukkam (CT)","249"),
-("1213","Kokkothamangalam (CT)","249"),
-("1214","Kanjikkuzhi (CT)","249"),
-("1215","Muhamma (CT)","249"),
-("1216","Ambalappuzha","249"),
-("1217","Kalavoor","249"),
-("1218","Aryad South  (Part)","249"),
-("1219","Mullakkal (Part) ","249"),
-("1220","Karumady  ","249"),
-("1221","Purakkad","249"),
-("1222","Mannanchery (CT)","249"),
-("1223","Pathirappally (CT)","249"),
-("1224","Komalapuram (CT)","249"),
-("1225","Punnapra (OG)","249"),
-("1226","Kalarkode (OG) (Part)","249"),
-("1227","Kuttanad","249"),
-("1228","Kainakary North","249"),
-("1229","Kainakary South","249"),
-("1230","Pulinkunnu","249"),
-("1231","Kunnumma","249"),
-("1232","Kavalam","249"),
-("1233","Neelamperoor","249"),
-("1234","Veliyanad","249"),
-("1235","Ramankary","249"),
-("1236","Champakkulam","249"),
-("1237","Nedumudi","249"),
-("1238","Thakazhy","249"),
-("1239","Edathua  ","249"),
-("1240","Muttar","249"),
-("1241","Thalavady ","249"),
-("1242","Karthikappally","249"),
-("1243","Karuvatta","249"),
-("1244","Cheruthana","249"),
-("1245","Veeyapuram","249"),
-("1246","Pallippad","249"),
-("1247","Thrikkunnapuzha","249"),
-("1248","Arattupuzha","249"),
-("1249","Haripad (CT)","249"),
-("1250","Kumarapuram (CT)","249"),
-("1251","Karthikappally (CT)","249"),
-("1252","Chingoli (CT)","249"),
-("1253","Cheppad (CT)","249"),
-("1254","Pathiyoor (CT)","249"),
-("1255","Keerikkad (CT)","249"),
-("1256","Muthukulam (CT)","249"),
-("1257","Kandalloor (CT)","249"),
-("1258","Puthuppally (CT)","249"),
-("1259","Krishnapuram (CT)","249"),
-("1260","Chengannur","249"),
-("1261","Ennakkad","249"),
-("1262","Pandanad (Part)","249"),
-("1263","Thiruvanvandoor","249"),
-("1264","Chengannur  (Part)","249"),
-("1265","Mulakuzha (Part) ","249"),
-("1266","Ala (Part)","249"),
-("1267","Puliyoor(Part)","249"),
-("1268","Cheriyanad","249"),
-("1269","Venmony","249"),
-("1270","Mannar (CT)","249"),
-("1271","Kurattissery (CT)","249"),
-("1272","Mavelikkara","249"),
-("1273","Thriperumthura","249"),
-("1274","Vettiyar","249"),
-("1275","Thekkekara (Part)","249"),
-("1276","Perungala","249"),
-("1277","Chunakkara","249"),
-("1278","Noornad","249"),
-("1279","Palamel","249"),
-("1280","Thamarakkulam","249"),
-("1281","Vallikunnam","249"),
-("1282","Kannamangalam (CT)","249"),
-("1283","Chennithala (CT)","249"),
-("1284","Thazhakara (CT)","249"),
-("1285","Bharanikkavu (CT)","249"),
-("1286","Kattanam (CT)","249"),
-("1287","Pathanamthitta","259"),
-("1288","Thiruvalla","259"),
-("1289","Niranam","259"),
-("1290","Kadapra","259"),
-("1291","Nedumpuram","259"),
-("1292","Peringara","259"),
-("1293","Kavumbhagom (Part)","259"),
-("1294","Kuttoor","259"),
-("1295","Kaviyoor","259"),
-("1296","Eraviperoor","259"),
-("1297","Koipuram","259"),
-("1298","Thottapuzhassery","259"),
-("1299","Mallappally","259"),
-("1300","Kunnamthanam","259");
+("1201","Cherthala North (Part)\n","249"),
+("1202","Cherthala South (Part)\n","249"),
+("1203","Mararikkulam North\n","249"),
+("1204","Arookutty (CT)\n","249"),
+("1205","Aroor (CT)\n","249"),
+("1206","Ezhupunna (CT)\n","249"),
+("1207","Kodamthuruth (CT)\n","249"),
+("1208","Thaikattussery (CT)\n","249"),
+("1209","Kuthiathode (CT)\n","249"),
+("1210","Vayalar (CT)\n","249"),
+("1211","Pallippuram (CT)\n","249"),
+("1212","Thanneermukkam (CT)\n","249"),
+("1213","Kokkothamangalam (CT)\n","249"),
+("1214","Kanjikkuzhi (CT)\n","249"),
+("1215","Muhamma (CT)\n","249"),
+("1216","Ambalappuzha\n","249"),
+("1217","Kalavoor\n","249"),
+("1218","Aryad South  (Part)\n","249"),
+("1219","Mullakkal (Part) \n","249"),
+("1220","Karumady  \n","249"),
+("1221","Purakkad\n","249"),
+("1222","Mannanchery (CT)\n","249"),
+("1223","Pathirappally (CT)\n","249"),
+("1224","Komalapuram (CT)\n","249"),
+("1225","Punnapra (OG)\n","249"),
+("1226","Kalarkode (OG) (Part)\n","249"),
+("1227","Kuttanad\n","249"),
+("1228","Kainakary North\n","249"),
+("1229","Kainakary South\n","249"),
+("1230","Pulinkunnu\n","249"),
+("1231","Kunnumma\n","249"),
+("1232","Kavalam\n","249"),
+("1233","Neelamperoor\n","249"),
+("1234","Veliyanad\n","249"),
+("1235","Ramankary\n","249"),
+("1236","Champakkulam\n","249"),
+("1237","Nedumudi\n","249"),
+("1238","Thakazhy\n","249"),
+("1239","Edathua  \n","249"),
+("1240","Muttar\n","249"),
+("1241","Thalavady \n","249"),
+("1242","Karthikappally\n","249"),
+("1243","Karuvatta\n","249"),
+("1244","Cheruthana\n","249"),
+("1245","Veeyapuram\n","249"),
+("1246","Pallippad\n","249"),
+("1247","Thrikkunnapuzha\n","249"),
+("1248","Arattupuzha\n","249"),
+("1249","Haripad (CT)\n","249"),
+("1250","Kumarapuram (CT)\n","249"),
+("1251","Karthikappally (CT)\n","249"),
+("1252","Chingoli (CT)\n","249"),
+("1253","Cheppad (CT)\n","249"),
+("1254","Pathiyoor (CT)\n","249"),
+("1255","Keerikkad (CT)\n","249"),
+("1256","Muthukulam (CT)\n","249"),
+("1257","Kandalloor (CT)\n","249"),
+("1258","Puthuppally (CT)\n","249"),
+("1259","Krishnapuram (CT)\n","249"),
+("1260","Chengannur\n","249"),
+("1261","Ennakkad\n","249"),
+("1262","Pandanad (Part)\n","249"),
+("1263","Thiruvanvandoor\n","249"),
+("1264","Chengannur  (Part)\n","249"),
+("1265","Mulakuzha (Part) \n","249"),
+("1266","Ala (Part)\n","249"),
+("1267","Puliyoor(Part)\n","249"),
+("1268","Cheriyanad\n","249"),
+("1269","Venmony\n","249"),
+("1270","Mannar (CT)\n","249"),
+("1271","Kurattissery (CT)\n","249"),
+("1272","Mavelikkara\n","249"),
+("1273","Thriperumthura\n","249"),
+("1274","Vettiyar\n","249"),
+("1275","Thekkekara (Part)\n","249"),
+("1276","Perungala\n","249"),
+("1277","Chunakkara\n","249"),
+("1278","Noornad\n","249"),
+("1279","Palamel\n","249"),
+("1280","Thamarakkulam\n","249"),
+("1281","Vallikunnam\n","249"),
+("1282","Kannamangalam (CT)\n","249"),
+("1283","Chennithala (CT)\n","249"),
+("1284","Thazhakara (CT)\n","249"),
+("1285","Bharanikkavu (CT)\n","249"),
+("1286","Kattanam (CT)\n","249"),
+("1287","Pathanamthitta\n","259"),
+("1288","Thiruvalla\n","259"),
+("1289","Niranam\n","259"),
+("1290","Kadapra\n","259"),
+("1291","Nedumpuram\n","259"),
+("1292","Peringara\n","259"),
+("1293","Kavumbhagom (Part)\n","259"),
+("1294","Kuttoor\n","259"),
+("1295","Kaviyoor\n","259"),
+("1296","Eraviperoor\n","259"),
+("1297","Koipuram\n","259"),
+("1298","Thottapuzhassery\n","259"),
+("1299","Mallappally\n","259"),
+("1300","Kunnamthanam\n","259");
 INSERT INTO village VALUES
-("1301","Kallooppara","259"),
-("1302","Anicad","259"),
-("1303","Kottangal","259"),
-("1304","Perumpetty","259"),
-("1305","Ezhumattoor","259"),
-("1306","Thelliyoor","259"),
-("1307","Puramattam","259"),
-("1308","Ranni","259"),
-("1309","Chethakkal","259"),
-("1310","Kollamula","259"),
-("1311","Perunad","259"),
-("1312","Athikkayam","259"),
-("1313","Pazhavangadi","259"),
-("1314","Angadi","259"),
-("1315","Ayiroor","259"),
-("1316","Cherukole","259"),
-("1317","Ranni ","259"),
-("1318","Vadasserikkara ","259"),
-("1319","Chittar-Seethathodu","259"),
-("1320","Kozhenchery","259"),
-("1321","Kulanada","259"),
-("1322","Mezhuveli","259"),
-("1323","Kidangannur","259"),
-("1324","Aranmula","259"),
-("1325","Mallapuzhassery","259"),
-("1326","Elanthoor","259"),
-("1327","Chenneerkara","259"),
-("1328","Vallicode","259"),
-("1329","Omalloor","259"),
-("1330","Pathanamthitta (Part)","259"),
-("1331","Naranganam","259"),
-("1332","Mylapra (Part)","259"),
-("1333","Malayalapuzha (Part)","259"),
-("1334","Konnithazham","259"),
-("1335","Pramadom","259"),
-("1336","Vallicode-Kottayam","259"),
-("1337","Konni","259"),
-("1338","Aruvappulam","259"),
-("1339","Iravan","259"),
-("1340","Thannithode ","259"),
-("1341","Kozhenchery (CT)","259"),
-("1342","Adoor","259"),
-("1343","Pandalam","259"),
-("1344","Kurampala","259"),
-("1345","Pandalam Thekkekara","259"),
-("1346","Kodumon","259"),
-("1347","Angadickal","259"),
-("1348","Koodal","259"),
-("1349","Kalanjoor","259"),
-("1350","Enadimangalam","259"),
-("1351","Ezhamkulam","259"),
-("1352","Erathu","259"),
-("1353","Peringanadu (Part)","259"),
-("1354","Pallickal","259"),
-("1355","Kadampanadu","259"),
-("1356","Enathu","259"),
-("1357","Kollam","252"),
-("1358","Karunagappally ","252"),
-("1359","Alappad","252"),
-("1360","Clappana","252"),
-("1361","Thazhava","252"),
-("1362","Pavumba","252"),
-("1363","Thevalakkara","252"),
-("1364","Thekkumbhagom","252"),
-("1365","Oachira (CT)","252"),
-("1366","Kulasekharapuram (CT)","252"),
-("1367","Adinad (CT)","252"),
-("1368","Thodiyoor (CT)","252"),
-("1369","Kallelibhagom (CT)","252"),
-("1370","Karunagappally (CT)","252"),
-("1371","Ayanivelikulangara (CT)","252"),
-("1372","Vadakkumthala (CT)","252"),
-("1373","Panmana (CT)","252"),
-("1374","Chavara (CT)","252"),
-("1375","Neendakara (OG)","252"),
-("1376","Kunnathur","252"),
-("1377","Sooranad North","252"),
-("1378","Poruvazhy","252"),
-("1379","Sasthamkotta","252"),
-("1380","Sooranad South","252"),
-("1381","Mynagappally","252"),
-("1382","West Kallada","252"),
-("1383","Pathanapuram","252"),
-("1384","Pattazhy Vadakkekara","252"),
-("1385","Pattazhy","252"),
-("1386","Thalavoor","252"),
-("1387","Vilakkudy","252"),
-("1388","Pidavoor","252"),
-("1389","Pathanapuram ","252"),
-("1390","Punnala","252"),
-("1391","Piravanthur ","252"),
-("1392","Valacode (Part)","252"),
-("1393","Edamon","252"),
-("1394","Thenmala","252"),
-("1395","Arienkavu","252"),
-("1396","Kulathupuzha","252"),
-("1397","Thinkalkarikkakom","252"),
-("1398","Ayiranalloor","252"),
-("1399","Karavaloor (Part)","252"),
-("1400","Arackal","252");
+("1301","Kallooppara\n","259"),
+("1302","Anicad\n","259"),
+("1303","Kottangal\n","259"),
+("1304","Perumpetty\n","259"),
+("1305","Ezhumattoor\n","259"),
+("1306","Thelliyoor\n","259"),
+("1307","Puramattam\n","259"),
+("1308","Ranni\n","259"),
+("1309","Chethakkal\n","259"),
+("1310","Kollamula\n","259"),
+("1311","Perunad\n","259"),
+("1312","Athikkayam\n","259"),
+("1313","Pazhavangadi\n","259"),
+("1314","Angadi\n","259"),
+("1315","Ayiroor\n","259"),
+("1316","Cherukole\n","259"),
+("1317","Ranni \n","259"),
+("1318","Vadasserikkara \n","259"),
+("1319","Chittar-Seethathodu\n","259"),
+("1320","Kozhenchery\n","259"),
+("1321","Kulanada\n","259"),
+("1322","Mezhuveli\n","259"),
+("1323","Kidangannur\n","259"),
+("1324","Aranmula\n","259"),
+("1325","Mallapuzhassery\n","259"),
+("1326","Elanthoor\n","259"),
+("1327","Chenneerkara\n","259"),
+("1328","Vallicode\n","259"),
+("1329","Omalloor\n","259"),
+("1330","Pathanamthitta (Part)\n","259"),
+("1331","Naranganam\n","259"),
+("1332","Mylapra (Part)\n","259"),
+("1333","Malayalapuzha (Part)\n","259"),
+("1334","Konnithazham\n","259"),
+("1335","Pramadom\n","259"),
+("1336","Vallicode-Kottayam\n","259"),
+("1337","Konni\n","259"),
+("1338","Aruvappulam\n","259"),
+("1339","Iravan\n","259"),
+("1340","Thannithode \n","259"),
+("1341","Kozhenchery (CT)\n","259"),
+("1342","Adoor\n","259"),
+("1343","Pandalam\n","259"),
+("1344","Kurampala\n","259"),
+("1345","Pandalam Thekkekara\n","259"),
+("1346","Kodumon\n","259"),
+("1347","Angadickal\n","259"),
+("1348","Koodal\n","259"),
+("1349","Kalanjoor\n","259"),
+("1350","Enadimangalam\n","259"),
+("1351","Ezhamkulam\n","259"),
+("1352","Erathu\n","259"),
+("1353","Peringanadu (Part)\n","259"),
+("1354","Pallickal\n","259"),
+("1355","Kadampanadu\n","259"),
+("1356","Enathu\n","259"),
+("1357","Kollam\n","252"),
+("1358","Karunagappally \n","252"),
+("1359","Alappad\n","252"),
+("1360","Clappana\n","252"),
+("1361","Thazhava\n","252"),
+("1362","Pavumba\n","252"),
+("1363","Thevalakkara\n","252"),
+("1364","Thekkumbhagom\n","252"),
+("1365","Oachira (CT)\n","252"),
+("1366","Kulasekharapuram (CT)\n","252"),
+("1367","Adinad (CT)\n","252"),
+("1368","Thodiyoor (CT)\n","252"),
+("1369","Kallelibhagom (CT)\n","252"),
+("1370","Karunagappally (CT)\n","252"),
+("1371","Ayanivelikulangara (CT)\n","252"),
+("1372","Vadakkumthala (CT)\n","252"),
+("1373","Panmana (CT)\n","252"),
+("1374","Chavara (CT)\n","252"),
+("1375","Neendakara (OG)\n","252"),
+("1376","Kunnathur\n","252"),
+("1377","Sooranad North\n","252"),
+("1378","Poruvazhy\n","252"),
+("1379","Sasthamkotta\n","252"),
+("1380","Sooranad South\n","252"),
+("1381","Mynagappally\n","252"),
+("1382","West Kallada\n","252"),
+("1383","Pathanapuram\n","252"),
+("1384","Pattazhy Vadakkekara\n","252"),
+("1385","Pattazhy\n","252"),
+("1386","Thalavoor\n","252"),
+("1387","Vilakkudy\n","252"),
+("1388","Pidavoor\n","252"),
+("1389","Pathanapuram \n","252"),
+("1390","Punnala\n","252"),
+("1391","Piravanthur \n","252"),
+("1392","Valacode (Part)\n","252"),
+("1393","Edamon\n","252"),
+("1394","Thenmala\n","252"),
+("1395","Arienkavu\n","252"),
+("1396","Kulathupuzha\n","252"),
+("1397","Thinkalkarikkakom\n","252"),
+("1398","Ayiranalloor\n","252"),
+("1399","Karavaloor (Part)\n","252"),
+("1400","Arackal\n","252");
 INSERT INTO village VALUES
-("1401","Edamulackal","252"),
-("1402","Anchal","252"),
-("1403","Eroor","252"),
-("1404","Alayamon ","252"),
-("1405","Channappetta ","252"),
-("1406","Kottarakkara","252"),
-("1407","Pavithreswaram","252"),
-("1408","Puthur ","252"),
-("1409","Kulakkada","252"),
-("1410","Kalayapuram","252"),
-("1411","Mylom","252"),
-("1412","Melila ","252"),
-("1413","Chakkuvarakkal","252"),
-("1414","Vettikkavala","252"),
-("1415","Neduvathoor","252"),
-("1416","Ezhukone","252"),
-("1417","Kareepra","252"),
-("1418","Odanavattam","252"),
-("1419","Ummannoor","252"),
-("1420","Valakam","252"),
-("1421","Elamad","252"),
-("1422","Veliyam","252"),
-("1423","Pooyappally","252"),
-("1424","Velinalloor","252"),
-("1425","Chadayamangalam","252"),
-("1426","Kottukkal","252"),
-("1427","Ittiva","252"),
-("1428","Kadakkal","252"),
-("1429","Nilamel","252"),
-("1430","Kummil","252"),
-("1431","Mancode","252"),
-("1432","Chithara","252"),
-("1433","Kottarakkara (CT)","252"),
-("1434","Eravipuram (OG) (Part)","252"),
-("1435","Mundrothuruth","252"),
-("1436","Kizhakkekallada","252"),
-("1437","Mulavana","252"),
-("1438","Pallimon","252"),
-("1439","Chirakkara","252"),
-("1440","Paravoor (Part)","252"),
-("1441","Parippally","252"),
-("1442","Kalluvathukkal","252"),
-("1443","Thrikkaruva (CT)","252"),
-("1444","Panayam (CT)","252"),
-("1445","Perinad (CT)","252"),
-("1446","Elampalloor (CT)","252"),
-("1447","Nedumpana (CT)","252"),
-("1448","Kottamkara (CT)","252"),
-("1449","Thrikkadavoor (CT)","252"),
-("1450","Thrikkovilvattom (CT)","252"),
-("1451","Adichanalloor (CT)","252"),
-("1452","Thazhuthala (CT)","252"),
-("1453","Mayyanad (CT)","252"),
-("1454","Meenad (CT)","252"),
-("1455","Poothakkulam (CT)","252"),
-("1456","Thiruvananthapuram","261"),
-("1457","Chirayinkeezhu","261"),
-("1458","Edava","261"),
-("1459","Ayiroor","261"),
-("1460","Chemmaruthy","261"),
-("1461","Navaikulam","261"),
-("1462","Pallickal","261"),
-("1463","Madavoor","261"),
-("1464","Kudavoor","261"),
-("1465","Vellalloor","261"),
-("1466","Kilimanoor","261"),
-("1467","Pazhayakunnummel","261"),
-("1468","Pulimath","261"),
-("1469","Koduvazhannoor","261"),
-("1470","Nagaroor","261"),
-("1471","Karavaram","261"),
-("1472","Ottoor","261"),
-("1473","Vettoor-Cherunniyoor ","261"),
-("1474","Manamboor","261"),
-("1475","Elamba-Mudakkal","261"),
-("1476","Attingal-Avanavancherry (Part)","261"),
-("1477","Kadakkavoor","261"),
-("1478","Sarkara-Chirayinkeezhu","261"),
-("1479","Alamcode (CT)","261"),
-("1480","Keezhattingal (CT)","261"),
-("1481","Vakkom (CT)","261"),
-("1482","Kizhuvalam-Koonthalloor (CT)","261"),
-("1483","Edakkode (CT)","261"),
-("1484","Azhoor (CT)","261"),
-("1485","Nedumangad","261"),
-("1486","Nellanad","261"),
-("1487","Vamanapuram","261"),
-("1488","Kallara","261"),
-("1489","Pangode","261"),
-("1490","Peringamala","261"),
-("1491","Thennoor ","261"),
-("1492","Palode","261"),
-("1493","Kurupuzha","261"),
-("1494","Panavoor","261"),
-("1495","Pullampara","261"),
-("1496","Koliyakode","261"),
-("1497","Manikkal","261"),
-("1498","Theakada","261"),
-("1499","Anad","261"),
-("1500","Tholicode","261");
+("1401","Edamulackal\n","252"),
+("1402","Anchal\n","252"),
+("1403","Eroor\n","252"),
+("1404","Alayamon \n","252"),
+("1405","Channappetta \n","252"),
+("1406","Kottarakkara\n","252"),
+("1407","Pavithreswaram\n","252"),
+("1408","Puthur \n","252"),
+("1409","Kulakkada\n","252"),
+("1410","Kalayapuram\n","252"),
+("1411","Mylom\n","252"),
+("1412","Melila \n","252"),
+("1413","Chakkuvarakkal\n","252"),
+("1414","Vettikkavala\n","252"),
+("1415","Neduvathoor\n","252"),
+("1416","Ezhukone\n","252"),
+("1417","Kareepra\n","252"),
+("1418","Odanavattam\n","252"),
+("1419","Ummannoor\n","252"),
+("1420","Valakam\n","252"),
+("1421","Elamad\n","252"),
+("1422","Veliyam\n","252"),
+("1423","Pooyappally\n","252"),
+("1424","Velinalloor\n","252"),
+("1425","Chadayamangalam\n","252"),
+("1426","Kottukkal\n","252"),
+("1427","Ittiva\n","252"),
+("1428","Kadakkal\n","252"),
+("1429","Nilamel\n","252"),
+("1430","Kummil\n","252"),
+("1431","Mancode\n","252"),
+("1432","Chithara\n","252"),
+("1433","Kottarakkara (CT)\n","252"),
+("1434","Eravipuram (OG) (Part)\n","252"),
+("1435","Mundrothuruth\n","252"),
+("1436","Kizhakkekallada\n","252"),
+("1437","Mulavana\n","252"),
+("1438","Pallimon\n","252"),
+("1439","Chirakkara\n","252"),
+("1440","Paravoor (Part)\n","252"),
+("1441","Parippally\n","252"),
+("1442","Kalluvathukkal\n","252"),
+("1443","Thrikkaruva (CT)\n","252"),
+("1444","Panayam (CT)\n","252"),
+("1445","Perinad (CT)\n","252"),
+("1446","Elampalloor (CT)\n","252"),
+("1447","Nedumpana (CT)\n","252"),
+("1448","Kottamkara (CT)\n","252"),
+("1449","Thrikkadavoor (CT)\n","252"),
+("1450","Thrikkovilvattom (CT)\n","252"),
+("1451","Adichanalloor (CT)\n","252"),
+("1452","Thazhuthala (CT)\n","252"),
+("1453","Mayyanad (CT)\n","252"),
+("1454","Meenad (CT)\n","252"),
+("1455","Poothakkulam (CT)\n","252"),
+("1456","Thiruvananthapuram\n","261"),
+("1457","Chirayinkeezhu\n","261"),
+("1458","Edava\n","261"),
+("1459","Ayiroor\n","261"),
+("1460","Chemmaruthy\n","261"),
+("1461","Navaikulam\n","261"),
+("1462","Pallickal\n","261"),
+("1463","Madavoor\n","261"),
+("1464","Kudavoor\n","261"),
+("1465","Vellalloor\n","261"),
+("1466","Kilimanoor\n","261"),
+("1467","Pazhayakunnummel\n","261"),
+("1468","Pulimath\n","261"),
+("1469","Koduvazhannoor\n","261"),
+("1470","Nagaroor\n","261"),
+("1471","Karavaram\n","261"),
+("1472","Ottoor\n","261"),
+("1473","Vettoor-Cherunniyoor \n","261"),
+("1474","Manamboor\n","261"),
+("1475","Elamba-Mudakkal\n","261"),
+("1476","Attingal-Avanavancherry (Part)\n","261"),
+("1477","Kadakkavoor\n","261"),
+("1478","Sarkara-Chirayinkeezhu\n","261"),
+("1479","Alamcode (CT)\n","261"),
+("1480","Keezhattingal (CT)\n","261"),
+("1481","Vakkom (CT)\n","261"),
+("1482","Kizhuvalam-Koonthalloor (CT)\n","261"),
+("1483","Edakkode (CT)\n","261"),
+("1484","Azhoor (CT)\n","261"),
+("1485","Nedumangad\n","261"),
+("1486","Nellanad\n","261"),
+("1487","Vamanapuram\n","261"),
+("1488","Kallara\n","261"),
+("1489","Pangode\n","261"),
+("1490","Peringamala\n","261"),
+("1491","Thennoor \n","261"),
+("1492","Palode\n","261"),
+("1493","Kurupuzha\n","261"),
+("1494","Panavoor\n","261"),
+("1495","Pullampara\n","261"),
+("1496","Koliyakode\n","261"),
+("1497","Manikkal\n","261"),
+("1498","Theakada\n","261"),
+("1499","Anad\n","261"),
+("1500","Tholicode\n","261");
 INSERT INTO village VALUES
-("1501","Vithura","261"),
-("1502","Mannoorkara","261"),
-("1503","Aryanad","261"),
-("1504","Uzhamalackal","261"),
-("1505","Vembayam","261"),
-("1506","Aruvikkara","261"),
-("1507","Vellanad","261"),
-("1508","Perumkulam","261"),
-("1509","Veeranakavu","261"),
-("1510","Vattappara (CT)","261"),
-("1511","Karakulam (CT)","261"),
-("1512","Kadinamkulam","261"),
-("1513","Melthonnakkal","261"),
-("1514","Keezhthonnakkal","261"),
-("1515","Andoorkonam","261"),
-("1516","Menamkulam","261"),
-("1517","Veiloor (CT)","261"),
-("1518","Pallippuram (CT)","261"),
-("1519","Iroopara (CT)","261"),
-("1520","Uliyazhathura (CT)","261"),
-("1521","Sreekaryam (CT)","261"),
-("1522","Kudappanakkunnu (CT)","261"),
-("1523","Vattiyoorkavu (CT)","261"),
-("1524","Kalliyoor (CT)","261"),
-("1525","Venganoor (CT)","261"),
-("1526","Kazhakkoottam(OG)","261"),
-("1527","Neyyattinkara","261"),
-("1528","Ottasekharamangalam","261"),
-("1529","Kallikkad","261"),
-("1530","Vazhichal","261"),
-("1531","Amboori","261"),
-("1532","Vellarada","261"),
-("1533","Keezharoor","261"),
-("1534","Maranalloor","261"),
-("1535","Perumkadavila","261"),
-("1536","Anavoor","261"),
-("1537","Kunnathukal","261"),
-("1538","Kollayil (Part)","261"),
-("1539","Karode","261"),
-("1540","Chenkal (Part)","261"),
-("1541","Kulathoor","261"),
-("1542","Thirupuram","261"),
-("1543","Karumkulam ","261"),
-("1544","Kottukal (Part)","261"),
-("1545","Vizhinjam (Part)","261"),
-("1546","Kovalam (OG) (Part)","261"),
-("1547","Vilappil (CT)","261"),
-("1548","Kulathummal (CT)","261"),
-("1549","Malayinkeezhu (CT)","261"),
-("1550","Vilavoorkkal (CT)","261"),
-("1551","Pallichal (CT)","261"),
-("1552","Athiyannur (CT)","261"),
-("1553","Kanjiramkulam (CT)","261"),
-("1554","Parasuvaikkal (CT)","261"),
-("1555","Parassala (CT)","261");
+("1501","Vithura\n","261"),
+("1502","Mannoorkara\n","261"),
+("1503","Aryanad\n","261"),
+("1504","Uzhamalackal\n","261"),
+("1505","Vembayam\n","261"),
+("1506","Aruvikkara\n","261"),
+("1507","Vellanad\n","261"),
+("1508","Perumkulam\n","261"),
+("1509","Veeranakavu\n","261"),
+("1510","Vattappara (CT)\n","261"),
+("1511","Karakulam (CT)\n","261"),
+("1512","Kadinamkulam\n","261"),
+("1513","Melthonnakkal\n","261"),
+("1514","Keezhthonnakkal\n","261"),
+("1515","Andoorkonam\n","261"),
+("1516","Menamkulam\n","261"),
+("1517","Veiloor (CT)\n","261"),
+("1518","Pallippuram (CT)\n","261"),
+("1519","Iroopara (CT)\n","261"),
+("1520","Uliyazhathura (CT)\n","261"),
+("1521","Sreekaryam (CT)\n","261"),
+("1522","Kudappanakkunnu (CT)\n","261"),
+("1523","Vattiyoorkavu (CT)\n","261"),
+("1524","Kalliyoor (CT)\n","261"),
+("1525","Venganoor (CT)\n","261"),
+("1526","Kazhakkoottam(OG)\n","261"),
+("1527","Neyyattinkara\n","261"),
+("1528","Ottasekharamangalam\n","261"),
+("1529","Kallikkad\n","261"),
+("1530","Vazhichal\n","261"),
+("1531","Amboori\n","261"),
+("1532","Vellarada\n","261"),
+("1533","Keezharoor\n","261"),
+("1534","Maranalloor\n","261"),
+("1535","Perumkadavila\n","261"),
+("1536","Anavoor\n","261"),
+("1537","Kunnathukal\n","261"),
+("1538","Kollayil (Part)\n","261"),
+("1539","Karode\n","261"),
+("1540","Chenkal (Part)\n","261"),
+("1541","Kulathoor\n","261"),
+("1542","Thirupuram\n","261"),
+("1543","Karumkulam \n","261"),
+("1544","Kottukal (Part)\n","261"),
+("1545","Vizhinjam (Part)\n","261"),
+("1546","Kovalam (OG) (Part)\n","261"),
+("1547","Vilappil (CT)\n","261"),
+("1548","Kulathummal (CT)\n","261"),
+("1549","Malayinkeezhu (CT)\n","261"),
+("1550","Vilavoorkkal (CT)\n","261"),
+("1551","Pallichal (CT)\n","261"),
+("1552","Athiyannur (CT)\n","261"),
+("1553","Kanjiramkulam (CT)\n","261"),
+("1554","Parasuvaikkal (CT)\n","261"),
+("1555","Parassala (CT)\n","261");
 
 
 

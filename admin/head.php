@@ -53,7 +53,7 @@
 {
 $menu['crop']['category']="crop_category.php";
 $menu['crop']['crop']="crop.php";
- 
+$menu['crop']['variety']="variety.php"; 
 
 $menu['action']['Backup']="backup.php";
 $menu['action']['Logout']="logout.php";

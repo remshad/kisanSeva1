@@ -77,7 +77,13 @@ if (isset($sucess) && count($sucess) > 0) {
     <form action="crop.php" method="POST">
         <tr>
             <th>Crop Name</th>
-            <td><input type="text" name="crop" required="true" <?php if (isset($edit)) echo 'value="' . $edit['c_name'] . '"'; ?> style="width:100%;"></td>
+            <td><input type="text" name="crop" required="true"
+                    <?php if (isset($edit)){
+                         echo 'value="' . $edit['c_name'] . '"';
+                    }else if (mysqli_num_rows(mysqli_query($link,"SELECT item FROM `market_data` WHERE item not IN (SELECT c_name FROM `crop`) ORDER by rand () LIMIT 1"))){
+                      $item=  mysqli_fetch_assoc(mysqli_query($link,"SELECT DISTINCT(item) FROM `market_data` WHERE item not IN (SELECT c_name FROM `crop`) ORDER by rand () LIMIT 1"))['item'];
+                        echo 'value="' . $item . '"'; 
+                    }?> style="width:100%;"></td>
         <tr>
             <th>Select Category</th>
             <td>
@@ -105,7 +111,15 @@ if (isset($sucess) && count($sucess) > 0) {
         </tr>
 
         <tr>
-            <?php if (isset($edit)) echo '<input type="hidden" name="crop_id" value="' . $edit['c_id'] . '">' ?>
+            <?php 
+            
+            if(isset($edit)){
+                echo '<input type="hidden" name="crop_id" value="' . $edit['c_id'] . '">';
+            }
+             
+            
+            
+            ?>
 
             <td colspan="2"><input <?php if (isset($edit)) {
                                         echo 'type="submit" name="edit" value="edit"';
