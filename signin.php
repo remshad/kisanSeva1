@@ -37,7 +37,7 @@ if (isset($_POST['submit']) && $_POST['submit'] = 'submit') {
                 $uname = $_POST['uname'];
                 $password = md5(mysqli_real_escape_string($link,$_POST['pass']));
 
-				if(strcmp($_POST['type'],"1")==0||strcmp($_POST['type'],"3")==0) {
+				if(strcmp($_POST['type'],"1")==0) {
 					//farmer
 					$sql = "select * from farmer where f_phone='{$uname}' and f_password='{$password}'";
 					$result = mysqli_query($link, $sql);
@@ -68,8 +68,28 @@ if (isset($_POST['submit']) && $_POST['submit'] = 'submit') {
                                 $_SESSION['user']=$row['de_name'];
                                 $_SESSION['pass']=$row['de_password'];
                                 $_SESSION['uid']=$row['de_id'];
-																$_SESSION['utype']='dealer';
+								$_SESSION['utype']='dealer';
 								header("Location: dealer/index.php");
+								exit();
+                        } else {
+                                $error[] = 'Username or password is wrong or Inactive account';
+                        }
+					}
+				}
+				else if(strcmp($_POST['type'],"3")==0) {
+					//agri officer
+					$sql = "select * from farmer where f_phone='{$uname}' and f_password='{$password}'";
+					$result = mysqli_query($link, $sql);
+					if (mysqli_error($link)) {
+                        die(mysqli_error($link));
+					} else {
+                        if (mysqli_num_rows($result) > 0) {
+                                $row = mysqli_fetch_assoc($result);
+                                $_SESSION['user']=$row['f_name'];
+                                $_SESSION['pass']=$row['f_password'];
+                                $_SESSION['uid']=$row['f_id'];
+																$_SESSION['utype']='farmer';
+								header("Location: agriofficer/index.php");
 								exit();
                         } else {
                                 $error[] = 'Username or password is wrong or Inactive account';
@@ -128,7 +148,7 @@ if (isset($sucess) && count($sucess) > 0) {
 						<input class="input100" type="text" name="uname" placeholder="Mobile Number">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<i class="fa fa-phone" aria-hidden="true"></i>
 						</span>
 					</div>
 
@@ -163,7 +183,7 @@ if (isset($sucess) && count($sucess) > 0) {
 						</a>
 					</div>
 				<div class="text-center p-t-136">
-						<a class="txt2" href="index.html">
+						<a class="txt2" href="index.php">
 Home							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
 					</div>

@@ -24,7 +24,7 @@
     <script>
         function contact(hid, did) {
 
-            window.location.href = "http://localhost/kisanseva/1.1/dealer/index.php?action=contact&hid=" + hid;
+            window.location.href = "http://localhost:81/kisanseva/1.1/dealer/index.php?action=contact&hid=" + hid;
         }
         $(document).ready(function() {
             $("#statearea").change(function() {

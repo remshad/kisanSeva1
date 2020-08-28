@@ -71,6 +71,10 @@ $("#typearea").change(function() {
 		content="<div class='wrap-input100 validate-input' data-validate = 'Valid Phone number Reqd'><input class='input100' type='text' name='license' placeholder='License No'><span class='focus-input100'></span><span class='symbol-input100'><i class='fa fa-address-card-o' aria-hidden='true'></i></span></div><div class='wrap-input100 validate-input' data-validate = 'Valid Phone number Reqd'><input class='input100' type='text' name='storename' placeholder='Store Name'><span class='focus-input100'></span><span class='symbol-input100'><i class='fa fa-address-card-o' aria-hidden='true'></i></span></div>";
 		$("#licencearea").html(content);
 	}
+	if(selected==3) {
+		content="<div class='wrap-input100 validate-input' data-validate = 'Valid Phone number Reqd'><input class='input100' type='text' name='idnum' placeholder='Enter ID number'><span class='focus-input100'></span><span class='symbol-input100'><i class='fa fa-address-card-o' aria-hidden='true'></i></span></div>";
+		$("#idnumber").html(content);
+	}
 });
 });
 </script>
@@ -95,7 +99,15 @@ $("#typearea").change(function() {
 			addNewDealer($f_name,$f_pass,$f_addr,$f_phone,$v_id,$l_no,$s_name);
 			header("location: ./signin.php");
 
-		} 		
+		}
+		else if(strcmp($_POST['type'],"3")==0) { 
+			//adding new agriculturalofficer
+			$l_no = $_POST["license"];
+			$s_name = $_POST["storename"];
+			addagriofficer($f_name,$f_pass,$f_addr,$f_phone,$v_id);
+				header("location: ./signin.php");
+	
+			}  		
 	}
 ?>	
 	<div class="limiter">
@@ -156,7 +168,8 @@ $("#typearea").change(function() {
 					</div>
 					<div id="licencearea">
 					</div>
-					
+					<div id="idnumber">
+					</div>
 					
 					
 					<div class="wrap-input100 validate-input" >
@@ -194,7 +207,7 @@ $("#typearea").change(function() {
 					<input type="submit" class="login100-form-btn" onclick="return check();" name="sub" value="Sign Up">
 					</div>
 <div class="text-center p-t-136">
-						<a class="txt2" href="index.html">
+						<a class="txt2" href="index.php">
 Home							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
 						</a>
 					</div>
