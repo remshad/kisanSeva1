@@ -269,6 +269,13 @@ require_once('../functions.php');   ?>
 
 					</select>
 								   </div>
+                                   
+								<div class="form-group">
+								<select class="browser-default custom-select" id="variety" name="crop">
+  					<option value="" disabled selected>Crop variety</option>
+
+					</select>
+								   </div>
 
 							<p>Expected harvest Date </p>
 								   <div class="form-group">
@@ -450,6 +457,10 @@ require_once('../functions.php');   ?>
 								<select class="browser-default custom-select" id="croparea1" name="cropf">
   					<option value="" disabled selected>Crop Name</option>
 
+					</select><br>
+                    <select class="browser-default custom-select" id="variety4" name="cropf">
+  					<option value="" disabled selected>Crop Name</option>
+
 					</select>
 					 <input type="submit" class="login100-form-btn" name="subf" value="Show Forecasting Chart">
 									 <br>
@@ -590,7 +601,12 @@ require_once('../functions.php');   ?>
 
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <select class="browser-default custom-select" id="variety1" name="crop" required="true">
+                                    <option value="" disabled selected>Crop variety</option>
 
+                                </select>
+                            </div>
 
                             <div class="form-group">
                                 <select class="browser-default custom-select" name="statearea" id="statearea1">
@@ -710,7 +726,12 @@ require_once('../functions.php');   ?>
                                 </select>
                             </div>
 
+                            <div class="form-group">
+                                <select class="browser-default custom-select" id="variety2" name="crop" required="true">
+                                    <option value="" disabled selected>Crop variety</option>
 
+                                </select>
+                            </div>
                     
 						
                            
@@ -797,7 +818,13 @@ require_once('../functions.php');   ?>
 
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <select class="browser-default custom-select" id="variety3" name="crop" required="true">
+                                    <option value="" disabled selected>Crop variety</option>
 
+                                </select>
+                            </div>
+                    
 
                     
 						
@@ -881,7 +908,13 @@ require_once('../functions.php');   ?>
                                 </select>
                             </div>
 
+                            <div class="form-group">
+                                <select class="browser-default custom-select" id="variety5" name="crop" required="true">
+                                    <option value="" disabled selected>Crop variety</option>
 
+                                </select>
+                            </div>
+                    
                     
 						
                            
@@ -962,7 +995,13 @@ require_once('../functions.php');   ?>
 
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <select class="browser-default custom-select" id="variety6" name="crop" required="true">
+                                    <option value="" disabled selected>Crop variety</option>
 
+                                </select>
+                            </div>
+                    
 
                     
 						

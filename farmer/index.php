@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php  error_reporting(E_ERROR | E_PARSE);
-//comme
+//comme	
 ?>
 <html lang="en">
 <head>
@@ -269,6 +269,14 @@
               <option value="" disabled selected>Crop Name</option>
 
             </select>
+			
+          </div>
+		  <div class="form-group">
+            <select class="browser-default custom-select" id="variety1" name="crop">
+              <option value="" disabled selected>Crop Variety</option>
+
+            </select>
+			
           </div>
 
           <p>Expected harvest Date </p>
@@ -452,6 +460,10 @@
                   <option value="" disabled selected>Crop Name</option>
 
                 </select>
+				<select class="browser-default custom-select" id="variety4" name="cropf">
+                  <option value="" disabled selected>Crop variety</option>
+
+                </select>
                 <input type="submit" class="login100-form-btn" name="subf" value="Show Forecasting Chart">
                 <br>
               </td>
@@ -591,7 +603,12 @@
 
               </select>
             </div>
+			<div class="form-group">
+              <select class="browser-default custom-select" id="variety2" name="crop" required="true">
+                <option value="" disabled selected>Crop Variety</option>
 
+              </select>
+            </div>	
 
             <div class="form-group">
               <select class="browser-default custom-select" name="statearea" id="statearea1">
@@ -711,6 +728,12 @@
               </select>
             </div>
 
+			<div class="form-group">
+              <select class="browser-default custom-select" id="variety2" name="crop" required="true">
+                <option value="" disabled selected>Crop Variety</option>
+
+              </select>
+            </div>	
 
 
             <div class="form-group">
@@ -779,7 +802,12 @@
               </select>
             </div>
 
+			<div class="form-group">
+              <select class="browser-default custom-select" id="variety2" name="crop" required="true">
+                <option value="" disabled selected>Crop Variety</option>
 
+              </select>
+            </div>	
 
             <div class="form-group">
               <button type="submit" name="searchcf" class="btn btn-success">Get</button>
@@ -842,7 +870,12 @@
 
               </select>
             </div>
+			<div class="form-group">
+              <select class="browser-default custom-select" id="variety2" name="crop" required="true">
+                <option value="" disabled selected>Crop Variety</option>
 
+              </select>
+            </div>	
 
 
             <div class="form-group">
@@ -903,7 +936,12 @@
               </select>
             </div>
 
+			<div class="form-group">
+              <select class="browser-default custom-select" id="variety2" name="crop" required="true">
+                <option value="" disabled selected>Crop Variety</option>
 
+              </select>
+            </div>	
 
 
             <div class="form-group">
