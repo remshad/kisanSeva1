@@ -154,7 +154,66 @@ $("#croparea3").change(function() {
         }
     });
 });
-
+$("#croparea1").change(function() {
+  selected=$(this).val();
+	$.ajax({
+        type: "GET",
+        url: "../loadvariety.php?c_id="+selected,
+        success: function(result) {
+          $("#variety4").html(result);
+        }
+    });
+});
+$("#croparea").change(function() {
+  selected=$(this).val();
+	$.ajax({
+        type: "GET",
+        url: "../loadvariety.php?c_id="+selected,
+        success: function(result) {
+          $("#variety").html(result);
+        }
+    });
+});
+$("#croparea2").change(function() {
+  selected=$(this).val();
+	$.ajax({
+        type: "GET",
+        url: "../loadvariety.php?c_id="+selected,
+        success: function(result) {
+          $("#variety1").html(result);
+        }
+    });
+});
+$("#croparea4").change(function() {
+  selected=$(this).val();
+	$.ajax({
+        type: "GET",
+        url: "../loadvariety.php?c_id="+selected,
+        success: function(result) {
+          $("#variety3").html(result);
+        }
+    });
+});
+$("#croparea5").change(function() {
+  selected=$(this).val();
+	$.ajax({
+        type: "GET",
+        url: "../loadvariety.php?c_id="+selected,
+        success: function(result) {
+          $("#variety5").html(result);
+        }
+    });
+});
+$("#croparea7").change(function() {
+  selected=$(this).val();
+	$.ajax({
+        type: "GET",
+        url: "../loadvariety.php?c_id="+selected,
+        success: function(result) {
+          $("#variety6").html(result);
+        }
+    });
+});
 });
 </script>
 

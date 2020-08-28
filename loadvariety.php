@@ -1,4 +1,4 @@
-<?php  //sas
+<?php
 require_once('dbs.php'); 
 $c_id=$_GET['c_id'];
 $sql = "SELECT * FROM variety WHERE c_id=$c_id";	
