@@ -260,9 +260,9 @@ require_once('../functions.php');   ?>
 
       <div class="tab-pane fade active in" id="tab2-item1">
 
-        <form action="index.php#tab2-item1" method="POST">
+        <form action="index.php" method="POST">
           <div class="form-group">
-            <select class="browser-default custom-select" id="catarea1" required="true">
+            <select class="browser-default custom-select" id="catarea1" name="si_cat" required="true">
               <option value="" disabled selected>Select Category</option>
               <?php
               $sql = "SELECT * FROM crop_category";
@@ -277,20 +277,20 @@ require_once('../functions.php');   ?>
             </select>
           </div>
           <div class="form-group">
-            <select class="browser-default custom-select" id="croparea1" name="crop" required="true">
+            <select class="browser-default custom-select" id="croparea1" name="si_crop" required="true">
               <option value="" disabled selected>Crop Name</option>
 
             </select>
           </div>
           <div class="form-group">
-            <select class="browser-default custom-select" id="variety1" name="cropvariety" required="true">
+            <select class="browser-default custom-select" id="variety1" name="si_variety" required="true">
               <option value="" disabled selected>Crop Variety</option>
 
             </select>
           </div>
 
           <div class="form-group">
-            <select class="browser-default custom-select" name="statearea" id="statearea">
+            <select class="browser-default custom-select" name="si_state" id="statearea">
               <option value="" disabled selected>Any State</option>
               <?php
               $sql = "SELECT * FROM state";
@@ -305,21 +305,21 @@ require_once('../functions.php');   ?>
             </select>
           </div>
           <div class="form-group">
-            <select class="browser-default custom-select" name="districtarea" id="districtarea">
+            <select class="browser-default custom-select" name="si_district" id="districtarea">
               <option value="" disabled selected>Any District</option>
 
 
             </select>
           </div>
           <div class="form-group">
-            <select name="village" class="browser-default custom-select" id="villagearea">
+            <select name="si_village" class="browser-default custom-select" id="villagearea">
               <option value="" disabled selected>Any Village</option>
 
 
             </select>
           </div>
           <div class="form-group">
-            <button type="submit" name="search" class="btn btn-success">Submit</button>
+            <button type="submit" name="search_crops" class="btn btn-success">Submit</button>
           </div>
         </form>
 
@@ -333,6 +333,8 @@ require_once('../functions.php');   ?>
             <td>State</td>
             <td>District</td>
             <td>Village</td>
+            <td>Crop</td>
+            <td>Crop Variety</td>
             <td>Harvested Quantity</td>
             <td>Unit Price</td>
             <td>Harvest Date</td>
@@ -341,40 +343,60 @@ require_once('../functions.php');   ?>
 
 
           <?php
-          if (isset($_POST['search'])) {
-            if (isset($_POST['statearea'])) {
+          if (isset($_POST['search_crops'])) {
+            //var_dump($_POST);
+            // if (isset($_POST['statearea'])) {
+            //
+            //   $sid = intval($_POST['statearea']);
+            //   $part[] = " s_id='{$sid}' ";
+            // }
+            //
+            // if (isset($_POST['districtarea'])) {
+            //
+            //   $sid = intval($_POST['districtarea']);
+            //   $part[] = " d_id='{$sid}' ";
+            // }
+            //
+            //
+            // if (isset($_POST['villagearea'])) {
+            //
+            //   $sid = intval($_POST['villagearea']);
+            //   $part[] = " v_id='{$sid}' ";
+            // }
+            //
+            // $crs = intval($_POST['crop']);
+            // $part[] = " c_id='{$crs}' AND h_status=0 ";
+            // if (isset($part) &&  count($part) > 0) {
+            //   $pa = implode(" AND ", $part);
+            // }
+            $village=$_POST['si_village'];
+            $variety=$_POST['si_variety'];
+            // $sql = "SELECT * FROM
+            //             crop, variety, planting, harvesting, unit_type, village
+            //         WHERE
+            //           crop.c_id = variety.c_id AND
+            //           variety.cv_id = planting.cv_id AND
+            //           planting.p_id = harvesting.p_id AND
+            //           harvesting.ut_id = unit_type.ut_id AND
+            //           planting.v_id = village.v_id AND
+            //           cv_id=$variety AND
+            //           village.v_id=$village AND
+            //           h_status=0";
+            //$sql = "SELECT * FROM crop NATURAL JOIN variety NATURAL JOIN planting NATURAL JOIN harvesting NATURAL JOIN unit_type, village NATURAL JOIN district NATURAL JOIN state WHERE planting.v_id = village.v_id AND cv_id=$variety AND village.v_id=$village AND h_status=0";
+            $sql = "SELECT
+                        s_name, d_name, village.v_name AS vi_name, c_name, variety.v_name AS vr_name, h_quantity, ut_name, h_unit_price, h_date, h_id
+                    FROM crop NATURAL JOIN variety NATURAL JOIN planting NATURAL JOIN harvesting NATURAL JOIN unit_type, village NATURAL JOIN district NATURAL JOIN state WHERE planting.v_id = village.v_id AND cv_id=$variety AND village.v_id=$village AND h_status=0";
 
-              $sid = intval($_POST['statearea']);
-              $part[] = " s_id='{$sid}' ";
-            }
-
-            if (isset($_POST['districtarea'])) {
-
-              $sid = intval($_POST['districtarea']);
-              $part[] = " d_id='{$sid}' ";
-            }
-
-
-            if (isset($_POST['villagearea'])) {
-
-              $sid = intval($_POST['villagearea']);
-              $part[] = " v_id='{$sid}' ";
-            }
-
-            $crs = intval($_POST['crop']);
-            $part[] = " c_id='{$crs}' AND h_status=0 ";
-            if (isset($part) &&  count($part) > 0) {
-              $pa = implode(" AND ", $part);
-            }
-            $village=$_POST['villagearea'];
-            $variety=$_POST['cropvariety'];
-            $sql = "SELECT * FROM crop NATURAL JOIN variety NATURAL JOIN planting NATURAL JOIN harvesting NATURAL JOIN unit_type, village NATURAL JOIN district NATURAL JOIN state WHERE planting.v_id = village.v_id AND cv_id={$variety} AND village.v_id={$village}";
             $result = mysqli_query($link, $sql);
+            //echo $result
             $i = 0;
             while ($row = mysqli_fetch_assoc($result)) {
               $i++;
+              // foreach ($row as $field => $value) { // If you want you can right this line like this: foreach($row as $value) {
+              //     echo "<td>" . $field . $value . "</td>";
+              // }
               $row['h_date'] = date('d/m/Y', $row['h_date']);
-              echo "<tr><td>{$i}</td><td>{$row['s_name']}</td><td>{$row['d_name']}</td><td>{$row['v_name']}</td><td>{$row['h_quantity']} {$row['ut_name']}</td><td>{$row['h_unit_price']}</td><td>{$row['h_date']}</td><td><button onclick='contact({$row['h_id']});'>Contact Farmer</button></td></tr>";
+              echo "<tr><td>{$i}</td><td>{$row['s_name']}</td><td>{$row['d_name']}</td><td>{$row['vi_name']}</td><td>{$row['c_name']}</td><td>{$row['vr_name']}</td><td>{$row['h_quantity']} {$row['ut_name']}</td><td>{$row['h_unit_price']}</td><td>{$row['h_date']}</td><td><button onclick='contact({$row['h_id']});'>Contact Farmer</button></td></tr>";
             }
           }
           ?>
