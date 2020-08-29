@@ -289,11 +289,11 @@ require_once('../functions.php');   ?>
                         <ul id="tab2" class="nav nav-pills">
 						  <li  class="active"><a href="#tab2-item1" data-toggle="tab">Crop Forecasting</a></li>
 
-                            <li><a href="#tab2-item2" data-toggle="tab">Add Harvesting</a></li>
-                            <li><a href="#tab2-item3" data-toggle="tab">Add Planting</a></li>
-							<li><a href="#tab2-item4" data-toggle="tab">Process Harvesting</a></li>
+                            <!-- <li><a href="#tab2-item2" data-toggle="tab">Add Harvesting</a></li> -->
+                            <!-- <li><a href="#tab2-item3" data-toggle="tab">Add Planting</a></li> -->
+							<!-- <li><a href="#tab2-item4" data-toggle="tab">Process Harvesting</a></li> -->
 							<li><a href="#tab2-item6" data-toggle="tab">Seek Demand</a></li>
-                            <li><a href="#tab2-item5" data-toggle="tab">Message from Dealer</a></li>
+                            <!-- <li><a href="#tab2-item5" data-toggle="tab">Message from Dealer</a></li> -->
 							<li><a href="#tab2-item7" data-toggle="tab">Crop instructions</a></li>
 							<li><a href="#tab2-item8" data-toggle="tab">Crop  fertizilers</a></li>
 							<li><a href="#tab2-item9" data-toggle="tab">crop disease and solutions</a></li>
