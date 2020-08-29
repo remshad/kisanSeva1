@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php  error_reporting(E_ERROR | E_PARSE);
+?>
 <head>
 
     <meta charset="utf-8">
@@ -77,6 +78,36 @@
                     url: "../loadcrops.php?c_id=" + selected,
                     success: function(result) {
                         $("#croparea3").html(result);
+                    }
+                });
+            });
+            $("#croparea1").change(function() {
+                selected = $(this).val();
+                $.ajax({
+                    type: "GET",
+                    url: "../loadvariety.php?c_id=" + selected,
+                    success: function(result) {
+                        $("#variety1").html(result);
+                    }
+                });
+            });
+            $("#croparea").change(function() {
+                selected = $(this).val();
+                $.ajax({
+                    type: "GET",
+                    url: "../loadvariety.php?c_id=" + selected,
+                    success: function(result) {
+                        $("#variety2").html(result);
+                    }
+                });
+            });
+            $("#croparea3").change(function() {
+                selected = $(this).val();
+                $.ajax({
+                    type: "GET",
+                    url: "../loadvariety.php?c_id=" + selected,
+                    success: function(result) {
+                        $("#variety3").html(result);
                     }
                 });
             });
@@ -251,7 +282,12 @@ require_once('../functions.php');   ?>
 
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <select class="browser-default custom-select" id="variety1" name="crop" required="true">
+                                    <option value="" disabled selected>Crop Variety</option>
 
+                                </select>
+                            </div>      
 
                             <div class="form-group">
                                 <select class="browser-default custom-select" name="statearea" id="statearea">
@@ -369,6 +405,12 @@ require_once('../functions.php');   ?>
 
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <select class="browser-default custom-select" id="variety2" name="crop">
+                                    <option value="" disabled selected>Crop Variety</option>
+
+                                </select>
+                            </div>
 
                             <div class="form-group">
                                 <input type="text" name="tp" class="form-control" required="required" placeholder="Todays Price">
@@ -405,6 +447,12 @@ require_once('../functions.php');   ?>
 
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <select class="browser-default custom-select" id="variety3" name="crop" required="true">
+                                    <option value="" disabled selected>Crop variety</option>
+
+                                </select>
+                            </div>
 
                             <div class="form-group">
                                 <input type="text" name="qty" class="form-control" required="required" placeholder="Quantity">
@@ -433,7 +481,7 @@ require_once('../functions.php');   ?>
                             </div>
                             <div class="form-group">
 
-                                <button type="submit" name="request" class="btn btn-lg btn-warning">Search</button>
+                                <button type="submit" name="request" class="btn btn-lg btn-warning">Request</button>
                             </div>
 
                         </form>
