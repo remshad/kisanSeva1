@@ -1074,12 +1074,12 @@ while ($row = mysqli_fetch_assoc($result)) {
 include_once '../ml/train.php';
 
 $sql = "SELECT avg(temp) as temp,month FROM `avg_tmp` JOIN `regions` on reg_id=regions.id JOIN `state` on  state_id=s_id WHERE s_id=10 GROUP by  month";
-mysqli_query($link, $sql);
+$result=mysqli_query($link, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
     $temp[] = $row['temp'];
 }
 $sql = "SELECT avg(rainfall) as rain,month FROM `precipitation` JOIN `regions` on reg_id=regions.id JOIN `state` on  state_id=s_id WHERE s_id=10 GROUP by  month";
-mysqli_query($link, $sql);
+$result=mysqli_query($link, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
     $rain[] = $row['rain'];
 }
@@ -1197,7 +1197,7 @@ if (isset($rain)) {
                     yAxes: [{
                         display: true,
                         scaleLabel: {
-                            display: true,
+                            display: false,
                             labelString: 'Value'
                         }
                     }]
@@ -1212,4 +1212,10 @@ if (isset($rain)) {
     </script>
 
  </body>
+
+ <?php
+ 
+echo print_r($pred);
+echo print_r($temp);
+ ?>
 </html>
