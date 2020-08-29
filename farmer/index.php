@@ -319,6 +319,7 @@
           if(isset($_POST['sub'])) {
             date_default_timezone_set('Asia/Kolkata');
             $c_id = $_POST['crop'];
+            $cv_id = $_POST['cropv_ap'];
             $planting_date = time();
             $harv_date = strtotime($_POST['date']);
             $qty = $_POST['qty'];
@@ -326,7 +327,7 @@
             $v_id = $_POST['village'];
             $loc = $_POST['locality'];
             $fid = $_SESSION['uid'];
-            addPlanting($c_id,$planting_date,$harv_date,$qty,$qtype,$v_id,$loc,$fid);
+            addPlanting($c_id,$cv_id,$planting_date,$harv_date,$qty,$qtype,$v_id,$loc,$fid);
 
           } ?>
           <div class="form-group">
@@ -351,56 +352,14 @@
             </select>
 
           </div>
-		  <div class="form-group">
-            <select class="browser-default custom-select" id="variety1" name="crop">
+          <div class="form-group">
+            <select class="browser-default custom-select" id="variety1" name="cropv_ap">
               <option value="" disabled selected>Crop Variety</option>
 
             </select>
 
           </div>
-          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">Add new crop</button>
 
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Request for new crop</h4>
-      </div>
-      <div class="modal-body">
-        <form action="index.php" method="POST">
-        <div class="form-group">
-              <input type="text" name="catecrop" class="form-control" required="required" placeholder="categrory of crop">
-            </div>
-        <div class="form-group">
-              <input type="text" name="namecrop" class="form-control" required="required" placeholder="name of crop">
-            </div>
-            
-            <input type="submit" name="req" value="Request crop">
-          
-
-          </form>
-          <?php
-                if(isset($_POST['req']))
-                {
-                $catecrop=$_POST['catecrop'];
-                $namecrop=$_POST['namecrop'];
-                $sql = "INSERT INTO msgaddcrop(cropcategory,cropname) VALUES('".$catecrop."','".$namecrop."')";
-                $result = mysqli_query($link, $sql);
-                }
-                ?>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
           <p>Expected harvest Date </p>
           <div class="form-group">
             <input type="date" name="date" class="form-control" required="required" placeholder="Date">
@@ -464,18 +423,18 @@
         <p>My Plantings </p>
         <table class="table table-striped">
           <caption><h2>Item Search Result</h2></caption>
-          <tr><td>No</td><td>Crop Name</td><td>Date of Planting</td><td>Expected Harvest</td><td>Quantity</td></tr>
+          <tr><td>No</td><td>Crop Name</td><td>Crop Variety</td><td>Date of Planting</td><td>Expected Harvest</td><td>Quantity</td></tr>
           <?php
           date_default_timezone_set('Asia/Kolkata');
           $f_id=$_SESSION['uid'];
-          $sql = "SELECT * FROM planting p,crop c,unit_type ut WHERE p.c_id=c.c_id AND ut.ut_id=p.p_quantity_type AND f_id={$f_id} ORDER BY p_id DESC";
+          $sql = "SELECT * FROM planting p,crop c,variety cv,unit_type ut WHERE c.c_id=cv.c_id AND p.cv_id=cv.cv_id AND ut.ut_id=p.p_quantity_type AND f_id={$f_id} ORDER BY p_id DESC";
           $result = mysqli_query($link, $sql);
           $i = 0;
           while ($row = mysqli_fetch_assoc($result)) {
             $i++;
             $row['p_planting_date'] = date('d/m/Y', $row['p_planting_date']);
             $row['p_harvesting_date'] = date('d/m/Y', $row['p_harvesting_date']);
-            echo "<tr><td>{$i}</td><td>{$row['c_name']}</td><td>{$row['p_planting_date']}</td><td>{$row['p_harvesting_date']}</td><td>{$row['p_quantity']}&nbsp;{$row['ut_name']}</td></tr>";
+            echo "<tr><td>{$i}</td><td>{$row['c_name']}</td><td>{$row['v_name']}</td><td>{$row['p_planting_date']}</td><td>{$row['p_harvesting_date']}</td><td>{$row['p_quantity']}&nbsp;{$row['ut_name']}</td></tr>";
           }
           ?>
 
@@ -582,7 +541,7 @@
                   <option value="" disabled selected>Crop Name</option>
 
                 </select>
-				<select class="browser-default custom-select" id="variety4" name="cropf">
+                <select class="browser-default custom-select" id="variety4" name="cropf">
                   <option value="" disabled selected>Crop variety</option>
 
                 </select>
@@ -704,7 +663,7 @@
         <div class="tab-pane fade" id="tab2-item6">
           <form action="index.php#tab2-item6" method="POST">
             <div class="form-group">
-              <select class="browser-default custom-select" id="catarea2" required="true">
+              <select class="browser-default custom-select" id="catarea2" name="cat_sd" required="true">
                 <option value="" disabled selected>Select Category</option>
                 <?php
                 $sql = "SELECT * FROM crop_category";
@@ -720,20 +679,20 @@
             </div>
 
             <div class="form-group">
-              <select class="browser-default custom-select" id="croparea2" name="crop" required="true">
+              <select class="browser-default custom-select" id="croparea2" name="crop_sd" required="true">
                 <option value="" disabled selected>Crop Name</option>
 
               </select>
             </div>
-			<div class="form-group">
-              <select class="browser-default custom-select" id="variety2" name="crop" required="true">
+            <div class="form-group">
+              <select class="browser-default custom-select" id="variety2" name="variety_sd" required="true">
                 <option value="" disabled selected>Crop Variety</option>
 
               </select>
             </div>
 
             <div class="form-group">
-              <select class="browser-default custom-select" name="statearea" id="statearea1">
+              <select class="browser-default custom-select" name="statearea_sd" id="statearea1">
                 <option value="" disabled selected>Any State</option>
                 <?php
                 $sql = "SELECT * FROM state";
@@ -748,75 +707,82 @@
               </select>
             </div>
             <div class="form-group">
-              <select class="browser-default custom-select" name="districtarea" id="districtarea1">
+              <select class="browser-default custom-select" name="districtarea_sd" id="districtarea1">
                 <option value="" disabled selected>Any District</option>
 
 
               </select>
             </div>
             <div class="form-group">
-              <select name="village" class="browser-default custom-select" id="villagearea1">
+              <select name="village_sd" class="browser-default custom-select" id="villagearea1">
                 <option value="" disabled selected>Any Village</option>
 
 
               </select>
             </div>
             <div class="form-group">
-              <button type="submit" name="search" class="btn btn-success">Submit</button>
+              <button type="submit" name="search_sd" class="btn btn-success">Submit</button>
             </div>
 
             <table class="table table-striped">
               <caption><h2>Item Search Result</h2></caption>
 
-              <tr><td>No</td><td>Crop Name</td><td>Quantity</td><td>Unit Price</td><td>Date</td><td>Contact Number</td></tr>
+              <tr><td>No</td><td>Crop Name</td><td>Crop Variety</td><td>Quantity</td><td>Unit Price</td><td>Date</td><td>Contact Number</td></tr>
 
 
               <?php
-              if (isset($_POST['search'])) {
-                if (isset($_POST['statearea'])) {
-
-                  $sid = intval($_POST['statearea']);
-                  $part[] = " s_id='{$sid}' ";
-                  $par[]="  JOIN state ";
-                }
-
-                if (isset($_POST['districtarea'])) {
-
-                  $sid = intval($_POST['districtarea']);
-                  $part[] = " d_id='{$sid}' ";
-                  $par[]="  JOIN district ";
-
-                }
-
-
-                if (isset($_POST['village'])) {
-
-                  $sid = intval($_POST['village']);
-                  $part[] = " v_id='{$sid}' ";
-                  $par[]="  JOIN village ";
-                }
-
-                $crs = intval($_POST['crop']);
-                $part[] = " c_id='{$crs}' ";
-
-                $dz='';
-                if (isset($part) &&  count($part) > 0) {
-                  $pa = implode(" AND ", $part);
-                  if(isset($par))
-                  {
-                    $dz=implode(" ",$par);
-                  }
-                }
+              if (isset($_POST['search_sd'])) {
+                // if (isset($_POST['statearea_sd'])) {
+                //
+                //   $sid = intval($_POST['statearea_sd']);
+                //   $part[] = " s_id='{$sid}' ";
+                //   $par[]="  JOIN state ";
+                // }
+                //
+                // if (isset($_POST['districtarea_sd'])) {
+                //
+                //   $sid = intval($_POST['districtarea_sd']);
+                //   $part[] = " d_id='{$sid}' ";
+                //   $par[]="  JOIN district ";
+                //
+                // }
+                //
+                //
+                // if (isset($_POST['village_sd'])) {
+                //
+                //   $sid = intval($_POST['village_sd']);
+                //   $part[] = " v_id='{$sid}' ";
+                //   $par[]="  JOIN village ";
+                // }
+                //
+                // $crs = intval($_POST['crop_sd']);
+                // $part[] = " c_id='{$crs}' ";
+                //
+                //
+                //
+                // $dz='';
+                // if (isset($part) &&  count($part) > 0) {
+                //   $pa = implode(" AND ", $part);
+                //   if(isset($par))
+                //   {
+                //     $dz=implode(" ",$par);
+                //   }
+                // }
                 //$vid=$_POST['village'];
 
-
-                echo   $sql = "SELECT c_name,dr_quantity,dr_unit_price,dr_date,de_phone FROM dealer_request NATURAL JOIN crop  NATURAL JOIN  dealer {$dz} WHERE {$pa}";
+                echo   $sql = "SELECT * FROM
+                                	village v NATURAL JOIN dealer d NATURAL JOIN dealer_request dr,variety cv NATURAL JOIN crop c
+                                WHERE
+                                	dr.c_id=cv.cv_id AND
+                                	d.v_id={$_POST['village_sd']} AND
+                                	cv.cv_id={$_POST['variety_sd']} ;";
+                //echo   $sql = "SELECT c_name,dr_quantity,dr_unit_price,dr_date,de_phone FROM dealer_request NATURAL JOIN crop  NATURAL JOIN  dealer {$dz} WHERE {$pa}";
                 $result = mysqli_query($link, $sql);
                 $i = 0;
                 while ($row = mysqli_fetch_assoc($result)) {
                   $i++;
                   $row['dr_date'] = date('d/m/Y', $row['dr_date']);
-                  echo "<tr><td>{$i}</td><td>{$row['c_name']}</td><td>{$row['dr_quantity']}</td><td>{$row['dr_unit_price']}</td><td>{$row['dr_date']}</td><td>{$row['de_phone']}</td></tr>";
+                  echo "<tr><td>{$i}</td><td>{$row['c_name']}</td><td>{$row['v_name']}</td><td>{$row['dr_quantity']}</td><td>{$row['dr_unit_price']}</td><td>{$row['dr_date']}</td><td>{$row['de_phone']}</td></tr>";
                 }
               }
               ?>
@@ -850,12 +816,12 @@
               </select>
             </div>
 
-			<div class="form-group">
+            <!-- <div class="form-group">
               <select class="browser-default custom-select" id="variety_ci" name="crop" required="true">
                 <option value="" disabled selected>Crop Variety</option>
 
               </select>
-            </div>
+            </div> -->
 
 
             <div class="form-group">
@@ -924,12 +890,12 @@
               </select>
             </div>
 
-			<div class="form-group">
+            <!-- <div class="form-group">
               <select class="browser-default custom-select" id="variety_cf" name="crop" required="true">
                 <option value="" disabled selected>Crop Variety</option>
 
               </select>
-            </div>
+            </div> -->
 
             <div class="form-group">
               <button type="submit" name="searchcf" class="btn btn-success">Get</button>
@@ -992,12 +958,12 @@
 
               </select>
             </div>
-			<div class="form-group">
+            <!-- <div class="form-group">
               <select class="browser-default custom-select" id="variety_cd" name="crop" required="true">
                 <option value="" disabled selected>Crop Variety</option>
 
               </select>
-            </div>
+            </div> -->
 
 
             <div class="form-group">
@@ -1058,12 +1024,12 @@
               </select>
             </div>
 
-			<div class="form-group">
+            <!-- <div class="form-group">
               <select class="browser-default custom-select" id="variety_ct" name="crop" required="true">
                 <option value="" disabled selected>Crop Variety</option>
 
               </select>
-            </div>
+            </div> -->
 
 
             <div class="form-group">
