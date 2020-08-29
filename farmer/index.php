@@ -1089,7 +1089,7 @@ $result = mysqli_query($link, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
 
     foreach ($temp as $key => $tem) {
-        $pred[] = getpredict([$temp[$key], $rain[$key]], $row['model_path']);
+        $pred[] = intval(getpredict([$temp[$key], $rain[$key]], $row['model_path']));
     }
 
 }
@@ -1213,9 +1213,5 @@ if (isset($rain)) {
 
  </body>
 
- <?php
  
-echo print_r($pred);
-echo print_r($temp);
- ?>
 </html>
