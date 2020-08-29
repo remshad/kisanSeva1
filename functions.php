@@ -31,10 +31,10 @@ global $link;
 			echo "<script>alert('Dealer Registered Successfully!')</script>";
 		}
 	}
-	function addPlanting($c_id,$cv_id,$planting_date,$harv_date,$qty,$qtype,$v_id,$loc,$fid) {
+	function addPlanting($cv_id,$planting_date,$harv_date,$qty,$qtype,$v_id,$loc,$fid) {
 		global $link;
 		$p_status='0';
-		$sql = "INSERT INTO planting(c_id,cv_id,p_planting_date,p_harvesting_date,p_quantity,p_quantity_type,v_id,p_locality,f_id,p_status
+	echo	$sql = "INSERT INTO planting(cv_id,p_planting_date,p_harvesting_date,p_quantity,p_quantity_type,v_id,p_locality,f_id,p_status
 ) VALUES('".$c_id."','".$cv_id."','".$planting_date."','".$harv_date."','".$qty."','".$qtype."','".$v_id."','".$loc."','".$fid."','".$p_status."')";
 		$result = mysqli_query($link, $sql);
 		if($result!=1) {

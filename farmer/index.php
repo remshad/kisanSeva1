@@ -326,7 +326,7 @@ if (isset($_POST['sub'])) {
     $v_id = $_POST['village'];
     $loc = $_POST['locality'];
     $fid = $_SESSION['uid'];
-    addPlanting($c_id, $cv_id, $planting_date, $harv_date, $qty, $qtype, $v_id, $loc, $fid);
+    addPlanting( $cv_id, $planting_date, $harv_date, $qty, $qtype, $v_id, $loc, $fid);
 
 }?>
           <div class="form-group">
@@ -1089,7 +1089,7 @@ $result = mysqli_query($link, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
 
     foreach ($temp as $key => $tem) {
-        $pred[] = intval(getpredict([$temp[$key], $rain[$key]], $row['model_path']));
+        $pred[] = intval(getpredict([$key+1,$temp[$key], $rain[$key]], $row['model_path']));
     }
 
 }
@@ -1100,7 +1100,7 @@ while ($row = mysqli_fetch_assoc($result)) {
         var config = {
             type: 'line',
             data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
                 datasets: [{
                     label: 'Average temperature',
                     backgroundColor: window.chartColors.red,
@@ -1125,31 +1125,32 @@ if (isset($temp)) {
 
                     ],
                     fill: false,
-                },{
-                    label: 'Price',
-                    backgroundColor: window.chartColors.green,
-                    borderColor: window.chartColors.green,
-                    data: [
+                },
 <?php
 
 if (isset($pred)) {
-    echo implode(",", $pred);
+    echo " {
+      label: 'Price',
+      backgroundColor: window.chartColors.green,
+      borderColor: window.chartColors.green,
+      data: [
+        ".implode(",", $pred)."
+        
+      ],
+      fill: false,
+    },
+    
+    ";
 } else {
-    echo "randomScalingFactor(),
-    randomScalingFactor(),
-    randomScalingFactor(),
-    randomScalingFactor(),
-    randomScalingFactor(),
-    randomScalingFactor(),
-    randomScalingFactor(),";
+    echo "
+ 
+";
 }
 ?>
 
 
 
-                    ],
-                    fill: false,
-                }, {
+                    {
                     label: 'Precipitation',
                     fill: false,
                     backgroundColor: window.chartColors.blue,
@@ -1212,6 +1213,5 @@ if (isset($rain)) {
     </script>
 
  </body>
-
- 
+  
 </html>
