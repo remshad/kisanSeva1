@@ -144,7 +144,7 @@
         }
       });
     });
-    $("#croparea3").change(function() {
+    $("#croparea2").change(function() {
       selected=$(this).val();
       $.ajax({
         type: "GET",
