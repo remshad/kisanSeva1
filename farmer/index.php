@@ -453,6 +453,7 @@
             $u_price = $_POST['price'];
             $willing =  $_POST['will'];
             $h_stats = '0';
+            $fid = $_SESSION['uid'];
             addHarvesting($p_id,$h_date,$h_qty,$u_price,$willing,$h_stats);
 
           }
@@ -462,7 +463,7 @@
             <select class="browser-default custom-select" name="plant" id="plantid">
               <option value="" disabled selected>Plant ID</option>
               <?php
-              $sql = "SELECT * FROM planting WHERE p_status='0'";
+              $sql = "SELECT * FROM planting WHERE p_status='0' AND fid={$fid}";
               $result = mysqli_query($link, $sql);
               if (mysqli_num_rows($result) > 0) {
                 while($row = mysqli_fetch_assoc($result)) {
