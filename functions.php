@@ -34,7 +34,7 @@ global $link;
 	function addPlanting($cv_id,$planting_date,$harv_date,$qty,$qtype,$v_id,$loc,$fid) {
 		global $link;
 		$p_status='0';
-	//echo	$sql = "INSERT INTO planting(cv_id,p_planting_date,p_harvesting_date,p_quantity,p_quantity_type,v_id,p_locality,f_id,p_status
+		$sql = "INSERT INTO planting(cv_id,p_planting_date,p_harvesting_date,p_quantity,p_quantity_type,v_id,p_locality,f_id,p_status
 ) VALUES('".$cv_id."','".$planting_date."','".$harv_date."','".$qty."','".$qtype."','".$v_id."','".$loc."','".$fid."','".$p_status."')";
 		$result = mysqli_query($link, $sql);
 		if($result!=1) {
