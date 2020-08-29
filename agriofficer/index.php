@@ -793,14 +793,14 @@ require_once('../functions.php');   ?>
 
                                 </select>
                             </div>
-
+<!-- 
                             <div class="form-group">
                                 <select class="browser-default custom-select" id="variety2" name="crop" required="true">
                                     <option value="" disabled selected>Crop variety</option>
 
                                 </select>
                             </div>
-                    
+                     -->
 						
                            
 							<textarea name="editor1">
@@ -886,7 +886,7 @@ require_once('../functions.php');   ?>
 
                                 </select>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <select class="browser-default custom-select" id="variety3" name="crop" required="true">
                                     <option value="" disabled selected>Crop variety</option>
 
@@ -894,7 +894,7 @@ require_once('../functions.php');   ?>
                             </div>
                     
 
-                    
+                     -->
 						
                            
 							<textarea name="editor2">
@@ -975,13 +975,13 @@ require_once('../functions.php');   ?>
 
                                 </select>
                             </div>
-
+<!-- 
                             <div class="form-group">
                                 <select class="browser-default custom-select" id="variety5" name="crop" required="true">
                                     <option value="" disabled selected>Crop variety</option>
 
                                 </select>
-                            </div>
+                            </div> -->
                     
                     
 						
@@ -1063,13 +1063,13 @@ require_once('../functions.php');   ?>
 
                                 </select>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <select class="browser-default custom-select" id="variety6" name="crop" required="true">
                                     <option value="" disabled selected>Crop variety</option>
 
                                 </select>
                             </div>
-                    
+                     -->
 
                     
 						
