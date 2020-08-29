@@ -727,57 +727,62 @@
             <table class="table table-striped">
               <caption><h2>Item Search Result</h2></caption>
 
-              <tr><td>No</td><td>Crop Name</td><td>Quantity</td><td>Unit Price</td><td>Date</td><td>Contact Number</td></tr>
+              <tr><td>No</td><td>Crop Name</td><td>Crop Variety</td><td>Quantity</td><td>Unit Price</td><td>Date</td><td>Contact Number</td></tr>
 
 
               <?php
               if (isset($_POST['search_sd'])) {
-                if (isset($_POST['statearea_sd'])) {
-
-                  $sid = intval($_POST['statearea_sd']);
-                  $part[] = " s_id='{$sid}' ";
-                  $par[]="  JOIN state ";
-                }
-
-                if (isset($_POST['districtarea_sd'])) {
-
-                  $sid = intval($_POST['districtarea_sd']);
-                  $part[] = " d_id='{$sid}' ";
-                  $par[]="  JOIN district ";
-
-                }
-
-
-                if (isset($_POST['village_sd'])) {
-
-                  $sid = intval($_POST['village_sd']);
-                  $part[] = " v_id='{$sid}' ";
-                  $par[]="  JOIN village ";
-                }
-
-                $crs = intval($_POST['crop_sd']);
-                $part[] = " c_id='{$crs}' ";
-
-
-
-                $dz='';
-                if (isset($part) &&  count($part) > 0) {
-                  $pa = implode(" AND ", $part);
-                  if(isset($par))
-                  {
-                    $dz=implode(" ",$par);
-                  }
-                }
+                // if (isset($_POST['statearea_sd'])) {
+                //
+                //   $sid = intval($_POST['statearea_sd']);
+                //   $part[] = " s_id='{$sid}' ";
+                //   $par[]="  JOIN state ";
+                // }
+                //
+                // if (isset($_POST['districtarea_sd'])) {
+                //
+                //   $sid = intval($_POST['districtarea_sd']);
+                //   $part[] = " d_id='{$sid}' ";
+                //   $par[]="  JOIN district ";
+                //
+                // }
+                //
+                //
+                // if (isset($_POST['village_sd'])) {
+                //
+                //   $sid = intval($_POST['village_sd']);
+                //   $part[] = " v_id='{$sid}' ";
+                //   $par[]="  JOIN village ";
+                // }
+                //
+                // $crs = intval($_POST['crop_sd']);
+                // $part[] = " c_id='{$crs}' ";
+                //
+                //
+                //
+                // $dz='';
+                // if (isset($part) &&  count($part) > 0) {
+                //   $pa = implode(" AND ", $part);
+                //   if(isset($par))
+                //   {
+                //     $dz=implode(" ",$par);
+                //   }
+                // }
                 //$vid=$_POST['village'];
 
-
-                echo   $sql = "SELECT c_name,dr_quantity,dr_unit_price,dr_date,de_phone FROM dealer_request NATURAL JOIN crop  NATURAL JOIN  dealer {$dz} WHERE {$pa}";
+                echo   $sql = "SELECT * FROM
+                                	village v NATURAL JOIN dealer d NATURAL JOIN dealer_request dr,variety cv NATURAL JOIN crop c
+                                WHERE
+                                	dr.c_id=cv.cv_id AND
+                                	d.v_id={$_POST['village_sd']} AND
+                                	cv.cv_id={$_POST['variety_sd']} ;";
+                //echo   $sql = "SELECT c_name,dr_quantity,dr_unit_price,dr_date,de_phone FROM dealer_request NATURAL JOIN crop  NATURAL JOIN  dealer {$dz} WHERE {$pa}";
                 $result = mysqli_query($link, $sql);
                 $i = 0;
                 while ($row = mysqli_fetch_assoc($result)) {
                   $i++;
                   $row['dr_date'] = date('d/m/Y', $row['dr_date']);
-                  echo "<tr><td>{$i}</td><td>{$row['c_name']}</td><td>{$row['dr_quantity']}</td><td>{$row['dr_unit_price']}</td><td>{$row['dr_date']}</td><td>{$row['de_phone']}</td></tr>";
+                  echo "<tr><td>{$i}</td><td>{$row['c.c_name']}</td><td>{$row['cv.cv_name']}</td><td>{$row['dr_quantity']}</td><td>{$row['dr_unit_price']}</td><td>{$row['dr_date']}</td><td>{$row['de_phone']}</td></tr>";
                 }
               }
               ?>
