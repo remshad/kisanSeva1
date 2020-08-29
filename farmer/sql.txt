@@ -1,0 +1,2 @@
+INSERT INTO planting(cv_id,p_planting_date,p_harvesting_date,p_quantity,p_quantity_type,v_id,p_locality,f_id,p_status
+) VALUES('25','1598717634','1601058600','156','','680','qwe','3','0')
