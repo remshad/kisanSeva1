@@ -326,7 +326,7 @@ if (isset($_POST['sub'])) {
     $v_id = $_POST['village'];
     $loc = $_POST['locality'];
     $fid = $_SESSION['uid'];
-    addPlanting( $cv_id, $planting_date, $harv_date, $qty, $qtype, $v_id, $loc, $fid);
+    addPlanting($cv_id, $planting_date, $harv_date, $qty, $qtype, $v_id, $loc, $fid);
 
 }?>
           <div class="form-group">
@@ -1070,7 +1070,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 <script type="text/javascript" src="../js/utils.js"></script>
 
 <?php
- 
+
 include_once '../ml/train.php';
 
 $sql = "SELECT avg(temp) as temp,month FROM `avg_tmp` JOIN `regions` on reg_id=regions.id JOIN `state` on  state_id=s_id WHERE s_id=10 GROUP by  month";
@@ -1135,15 +1135,15 @@ if (isset($pred)) {
       borderColor: window.chartColors.green,
       data: [
         ".implode(",", $pred)."
-        
+
       ],
       fill: false,
     },
-    
+
     ";
 } else {
     echo "
- 
+
 ";
 }
 ?>
@@ -1160,7 +1160,7 @@ if (isset($pred)) {
 
 if (isset($rain)) {
     echo implode(",", $rain);
-} else {  
+} else {
     echo "randomScalingFactor(),
     randomScalingFactor(),
     randomScalingFactor(),
@@ -1213,5 +1213,5 @@ if (isset($rain)) {
     </script>
 
  </body>
-  
+
 </html>
