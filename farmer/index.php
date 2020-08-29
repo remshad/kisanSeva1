@@ -816,12 +816,12 @@
               </select>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <select class="browser-default custom-select" id="variety_ci" name="crop" required="true">
                 <option value="" disabled selected>Crop Variety</option>
 
               </select>
-            </div>
+            </div> -->
 
 
             <div class="form-group">
@@ -890,12 +890,12 @@
               </select>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <select class="browser-default custom-select" id="variety_cf" name="crop" required="true">
                 <option value="" disabled selected>Crop Variety</option>
 
               </select>
-            </div>
+            </div> -->
 
             <div class="form-group">
               <button type="submit" name="searchcf" class="btn btn-success">Get</button>
@@ -958,12 +958,12 @@
 
               </select>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
               <select class="browser-default custom-select" id="variety_cd" name="crop" required="true">
                 <option value="" disabled selected>Crop Variety</option>
 
               </select>
-            </div>
+            </div> -->
 
 
             <div class="form-group">
@@ -1024,12 +1024,12 @@
               </select>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <select class="browser-default custom-select" id="variety_ct" name="crop" required="true">
                 <option value="" disabled selected>Crop Variety</option>
 
               </select>
-            </div>
+            </div> -->
 
 
             <div class="form-group">
