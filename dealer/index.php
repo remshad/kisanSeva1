@@ -283,7 +283,7 @@ require_once('../functions.php');   ?>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <select class="browser-default custom-select" id="variety1" name="crop" required="true">
+                                <select class="browser-default custom-select" id="variety1" name="cropvariety" required="true">
                                     <option value="" disabled selected>Crop Variety</option>
 
                                 </select>
@@ -366,8 +366,9 @@ require_once('../functions.php');   ?>
                                 if (isset($part) &&  count($part) > 0) {
                                     $pa = implode(" AND ", $part);
                                 }
-
-                                $sql = "SELECT * FROM `harvesting` NATURAL JOIN planting NATURAL JOIN village NATURAL JOIN district NATURAL JOIN state NATURAL JOIN unit_type WHERE  {$pa}";
+                                $village=$_POST['villagearea'];
+                                $variety=$_POST['cropvariety'];
+                                $sql = "SELECT * FROM crop NATURAL JOIN variety NATURAL JOIN planting NATURAL JOIN harvesting NATURAL JOIN unit_type, village NATURAL JOIN district NATURAL JOIN state WHERE planting.v_id = village.v_id AND cv_id={$variety} AND village.v_id={$village}";
                                 $result = mysqli_query($link, $sql);
                                 $i = 0;
                                 while ($row = mysqli_fetch_assoc($result)) {
