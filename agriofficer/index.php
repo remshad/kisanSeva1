@@ -645,7 +645,141 @@
           </form>
         </div>
 
+
         <div class="tab-pane fade" id="tab2-item6">
+          <form action="index.php#tab2-item6" method="POST">
+            <div class="form-group">
+              <select class="browser-default custom-select" id="catarea2" name="cat_sd" required="true">
+                <option value="" disabled selected>Select Category</option>
+                <?php
+                $sql = "SELECT * FROM crop_category";
+                $result = mysqli_query($link, $sql);
+                if (mysqli_num_rows($result) > 0) {
+                  while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<option value='" . $row["cc_id"] . "'>" . $row["cc_name"] . "</option>";
+                  }
+                }
+                ?>
+
+              </select>
+            </div>
+
+            <div class="form-group">
+              <select class="browser-default custom-select" id="croparea2" name="crop_sd" required="true">
+                <option value="" disabled selected>Crop Name</option>
+
+              </select>
+            </div>
+            <div class="form-group">
+              <select class="browser-default custom-select" id="variety2" name="variety_sd" required="true">
+                <option value="" disabled selected>Crop Variety</option>
+
+              </select>
+            </div>
+
+            <div class="form-group">
+              <select class="browser-default custom-select" name="statearea_sd" id="statearea1">
+                <option value="" disabled selected>Any State</option>
+                <?php
+                $sql = "SELECT * FROM state";
+                $result = mysqli_query($link, $sql);
+                if (mysqli_num_rows($result) > 0) {
+                  while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<option value='" . $row["s_id"] . "'>" . $row["s_name"] . "</option>";
+                  }
+                }
+                ?>
+
+              </select>
+            </div>
+            <div class="form-group">
+              <select class="browser-default custom-select" name="districtarea_sd" id="districtarea1">
+                <option value="" disabled selected>Any District</option>
+
+
+              </select>
+            </div>
+            <div class="form-group">
+              <select name="village_sd" class="browser-default custom-select" id="villagearea1">
+                <option value="" disabled selected>Any Village</option>
+
+
+              </select>
+            </div>
+            <div class="form-group">
+              <button type="submit" name="search_sd" class="btn btn-success">Submit</button>
+            </div>
+
+            <table class="table table-striped">
+              <caption><h2>Item Search Result</h2></caption>
+
+              <tr><td>No</td><td>Crop Name</td><td>Crop Variety</td><td>Quantity</td><td>Unit Price</td><td>Date</td><td>Contact Number</td></tr>
+
+
+              <?php
+              if (isset($_POST['search_sd'])) {
+                // if (isset($_POST['statearea_sd'])) {
+                //
+                //   $sid = intval($_POST['statearea_sd']);
+                //   $part[] = " s_id='{$sid}' ";
+                //   $par[]="  JOIN state ";
+                // }
+                //
+                // if (isset($_POST['districtarea_sd'])) {
+                //
+                //   $sid = intval($_POST['districtarea_sd']);
+                //   $part[] = " d_id='{$sid}' ";
+                //   $par[]="  JOIN district ";
+                //
+                // }
+                //
+                //
+                // if (isset($_POST['village_sd'])) {
+                //
+                //   $sid = intval($_POST['village_sd']);
+                //   $part[] = " v_id='{$sid}' ";
+                //   $par[]="  JOIN village ";
+                // }
+                //
+                // $crs = intval($_POST['crop_sd']);
+                // $part[] = " c_id='{$crs}' ";
+                //
+                //
+                //
+                // $dz='';
+                // if (isset($part) &&  count($part) > 0) {
+                //   $pa = implode(" AND ", $part);
+                //   if(isset($par))
+                //   {
+                //     $dz=implode(" ",$par);
+                //   }
+                // }
+                //$vid=$_POST['village'];
+
+                echo   $sql = "SELECT * FROM
+                                	village v NATURAL JOIN dealer d NATURAL JOIN dealer_request dr,variety cv NATURAL JOIN crop c
+                                WHERE
+                                	dr.c_id=cv.cv_id AND
+                                	d.v_id={$_POST['village_sd']} AND
+                                	cv.cv_id={$_POST['variety_sd']} ;";
+                //echo   $sql = "SELECT c_name,dr_quantity,dr_unit_price,dr_date,de_phone FROM dealer_request NATURAL JOIN crop  NATURAL JOIN  dealer {$dz} WHERE {$pa}";
+                $result = mysqli_query($link, $sql);
+                $i = 0;
+                while ($row = mysqli_fetch_assoc($result)) {
+                  $i++;
+                  $row['dr_date'] = date('d/m/Y', $row['dr_date']);
+                  echo "<tr><td>{$i}</td><td>{$row['c_name']}</td><td>{$row['v_name']}</td><td>{$row['dr_quantity']}</td><td>{$row['dr_unit_price']}</td><td>{$row['dr_date']}</td><td>{$row['de_phone']}</td></tr>";
+                }
+              }
+              ?>
+
+
+            </table>
+          </form>
+        </div>
+
+
+        <!-- <div class="tab-pane fade" id="tab2-item6">
           <form action="index.php#tab2-item6" method="POST">
             <div class="form-group">
               <select class="browser-default custom-select" id="catarea2" required="true">
@@ -706,7 +840,7 @@
               </select>
             </div>
             <div class="form-group">
-              <button type="submit" name="search" class="btn btn-success">Submit</button>
+              <button type="submit" name="search_sd" class="btn btn-success">Submit</button>
             </div>
 
             <table class="table table-striped">
@@ -716,42 +850,42 @@
 
 
               <?php
-              if (isset($_POST['search'])) {
-                if (isset($_POST['statearea'])) {
-
-                  $sid = intval($_POST['statearea']);
-                  $part[] = " s_id='{$sid}' ";
-                  $par[]="  JOIN state ";
-                }
-
-                if (isset($_POST['districtarea'])) {
-
-                  $sid = intval($_POST['districtarea']);
-                  $part[] = " d_id='{$sid}' ";
-                  $par[]="  JOIN district ";
-
-                }
-
-
-                if (isset($_POST['village'])) {
-
-                  $sid = intval($_POST['village']);
-                  $part[] = " v_id='{$sid}' ";
-                  $par[]="  JOIN village ";
-                }
-
-                $crs = intval($_POST['crop']);
-                $part[] = " c_id='{$crs}' ";
-
-                $dz='';
-                if (isset($part) &&  count($part) > 0) {
-                  $pa = implode(" AND ", $part);
-                  if(isset($par))
-                  {
-                    $dz=implode(" ",$par);
-                  }
-                }
-                //$vid=$_POST['village'];
+              if (isset($_POST['search_sd'])) {
+                // if (isset($_POST['statearea'])) {
+                //
+                //   $sid = intval($_POST['statearea']);
+                //   $part[] = " s_id='{$sid}' ";
+                //   $par[]="  JOIN state ";
+                // }
+                //
+                // if (isset($_POST['districtarea'])) {
+                //
+                //   $sid = intval($_POST['districtarea']);
+                //   $part[] = " d_id='{$sid}' ";
+                //   $par[]="  JOIN district ";
+                //
+                // }
+                //
+                //
+                // if (isset($_POST['village'])) {
+                //
+                //   $sid = intval($_POST['village']);
+                //   $part[] = " v_id='{$sid}' ";
+                //   $par[]="  JOIN village ";
+                // }
+                //
+                // $crs = intval($_POST['crop']);
+                // $part[] = " c_id='{$crs}' ";
+                //
+                // $dz='';
+                // if (isset($part) &&  count($part) > 0) {
+                //   $pa = implode(" AND ", $part);
+                //   if(isset($par))
+                //   {
+                //     $dz=implode(" ",$par);
+                //   }
+                // }
+                // //$vid=$_POST['village'];
 
 
                 echo   $sql = "SELECT c_name,dr_quantity,dr_unit_price,dr_date,de_phone FROM dealer_request NATURAL JOIN crop  NATURAL JOIN  dealer {$dz} WHERE {$pa}";
@@ -768,7 +902,7 @@
 
             </table>
           </form>
-        </div>
+        </div> -->
         <div class="tab-pane fade" id="tab2-item7">
           <form action="index.php#tab2-item7" method="POST">
             <div class="form-group">
