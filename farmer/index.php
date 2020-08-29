@@ -782,7 +782,7 @@
                 while ($row = mysqli_fetch_assoc($result)) {
                   $i++;
                   $row['dr_date'] = date('d/m/Y', $row['dr_date']);
-                  echo "<tr><td>{$i}</td><td>{$row['c.c_name']}</td><td>{$row['cv.cv_name']}</td><td>{$row['dr_quantity']}</td><td>{$row['dr_unit_price']}</td><td>{$row['dr_date']}</td><td>{$row['de_phone']}</td></tr>";
+                  echo "<tr><td>{$i}</td><td>{$row['c_name']}</td><td>{$row['v_name']}</td><td>{$row['dr_quantity']}</td><td>{$row['dr_unit_price']}</td><td>{$row['dr_date']}</td><td>{$row['de_phone']}</td></tr>";
                 }
               }
               ?>
