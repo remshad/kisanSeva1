@@ -444,6 +444,7 @@ while ($row = mysqli_fetch_assoc($result)) {
       <div class="tab-pane fade" id="tab2-item2">
         <form method="post" action="index.php">
           <?php
+<<<<<<< HEAD
 if (isset($_POST['submit'])) {
     date_default_timezone_set('Asia/Kolkata');
     $p_id = $_POST['plant'];
@@ -457,10 +458,27 @@ if (isset($_POST['submit'])) {
 }
 
 ?>
+=======
+          if(isset($_POST['submit'])) {
+            date_default_timezone_set('Asia/Kolkata');
+            $p_id = $_POST['plant'];
+            $h_date = strtotime($_POST['date']);
+            $h_qty = $_POST['quantity'];
+            $u_price = $_POST['price'];
+            $willing =  $_POST['will'];
+            $h_stats = '0';
+            $fid = $_SESSION['uid'];
+            addHarvesting($p_id,$h_date,$h_qty,$u_price,$willing,$h_stats);
+
+          }
+
+          ?>
+>>>>>>> e9b1a5e84cf7937f9ef52c4f25b08fb57e9ac9fe
           <div class="form-group">
             <select class="browser-default custom-select" name="plant" id="plantid">
               <option value="" disabled selected>Plant ID</option>
               <?php
+<<<<<<< HEAD
 $sql = "SELECT * FROM planting WHERE p_status='0'";
 $result = mysqli_query($link, $sql);
 if (mysqli_num_rows($result) > 0) {
@@ -470,6 +488,17 @@ if (mysqli_num_rows($result) > 0) {
     }
 }
 ?>
+=======
+              $sql = "SELECT * FROM planting WHERE p_status='0' AND fid={$fid}";
+              $result = mysqli_query($link, $sql);
+              if (mysqli_num_rows($result) > 0) {
+                while($row = mysqli_fetch_assoc($result)) {
+                  $dat = date('d/m/Y',$row['p_planting_date']);
+                  echo "<option value='".$row["p_id"]. "'>".$row['p_id']."_(Planted On:".$dat.")</option>";
+                }
+              }
+              ?>
+>>>>>>> e9b1a5e84cf7937f9ef52c4f25b08fb57e9ac9fe
             </select>
             <div class="form-group">
               <input type="date" name="date" class="form-control" required="required" placeholder="Date1">
